@@ -42,7 +42,7 @@
             this.comboBoxOperations = new System.Windows.Forms.ComboBox();
             this.buttonGo = new System.Windows.Forms.Button();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
-            this.treeView1 = new System.Windows.Forms.TreeView();
+            this.treeView = new System.Windows.Forms.TreeView();
             this.tabControlResult = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.dataGridViewResultTable = new System.Windows.Forms.DataGridView();
@@ -54,6 +54,7 @@
             this.ValueColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TypeColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.IPPortColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.textBoxtest = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
@@ -73,6 +74,7 @@
             this.tableLayoutPanel1.Controls.Add(this.menuStrip1, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel2, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel3, 0, 2);
+            this.tableLayoutPanel1.Controls.Add(this.textBoxtest, 0, 3);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 2);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 4;
@@ -209,7 +211,7 @@
             this.tableLayoutPanel3.ColumnCount = 2;
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 28.91986F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 71.08014F));
-            this.tableLayoutPanel3.Controls.Add(this.treeView1, 0, 0);
+            this.tableLayoutPanel3.Controls.Add(this.treeView, 0, 0);
             this.tableLayoutPanel3.Controls.Add(this.tabControlResult, 1, 0);
             this.tableLayoutPanel3.Location = new System.Drawing.Point(3, 58);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
@@ -218,12 +220,13 @@
             this.tableLayoutPanel3.Size = new System.Drawing.Size(861, 347);
             this.tableLayoutPanel3.TabIndex = 2;
             // 
-            // treeView1
+            // treeView
             // 
-            this.treeView1.Location = new System.Drawing.Point(3, 3);
-            this.treeView1.Name = "treeView1";
-            this.treeView1.Size = new System.Drawing.Size(243, 341);
-            this.treeView1.TabIndex = 0;
+            this.treeView.Location = new System.Drawing.Point(3, 3);
+            this.treeView.Name = "treeView";
+            this.treeView.Size = new System.Drawing.Size(243, 341);
+            this.treeView.TabIndex = 0;
+            this.treeView.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeView_AfterSelect);
             // 
             // tabControlResult
             // 
@@ -334,6 +337,13 @@
             this.IPPortColumn.ReadOnly = true;
             this.IPPortColumn.Width = 70;
             // 
+            // textBoxtest
+            // 
+            this.textBoxtest.Location = new System.Drawing.Point(3, 411);
+            this.textBoxtest.Name = "textBoxtest";
+            this.textBoxtest.Size = new System.Drawing.Size(861, 20);
+            this.textBoxtest.TabIndex = 3;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -375,7 +385,7 @@
         private System.Windows.Forms.ComboBox comboBoxOperations;
         private System.Windows.Forms.Button buttonGo;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
-        private System.Windows.Forms.TreeView treeView1;
+        private System.Windows.Forms.TreeView treeView;
         private System.Windows.Forms.TabControl tabControlResult;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;
@@ -387,6 +397,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ValueColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn TypeColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn IPPortColumn;
+        private System.Windows.Forms.TextBox textBoxtest;
     }
 }
 
