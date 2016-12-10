@@ -126,7 +126,7 @@
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 299F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 69F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 132F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 80F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 81F));
             this.tableLayoutPanel2.Controls.Add(this.labelAddress, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.textBoxAddress, 1, 0);
             this.tableLayoutPanel2.Controls.Add(this.labelOID, 2, 0);
@@ -156,14 +156,14 @@
             this.textBoxAddress.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.textBoxAddress.Location = new System.Drawing.Point(57, 3);
             this.textBoxAddress.Name = "textBoxAddress";
-            this.textBoxAddress.Size = new System.Drawing.Size(180, 20);
+            this.textBoxAddress.Size = new System.Drawing.Size(179, 20);
             this.textBoxAddress.TabIndex = 1;
             // 
             // labelOID
             // 
             this.labelOID.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.labelOID.AutoSize = true;
-            this.labelOID.Location = new System.Drawing.Point(245, 6);
+            this.labelOID.Location = new System.Drawing.Point(244, 6);
             this.labelOID.Name = "labelOID";
             this.labelOID.Size = new System.Drawing.Size(29, 13);
             this.labelOID.TabIndex = 2;
@@ -172,7 +172,7 @@
             // textBoxOID
             // 
             this.textBoxOID.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.textBoxOID.Location = new System.Drawing.Point(283, 3);
+            this.textBoxOID.Location = new System.Drawing.Point(282, 3);
             this.textBoxOID.Name = "textBoxOID";
             this.textBoxOID.Size = new System.Drawing.Size(293, 20);
             this.textBoxOID.TabIndex = 3;
@@ -181,7 +181,7 @@
             // 
             this.labelOperations.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.labelOperations.AutoSize = true;
-            this.labelOperations.Location = new System.Drawing.Point(583, 6);
+            this.labelOperations.Location = new System.Drawing.Point(582, 6);
             this.labelOperations.Name = "labelOperations";
             this.labelOperations.Size = new System.Drawing.Size(61, 13);
             this.labelOperations.TabIndex = 4;
@@ -192,7 +192,7 @@
             this.comboBoxOperations.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.comboBoxOperations.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxOperations.FormattingEnabled = true;
-            this.comboBoxOperations.Location = new System.Drawing.Point(653, 3);
+            this.comboBoxOperations.Location = new System.Drawing.Point(652, 3);
             this.comboBoxOperations.Name = "comboBoxOperations";
             this.comboBoxOperations.Size = new System.Drawing.Size(121, 21);
             this.comboBoxOperations.TabIndex = 5;
@@ -200,7 +200,7 @@
             // buttonGo
             // 
             this.buttonGo.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.buttonGo.Location = new System.Drawing.Point(785, 3);
+            this.buttonGo.Location = new System.Drawing.Point(784, 3);
             this.buttonGo.Name = "buttonGo";
             this.buttonGo.Size = new System.Drawing.Size(71, 20);
             this.buttonGo.TabIndex = 6;
@@ -342,9 +342,15 @@
             // 
             // dataGridViewTableView
             // 
+            this.dataGridViewTableView.AllowUserToAddRows = false;
+            this.dataGridViewTableView.AllowUserToDeleteRows = false;
+            this.dataGridViewTableView.AllowUserToResizeColumns = false;
+            this.dataGridViewTableView.AllowUserToResizeRows = false;
             this.dataGridViewTableView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewTableView.Location = new System.Drawing.Point(3, 32);
             this.dataGridViewTableView.Name = "dataGridViewTableView";
+            this.dataGridViewTableView.RowHeadersVisible = false;
+            this.dataGridViewTableView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewTableView.Size = new System.Drawing.Size(586, 274);
             this.dataGridViewTableView.TabIndex = 1;
             // 

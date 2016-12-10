@@ -36,10 +36,14 @@ namespace SNMP_agent
 
             mibElementsDictionary = new Dictionary<string, string>();
             loadMibTreeElements();
+            string[] dd = { "pp", "dd", "ll" };
+            addNewTableView(dd);
+            string[] ss = { "bbb", "aaa", "ll" , "lala"};
+            addNewTableView(ss);
+
+           
 
 
-            
-            
         }
 
         private void buttonGo_Click(object sender, EventArgs e)
@@ -57,6 +61,12 @@ namespace SNMP_agent
                     break;
                 case "Get Next":
                     addRowToResultsTable(address, OID, option, "GetNext");
+                  /*  string[] pp = new string[4];
+                    pp[0] = address;
+                    pp[1] = OID;
+                    pp[2] = option;
+                    pp[3] = "GetNext";
+                    addNewRowToTableView(pp); */
                     break;
             }
             
@@ -65,11 +75,44 @@ namespace SNMP_agent
             
         }
 
-        public void addRowToResultsTable(String OID, String value, String type, String IP)
+        /* Dodaje wiersz w tablicy ResultsTable. Wywoływane po wciśnięciu przycisku GO */
+        public void addRowToResultsTable(string OID, string value, string type, string IP)
         {
             dataGridViewResultTable.Rows.Add(OID, value, type, IP);           
         }
 
+        /* Dodaje wiersz do TableView. Metoda wywoływana do wyświetlenia calej tabeli */
+        public bool addNewRowToTableView(string[] cellNames)
+        {
+            if (cellNames.Length == dataGridViewResultTable.Columns.Count)
+            {
+                dataGridViewTableView.Rows.Add(cellNames);
+                return true;
+            }
+            else
+                return false;
+        }
+
+        /* Wywoływane gdy użytkownik chce wyświetlić tabelę. Tworzy tabelę o określonej liczbie kolumn*/
+        public void addNewTableView(string[] columnNames)
+        {
+            for (int i = 0; i < dataGridViewTableView.Columns.Count; i++) 
+            {
+                dataGridViewTableView.Columns.Remove(dataGridViewTableView.Columns[0]);
+            }
+
+            foreach (string columnName in columnNames)
+            {
+                var column = new DataGridViewTextBoxColumn();
+                column.HeaderText = columnName;
+                
+                dataGridViewTableView.Columns.Add(column);
+            }
+            
+            dataGridViewTableView.Columns.Remove(dataGridViewTableView.Columns[0]);
+        }
+
+        /* Metoda wczytująca z pliku MIBTree*/
         private void loadMibTreeElements()
         {
             treeView.Nodes.Add("iso.org.dod.internet.mgmt.mib-2");
@@ -81,10 +124,8 @@ namespace SNMP_agent
             string value; // OID
             string key; // nazwa 
 
-
             string[] dd = input_path.Split('\n');
             string line;
-
 
             int length;
 
@@ -107,7 +148,6 @@ namespace SNMP_agent
                 {
                     treeNodeList[length - 1].Nodes.Add(key);
                     treeNodeList.Add(treeNodeList[length - 1].Nodes[treeNodeList[length - 1].Nodes.Count - 1]);
-
                 }
                 
                 // Dodanie obrazków
@@ -138,11 +178,10 @@ namespace SNMP_agent
                         treeNodeList[length - 1].Nodes[treeNodeList[length - 1].Nodes.Count - 1].SelectedImageIndex = 1;
                         break;
                 }
-            }
-            
-
+            }           
         }
 
+        /* Po kliknięciu na element MIBTree, odpowiednie OID pojawia się w textBoxOID*/
         private void treeView_AfterSelect(object sender, TreeViewEventArgs e)
         {
             string value;
