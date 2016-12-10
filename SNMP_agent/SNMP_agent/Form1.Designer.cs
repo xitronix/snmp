@@ -126,7 +126,7 @@
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 299F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 69F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 132F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 81F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 82F));
             this.tableLayoutPanel2.Controls.Add(this.labelAddress, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.textBoxAddress, 1, 0);
             this.tableLayoutPanel2.Controls.Add(this.labelOID, 2, 0);
@@ -145,16 +145,16 @@
             // 
             this.labelAddress.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.labelAddress.AutoSize = true;
-            this.labelAddress.Location = new System.Drawing.Point(3, 6);
+            this.labelAddress.Location = new System.Drawing.Point(4, 0);
             this.labelAddress.Name = "labelAddress";
-            this.labelAddress.Size = new System.Drawing.Size(48, 13);
+            this.labelAddress.Size = new System.Drawing.Size(45, 26);
             this.labelAddress.TabIndex = 0;
             this.labelAddress.Text = "Address:";
             // 
             // textBoxAddress
             // 
             this.textBoxAddress.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.textBoxAddress.Location = new System.Drawing.Point(57, 3);
+            this.textBoxAddress.Location = new System.Drawing.Point(56, 3);
             this.textBoxAddress.Name = "textBoxAddress";
             this.textBoxAddress.Size = new System.Drawing.Size(179, 20);
             this.textBoxAddress.TabIndex = 1;
@@ -163,7 +163,7 @@
             // 
             this.labelOID.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.labelOID.AutoSize = true;
-            this.labelOID.Location = new System.Drawing.Point(244, 6);
+            this.labelOID.Location = new System.Drawing.Point(243, 6);
             this.labelOID.Name = "labelOID";
             this.labelOID.Size = new System.Drawing.Size(29, 13);
             this.labelOID.TabIndex = 2;
@@ -172,7 +172,7 @@
             // textBoxOID
             // 
             this.textBoxOID.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.textBoxOID.Location = new System.Drawing.Point(282, 3);
+            this.textBoxOID.Location = new System.Drawing.Point(281, 3);
             this.textBoxOID.Name = "textBoxOID";
             this.textBoxOID.Size = new System.Drawing.Size(293, 20);
             this.textBoxOID.TabIndex = 3;
@@ -181,7 +181,7 @@
             // 
             this.labelOperations.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.labelOperations.AutoSize = true;
-            this.labelOperations.Location = new System.Drawing.Point(582, 6);
+            this.labelOperations.Location = new System.Drawing.Point(581, 6);
             this.labelOperations.Name = "labelOperations";
             this.labelOperations.Size = new System.Drawing.Size(61, 13);
             this.labelOperations.TabIndex = 4;
@@ -192,7 +192,7 @@
             this.comboBoxOperations.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.comboBoxOperations.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxOperations.FormattingEnabled = true;
-            this.comboBoxOperations.Location = new System.Drawing.Point(652, 3);
+            this.comboBoxOperations.Location = new System.Drawing.Point(651, 3);
             this.comboBoxOperations.Name = "comboBoxOperations";
             this.comboBoxOperations.Size = new System.Drawing.Size(121, 21);
             this.comboBoxOperations.TabIndex = 5;

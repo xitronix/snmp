@@ -8,7 +8,7 @@ using SnmpSharpNet;
 namespace SNMP_agent
 {
     class AgentSNMP
-    {
+    {        
         public void Metoda()
         {
             string host = "localhost";
@@ -28,7 +28,7 @@ namespace SNMP_agent
                 return;
             }
 
-            foreach (KeyValuePair kvp in result)
+            foreach (KeyValuePair<Oid, AsnType> kvp in result)
             {
                 Console.WriteLine("{0}: {1} {2}", kvp.Key.ToString(),
                                       SnmpConstants.GetTypeName(kvp.Value.Type),
