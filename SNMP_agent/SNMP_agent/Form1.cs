@@ -40,10 +40,6 @@ namespace SNMP_agent
             addNewTableView(dd);
             string[] ss = { "bbb", "aaa", "ll" , "lala"};
             addNewTableView(ss);
-
-           
-
-
         }
 
         private void buttonGo_Click(object sender, EventArgs e)
@@ -52,15 +48,15 @@ namespace SNMP_agent
             string OID = textBoxOID.Text;
             string option = comboBoxOperations.Text;
 
-            
-            
             switch (option)
             {
                 case "Get":
                     addRowToResultsTable(address, OID, option, "Get");
+                    get();
                     break;
                 case "Get Next":
                     addRowToResultsTable(address, OID, option, "GetNext");
+                    getNext();
                   /*  string[] pp = new string[4];
                     pp[0] = address;
                     pp[1] = OID;
@@ -73,6 +69,19 @@ namespace SNMP_agent
           
             // Operacja GET lub GET NEXT
             
+        }
+
+        private void get()
+        {
+            // TODO Auto-generated method stub
+            addRowToResultsTable("TEST1", "TEST2", "TEST3", "TEST4");
+            // Tutaj napewno do wykrozystania zmienna conf w ktorej sa parametry polaczenia SNMP
+        }
+
+        private void getNext()
+        {
+            // TODO Auto-generated method stub
+
         }
 
         /* Dodaje wiersz w tablicy ResultsTable. Wywoływane po wciśnięciu przycisku GO */

@@ -101,24 +101,23 @@ namespace SNMP_agent.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 1.3.6.1.2.1.1 - system
-        ///1.3.6.1.2.1.1.1 - sysDescr
-        ///1.3.6.1.2.1.1.2 - sysObjectID
-        ///1.3.6.1.2.1.1.3 - sysUpTime
-        ///1.3.6.1.2.1.1.4 - sysContact
-        ///1.3.6.1.2.1.1.5 - sysName
-        ///1.3.6.1.2.1.1.6 - sysLocation
-        ///1.3.6.1.2.1.1.7 - sysServices
-        ///1.3.6.1.2.1.2 - interfaces
-        ///1.3.6.1.2.1.2.1 - ifNumber
-        ///1.3.6.1.2.1.2.2 - ifTable
-        ///1.3.6.1.2.1.2.2.1 - ifEntry
-        ///1.3.6.1.2.1.2.2.1.1 - ifIndex
-        ///1.3.6.1.2.1.2.2.1.2 - ifDescr
-        ///1.3.6.1.2.1.2.2.1.3 - ifType
-        ///1.3.6.1.2.1.2.2.1.4 - ifMtu
-        ///1.3.6.1.2.1.2.2.1.5 - ifSpeed
-        ///1.3.6.1.2.1.2.2.1 [rest of string was truncated]&quot;;.
+        ///   Looks up a localized string similar to F 1.3.6.1.2.1.1 - system
+        ///L 1.3.6.1.2.1.1.1 - sysDescr
+        ///L 1.3.6.1.2.1.1.2 - sysObjectID
+        ///L 1.3.6.1.2.1.1.3 - sysUpTime
+        ///P 1.3.6.1.2.1.1.4 - sysContact
+        ///P 1.3.6.1.2.1.1.5 - sysName
+        ///P 1.3.6.1.2.1.1.6 - sysLocation
+        ///L 1.3.6.1.2.1.1.7 - sysServices
+        ///F 1.3.6.1.2.1.2 - interfaces
+        ///L 1.3.6.1.2.1.2.1 - ifNumber
+        ///T 1.3.6.1.2.1.2.2 - ifTable
+        ///E 1.3.6.1.2.1.2.2.1 - ifEntry
+        ///K 1.3.6.1.2.1.2.2.1.1 - ifIndex
+        ///L 1.3.6.1.2.1.2.2.1.2 - ifDescr
+        ///L 1.3.6.1.2.1.2.2.1.3 - ifType
+        ///L 1.3.6.1.2.1.2.2.1.4 - ifMtu
+        ///L 1.3.6.1.2.1.2. [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string mibTreeElements {
             get {
