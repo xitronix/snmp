@@ -1,201 +1,201 @@
-1.3.6.1.2.1.1 - system
-1.3.6.1.2.1.1.1 - sysDescr
-1.3.6.1.2.1.1.2 - sysObjectID
-1.3.6.1.2.1.1.3 - sysUpTime
-1.3.6.1.2.1.1.4 - sysContact
-1.3.6.1.2.1.1.5 - sysName
-1.3.6.1.2.1.1.6 - sysLocation
-1.3.6.1.2.1.1.7 - sysServices
-1.3.6.1.2.1.2 - interfaces
-1.3.6.1.2.1.2.1 - ifNumber
-1.3.6.1.2.1.2.2 - ifTable
-1.3.6.1.2.1.2.2.1 - ifEntry
-1.3.6.1.2.1.2.2.1.1 - ifIndex
-1.3.6.1.2.1.2.2.1.2 - ifDescr
-1.3.6.1.2.1.2.2.1.3 - ifType
-1.3.6.1.2.1.2.2.1.4 - ifMtu
-1.3.6.1.2.1.2.2.1.5 - ifSpeed
-1.3.6.1.2.1.2.2.1.6 - ifPhysAddress
-1.3.6.1.2.1.2.2.1.7 - ifAdminStatus
-1.3.6.1.2.1.2.2.1.8 - ifOperStatus
-1.3.6.1.2.1.2.2.1.9 - ifLastChange
-1.3.6.1.2.1.2.2.1.10 - ifInOctets
-1.3.6.1.2.1.2.2.1.11 - ifInUcastPkts
-1.3.6.1.2.1.2.2.1.12 - ifInNUcastPkts
-1.3.6.1.2.1.2.2.1.13 - ifInDiscards
-1.3.6.1.2.1.2.2.1.14 - ifInErrors
-1.3.6.1.2.1.2.2.1.15 - ifInUnknownProtos
-1.3.6.1.2.1.2.2.1.16 - ifOutOctets
-1.3.6.1.2.1.2.2.1.17 - ifOutUcastPkts
-1.3.6.1.2.1.2.2.1.18 - ifOutNUcastPkts
-1.3.6.1.2.1.2.2.1.19 - ifOutDiscards
-1.3.6.1.2.1.2.2.1.20 - ifOutErrors
-1.3.6.1.2.1.2.2.1.21 - ifOutQLen
-1.3.6.1.2.1.2.2.1.22 - ifSpecific
-1.3.6.1.2.1.3 - at
-1.3.6.1.2.1.3.1 - atTable
-1.3.6.1.2.1.3.1.1 - atEntry
-1.3.6.1.2.1.3.1.1.1 - atIfIndex
-1.3.6.1.2.1.3.1.1.2 - atPhysAddress
-1.3.6.1.2.1.3.1.1.3 - atNetAddress
-1.3.6.1.2.1.4 - ip
-1.3.6.1.2.1.4.1 - ipForwarding
-1.3.6.1.2.1.4.2 - ipDefaultTTL
-1.3.6.1.2.1.4.3 - ipInReceives
-1.3.6.1.2.1.4.4 - ipInHdrErrors
-1.3.6.1.2.1.4.5 - ipInAddrErrors
-1.3.6.1.2.1.4.6 - ipForwDatagrams
-1.3.6.1.2.1.4.7 - ipInUnknownProtos
-1.3.6.1.2.1.4.8 - ipInDiscards
-1.3.6.1.2.1.4.9 - ipInDelivers
-1.3.6.1.2.1.4.10 - ipOutRequests
-1.3.6.1.2.1.4.11 - ipOutDiscards
-1.3.6.1.2.1.4.12 - ipOutNoRoutes
-1.3.6.1.2.1.4.13 - ipReasmTimeout
-1.3.6.1.2.1.4.14 - ipReasmReqds
-1.3.6.1.2.1.4.15 - ipReasmOKs
-1.3.6.1.2.1.4.16 - ipReasmFails
-1.3.6.1.2.1.4.17 - ipFragOKs
-1.3.6.1.2.1.4.18 - ipFragFails
-1.3.6.1.2.1.4.19 - ipFragCreates
-1.3.6.1.2.1.4.20 - ipAddrTable
-1.3.6.1.2.1.4.20.1 - ipAddrEntry
-1.3.6.1.2.1.4.20.1.1 - ipAdEntAddr
-1.3.6.1.2.1.4.20.1.2 - ipAdEntIfIndex
-1.3.6.1.2.1.4.20.1.3 - ipAdEntNetMask
-1.3.6.1.2.1.4.20.1.4 - ipAdEntBcastAddr
-1.3.6.1.2.1.4.20.1.5 - ipAdEntReasmMaxSize
-1.3.6.1.2.1.4.21 - ipRouteTable
-1.3.6.1.2.1.4.21.1 - ipRouteEntry
-1.3.6.1.2.1.4.21.1.1 - ipRouteDest
-1.3.6.1.2.1.4.21.1.2 - ipRouteIfIndex
-1.3.6.1.2.1.4.21.1.3 - ipRouteMetric1
-1.3.6.1.2.1.4.21.1.4 - ipRouteMetric2
-1.3.6.1.2.1.4.21.1.5 - ipRouteMetric3
-1.3.6.1.2.1.4.21.1.6 - ipRouteMetric4
-1.3.6.1.2.1.4.21.1.7 - ipRouteNextHop
-1.3.6.1.2.1.4.21.1.8 - ipRouteType
-1.3.6.1.2.1.4.21.1.9 - ipRouteProto
-1.3.6.1.2.1.4.21.1.10 - ipRouteAge
-1.3.6.1.2.1.4.21.1.11 - ipRouteMask
-1.3.6.1.2.1.4.21.1.12 - ipRouteMetric5
-1.3.6.1.2.1.4.21.1.13 - ipRouteInfo
-1.3.6.1.2.1.4.22 - ipNetToMediaTable
-1.3.6.1.2.1.4.22.1 - ipNetToMediaEntry
-1.3.6.1.2.1.4.22.1.1 - ipNetToMediaIfIndex
-1.3.6.1.2.1.4.22.1.2 - ipNetToMediaPhysAddress
-1.3.6.1.2.1.4.22.1.3 - ipNetToMediaNetAddress
-1.3.6.1.2.1.4.22.1.4 - ipNetToMediaType
-1.3.6.1.2.1.4.23 - ipRoutingDiscards
-1.3.6.1.2.1.5 - icmp
-1.3.6.1.2.1.5.1 - icmpInMsgs
-1.3.6.1.2.1.5.2 - icmpInErrors
-1.3.6.1.2.1.5.3 - icmpInDestUnreachs
-1.3.6.1.2.1.5.4 - icmpInTimeExcds
-1.3.6.1.2.1.5.5 - icmpInParmProbs
-1.3.6.1.2.1.5.6 - icmpInSrcQuenchs
-1.3.6.1.2.1.5.7 - icmpInRedirects
-1.3.6.1.2.1.5.8 - icmpInEchos
-1.3.6.1.2.1.5.9 - icmpInEchoReps
-1.3.6.1.2.1.5.10 - icmpInTimestamps
-1.3.6.1.2.1.5.11 - icmpInTimestampReps
-1.3.6.1.2.1.5.12 - icmpInAddrMasks
-1.3.6.1.2.1.5.13 - icmpInAddrMaskReps
-1.3.6.1.2.1.5.14 - icmpOutMsgs
-1.3.6.1.2.1.5.15 - icmpOutErrors
-1.3.6.1.2.1.5.16 - icmpOutDestUnreachs
-1.3.6.1.2.1.5.17 - icmpOutTimeExcds
-1.3.6.1.2.1.5.18 - icmpOutParmProbs
-1.3.6.1.2.1.5.19 - icmpOutSrcQuenchs
-1.3.6.1.2.1.5.20 - icmpOutRedirects
-1.3.6.1.2.1.5.21 - icmpOutEchos
-1.3.6.1.2.1.5.22 - icmpOutEchoReps
-1.3.6.1.2.1.5.23 - icmpOutTimestamps
-1.3.6.1.2.1.5.24 - icmpOutTimestampReps
-1.3.6.1.2.1.5.25 - icmpOutAddrMasks
-1.3.6.1.2.1.5.26 - icmpOutAddrMaskReps
-1.3.6.1.2.1.6 - tcp
-1.3.6.1.2.1.6.1 - tcpRtoAlgorithm
-1.3.6.1.2.1.6.2 - tcpRtoMin
-1.3.6.1.2.1.6.3 - tcpRtoMax
-1.3.6.1.2.1.6.4 - tcpMaxConn
-1.3.6.1.2.1.6.5 - tcpActiveOpens
-1.3.6.1.2.1.6.6 - tcpPassiveOpens
-1.3.6.1.2.1.6.7 - tcpAttemptFails
-1.3.6.1.2.1.6.8 - tcpEstabResets
-1.3.6.1.2.1.6.9 - tcpCurrEstab
-1.3.6.1.2.1.6.10 - tcpInSegs
-1.3.6.1.2.1.6.11 - tcpOutSegs
-1.3.6.1.2.1.6.12 - tcpRetransSegs
-1.3.6.1.2.1.6.13 - tcpConnTable
-1.3.6.1.2.1.6.13.1 - tcpConnEntry
-1.3.6.1.2.1.6.13.1.1 - tcpConnState
-1.3.6.1.2.1.6.13.1.2 - tcpConnLocalAddress
-1.3.6.1.2.1.6.13.1.3 - tcpConnLocalPort
-1.3.6.1.2.1.6.13.1.4 - tcpConnRemAddress
-1.3.6.1.2.1.6.13.1.5 - tcpConnRemPort
-1.3.6.1.2.1.6.14 - tcpInErrs
-1.3.6.1.2.1.6.15 - tcpOutRsts
-1.3.6.1.2.1.7 - udp
-1.3.6.1.2.1.7.1 - udpInDatagrams
-1.3.6.1.2.1.7.2 - udpNoPorts
-1.3.6.1.2.1.7.3 - udpInErrors
-1.3.6.1.2.1.7.4 - udpOutDatagrams
-1.3.6.1.2.1.7.5 - udpTable
-1.3.6.1.2.1.7.5.1 - udpEntry
-1.3.6.1.2.1.7.5.1.1 - udpLocalAddress
-1.3.6.1.2.1.7.5.1.2 - udpLocalPort
-1.3.6.1.2.1.8 - egp
-1.3.6.1.2.1.8.1 - egpInMsgs
-1.3.6.1.2.1.8.2 - egpInErrors
-1.3.6.1.2.1.8.3 - egpOutMsgs
-1.3.6.1.2.1.8.4 - egpOutErrors
-1.3.6.1.2.1.8.5 - egpNeighTable
-1.3.6.1.2.1.8.5.1 - egpNeighEntry
-1.3.6.1.2.1.8.5.1.1 - egpNeighState
-1.3.6.1.2.1.8.5.1.2 - egpNeighAddr
-1.3.6.1.2.1.8.5.1.3 - egpNeighAs
-1.3.6.1.2.1.8.5.1.4 - egpNeighInMsgs
-1.3.6.1.2.1.8.5.1.5 - egpNeighInErrs
-1.3.6.1.2.1.8.5.1.6 - egpNeighOutMsgs
-1.3.6.1.2.1.8.5.1.7 - egpNeighOutErrs
-1.3.6.1.2.1.8.5.1.8 - egpNeighInErrMsgs
-1.3.6.1.2.1.8.5.1.9 - egpNeighOutErrMsgs
-1.3.6.1.2.1.8.5.1.10 - egpNeighStateUps
-1.3.6.1.2.1.8.5.1.11 - egpNeighStateDowns
-1.3.6.1.2.1.8.5.1.12 - egpNeighIntervalHello
-1.3.6.1.2.1.8.5.1.13 - egpNeighIntervalPoll
-1.3.6.1.2.1.8.5.1.14 - egpNeighMode
-1.3.6.1.2.1.8.5.1.15 - egpNeighEventTrigger
-1.3.6.1.2.1.8.6 - egpAs
-1.3.6.1.2.1.10 - transmission
-1.3.6.1.2.1.11 - snmp
-1.3.6.1.2.1.11.1 - snmpInPkts
-1.3.6.1.2.1.11.2 - snmpOutPkts
-1.3.6.1.2.1.11.3 - snmpInBadVersions
-1.3.6.1.2.1.11.4 - snmpInBadCommunityNames
-1.3.6.1.2.1.11.5 - snmpInBadCommunityUses
-1.3.6.1.2.1.11.6 - snmpInASNParseErrs
-1.3.6.1.2.1.11.8 - snmpInTooBigs
-1.3.6.1.2.1.11.9 - snmpInNoSuchNames
-1.3.6.1.2.1.11.10 - snmpInBadValues
-1.3.6.1.2.1.11.11 - snmpInReadOnlys
-1.3.6.1.2.1.11.12 - snmpInGenErrs
-1.3.6.1.2.1.11.13 - snmpInTotalReqVars
-1.3.6.1.2.1.11.14 - snmpInTotalSetVars
-1.3.6.1.2.1.11.15 - snmpInGetRequests
-1.3.6.1.2.1.11.16 - snmpInGetNexts
-1.3.6.1.2.1.11.17 - snmpInSetRequests
-1.3.6.1.2.1.11.18 - snmpInGetResponses
-1.3.6.1.2.1.11.19 - snmpInTraps
-1.3.6.1.2.1.11.20 - snmpOutTooBigs
-1.3.6.1.2.1.11.21 - snmpOutNoSuchNames
-1.3.6.1.2.1.11.22 - snmpOutBadValues
-1.3.6.1.2.1.11.24 - snmpOutGenErrs
-1.3.6.1.2.1.11.25 - snmpOutGetRequests
-1.3.6.1.2.1.11.26 - snmpOutGetNexts
-1.3.6.1.2.1.11.27 - snmpOutSetRequests
-1.3.6.1.2.1.11.28 - snmpOutGetResponses
-1.3.6.1.2.1.11.29 - snmpOutTraps
-1.3.6.1.2.1.11.30 - snmpEnableAuthenTraps
-1.3.6.1.2.1.25 - host
+F 1.3.6.1.2.1.1 - system
+L 1.3.6.1.2.1.1.1 - sysDescr
+L 1.3.6.1.2.1.1.2 - sysObjectID
+L 1.3.6.1.2.1.1.3 - sysUpTime
+P 1.3.6.1.2.1.1.4 - sysContact
+P 1.3.6.1.2.1.1.5 - sysName
+P 1.3.6.1.2.1.1.6 - sysLocation
+L 1.3.6.1.2.1.1.7 - sysServices
+F 1.3.6.1.2.1.2 - interfaces
+L 1.3.6.1.2.1.2.1 - ifNumber
+T 1.3.6.1.2.1.2.2 - ifTable
+E 1.3.6.1.2.1.2.2.1 - ifEntry
+K 1.3.6.1.2.1.2.2.1.1 - ifIndex
+L 1.3.6.1.2.1.2.2.1.2 - ifDescr
+L 1.3.6.1.2.1.2.2.1.3 - ifType
+L 1.3.6.1.2.1.2.2.1.4 - ifMtu
+L 1.3.6.1.2.1.2.2.1.5 - ifSpeed
+L 1.3.6.1.2.1.2.2.1.6 - ifPhysAddress
+P 1.3.6.1.2.1.2.2.1.7 - ifAdminStatus
+L 1.3.6.1.2.1.2.2.1.8 - ifOperStatus
+L 1.3.6.1.2.1.2.2.1.9 - ifLastChange
+L 1.3.6.1.2.1.2.2.1.10 - ifInOctets
+L 1.3.6.1.2.1.2.2.1.11 - ifInUcastPkts
+L 1.3.6.1.2.1.2.2.1.12 - ifInNUcastPkts
+L 1.3.6.1.2.1.2.2.1.13 - ifInDiscards
+L 1.3.6.1.2.1.2.2.1.14 - ifInErrors
+L 1.3.6.1.2.1.2.2.1.15 - ifInUnknownProtos
+L 1.3.6.1.2.1.2.2.1.16 - ifOutOctets
+L 1.3.6.1.2.1.2.2.1.17 - ifOutUcastPkts
+L 1.3.6.1.2.1.2.2.1.18 - ifOutNUcastPkts
+L 1.3.6.1.2.1.2.2.1.19 - ifOutDiscards
+L 1.3.6.1.2.1.2.2.1.20 - ifOutErrors
+L 1.3.6.1.2.1.2.2.1.21 - ifOutQLen
+L 1.3.6.1.2.1.2.2.1.22 - ifSpecific
+F 1.3.6.1.2.1.3 - at
+T 1.3.6.1.2.1.3.1 - atTable
+E 1.3.6.1.2.1.3.1.1 - atEntry
+K 1.3.6.1.2.1.3.1.1.1 - atIfIndex
+P 1.3.6.1.2.1.3.1.1.2 - atPhysAddress
+K 1.3.6.1.2.1.3.1.1.3 - atNetAddress
+F 1.3.6.1.2.1.4 - ip
+P 1.3.6.1.2.1.4.1 - ipForwarding
+P 1.3.6.1.2.1.4.2 - ipDefaultTTL
+L 1.3.6.1.2.1.4.3 - ipInReceives
+L 1.3.6.1.2.1.4.4 - ipInHdrErrors
+L 1.3.6.1.2.1.4.5 - ipInAddrErrors
+L 1.3.6.1.2.1.4.6 - ipForwDatagrams
+L 1.3.6.1.2.1.4.7 - ipInUnknownProtos
+L 1.3.6.1.2.1.4.8 - ipInDiscards
+L 1.3.6.1.2.1.4.9 - ipInDelivers
+L 1.3.6.1.2.1.4.10 - ipOutRequests
+L 1.3.6.1.2.1.4.11 - ipOutDiscards
+L 1.3.6.1.2.1.4.12 - ipOutNoRoutes
+L 1.3.6.1.2.1.4.13 - ipReasmTimeout
+L 1.3.6.1.2.1.4.14 - ipReasmReqds
+L 1.3.6.1.2.1.4.15 - ipReasmOKs
+L 1.3.6.1.2.1.4.16 - ipReasmFails
+L 1.3.6.1.2.1.4.17 - ipFragOKs
+L 1.3.6.1.2.1.4.18 - ipFragFails
+L 1.3.6.1.2.1.4.19 - ipFragCreates
+T 1.3.6.1.2.1.4.20 - ipAddrTable
+E 1.3.6.1.2.1.4.20.1 - ipAddrEntry
+K 1.3.6.1.2.1.4.20.1.1 - ipAdEntAddr
+L 1.3.6.1.2.1.4.20.1.2 - ipAdEntIfIndex
+L 1.3.6.1.2.1.4.20.1.3 - ipAdEntNetMask
+L 1.3.6.1.2.1.4.20.1.4 - ipAdEntBcastAddr
+L 1.3.6.1.2.1.4.20.1.5 - ipAdEntReasmMaxSize
+T 1.3.6.1.2.1.4.21 - ipRouteTable
+E 1.3.6.1.2.1.4.21.1 - ipRouteEntry
+K 1.3.6.1.2.1.4.21.1.1 - ipRouteDest
+P 1.3.6.1.2.1.4.21.1.2 - ipRouteIfIndex
+P 1.3.6.1.2.1.4.21.1.3 - ipRouteMetric1
+P 1.3.6.1.2.1.4.21.1.4 - ipRouteMetric2
+P 1.3.6.1.2.1.4.21.1.5 - ipRouteMetric3
+P 1.3.6.1.2.1.4.21.1.6 - ipRouteMetric4
+P 1.3.6.1.2.1.4.21.1.7 - ipRouteNextHop
+P 1.3.6.1.2.1.4.21.1.8 - ipRouteType
+L 1.3.6.1.2.1.4.21.1.9 - ipRouteProto
+P 1.3.6.1.2.1.4.21.1.10 - ipRouteAge
+P 1.3.6.1.2.1.4.21.1.11 - ipRouteMask
+P 1.3.6.1.2.1.4.21.1.12 - ipRouteMetric5
+L 1.3.6.1.2.1.4.21.1.13 - ipRouteInfo
+T 1.3.6.1.2.1.4.22 - ipNetToMediaTable
+E 1.3.6.1.2.1.4.22.1 - ipNetToMediaEntry
+K 1.3.6.1.2.1.4.22.1.1 - ipNetToMediaIfIndex
+P 1.3.6.1.2.1.4.22.1.2 - ipNetToMediaPhysAddress
+K 1.3.6.1.2.1.4.22.1.3 - ipNetToMediaNetAddress
+P 1.3.6.1.2.1.4.22.1.4 - ipNetToMediaType
+L 1.3.6.1.2.1.4.23 - ipRoutingDiscards
+F 1.3.6.1.2.1.5 - icmp
+L 1.3.6.1.2.1.5.1 - icmpInMsgs
+L 1.3.6.1.2.1.5.2 - icmpInErrors
+L 1.3.6.1.2.1.5.3 - icmpInDestUnreachs
+L 1.3.6.1.2.1.5.4 - icmpInTimeExcds
+L 1.3.6.1.2.1.5.5 - icmpInParmProbs
+L 1.3.6.1.2.1.5.6 - icmpInSrcQuenchs
+L 1.3.6.1.2.1.5.7 - icmpInRedirects
+L 1.3.6.1.2.1.5.8 - icmpInEchos
+L 1.3.6.1.2.1.5.9 - icmpInEchoReps
+L 1.3.6.1.2.1.5.10 - icmpInTimestamps
+L 1.3.6.1.2.1.5.11 - icmpInTimestampReps
+L 1.3.6.1.2.1.5.12 - icmpInAddrMasks
+L 1.3.6.1.2.1.5.13 - icmpInAddrMaskReps
+L 1.3.6.1.2.1.5.14 - icmpOutMsgs
+L 1.3.6.1.2.1.5.15 - icmpOutErrors
+L 1.3.6.1.2.1.5.16 - icmpOutDestUnreachs
+L 1.3.6.1.2.1.5.17 - icmpOutTimeExcds
+L 1.3.6.1.2.1.5.18 - icmpOutParmProbs
+L 1.3.6.1.2.1.5.19 - icmpOutSrcQuenchs
+L 1.3.6.1.2.1.5.20 - icmpOutRedirects
+L 1.3.6.1.2.1.5.21 - icmpOutEchos
+L 1.3.6.1.2.1.5.22 - icmpOutEchoReps
+L 1.3.6.1.2.1.5.23 - icmpOutTimestamps
+L 1.3.6.1.2.1.5.24 - icmpOutTimestampReps
+L 1.3.6.1.2.1.5.25 - icmpOutAddrMasks
+L 1.3.6.1.2.1.5.26 - icmpOutAddrMaskReps
+F 1.3.6.1.2.1.6 - tcp
+L 1.3.6.1.2.1.6.1 - tcpRtoAlgorithm
+L 1.3.6.1.2.1.6.2 - tcpRtoMin
+L 1.3.6.1.2.1.6.3 - tcpRtoMax
+L 1.3.6.1.2.1.6.4 - tcpMaxConn
+L 1.3.6.1.2.1.6.5 - tcpActiveOpens
+L 1.3.6.1.2.1.6.6 - tcpPassiveOpens
+L 1.3.6.1.2.1.6.7 - tcpAttemptFails
+L 1.3.6.1.2.1.6.8 - tcpEstabResets
+L 1.3.6.1.2.1.6.9 - tcpCurrEstab
+L 1.3.6.1.2.1.6.10 - tcpInSegs
+L 1.3.6.1.2.1.6.11 - tcpOutSegs
+L 1.3.6.1.2.1.6.12 - tcpRetransSegs
+T 1.3.6.1.2.1.6.13 - tcpConnTable
+E 1.3.6.1.2.1.6.13.1 - tcpConnEntry
+P 1.3.6.1.2.1.6.13.1.1 - tcpConnState
+K 1.3.6.1.2.1.6.13.1.2 - tcpConnLocalAddress
+K 1.3.6.1.2.1.6.13.1.3 - tcpConnLocalPort
+K 1.3.6.1.2.1.6.13.1.4 - tcpConnRemAddress
+K 1.3.6.1.2.1.6.13.1.5 - tcpConnRemPort
+L 1.3.6.1.2.1.6.14 - tcpInErrs
+L 1.3.6.1.2.1.6.15 - tcpOutRsts
+F 1.3.6.1.2.1.7 - udp
+L 1.3.6.1.2.1.7.1 - udpInDatagrams
+L 1.3.6.1.2.1.7.2 - udpNoPorts
+L 1.3.6.1.2.1.7.3 - udpInErrors
+L 1.3.6.1.2.1.7.4 - udpOutDatagrams
+T 1.3.6.1.2.1.7.5 - udpTable
+E 1.3.6.1.2.1.7.5.1 - udpEntry
+K 1.3.6.1.2.1.7.5.1.1 - udpLocalAddress
+K 1.3.6.1.2.1.7.5.1.2 - udpLocalPort
+F 1.3.6.1.2.1.8 - egp
+L 1.3.6.1.2.1.8.1 - egpInMsgs
+L 1.3.6.1.2.1.8.2 - egpInErrors
+L 1.3.6.1.2.1.8.3 - egpOutMsgs
+L 1.3.6.1.2.1.8.4 - egpOutErrors
+T 1.3.6.1.2.1.8.5 - egpNeighTable
+E 1.3.6.1.2.1.8.5.1 - egpNeighEntry
+L 1.3.6.1.2.1.8.5.1.1 - egpNeighState
+K 1.3.6.1.2.1.8.5.1.2 - egpNeighAddr
+L 1.3.6.1.2.1.8.5.1.3 - egpNeighAs
+L 1.3.6.1.2.1.8.5.1.4 - egpNeighInMsgs
+L 1.3.6.1.2.1.8.5.1.5 - egpNeighInErrs
+L 1.3.6.1.2.1.8.5.1.6 - egpNeighOutMsgs
+L 1.3.6.1.2.1.8.5.1.7 - egpNeighOutErrs
+L 1.3.6.1.2.1.8.5.1.8 - egpNeighInErrMsgs
+L 1.3.6.1.2.1.8.5.1.9 - egpNeighOutErrMsgs
+L 1.3.6.1.2.1.8.5.1.10 - egpNeighStateUps
+L 1.3.6.1.2.1.8.5.1.11 - egpNeighStateDowns
+L 1.3.6.1.2.1.8.5.1.12 - egpNeighIntervalHello
+L 1.3.6.1.2.1.8.5.1.13 - egpNeighIntervalPoll
+L 1.3.6.1.2.1.8.5.1.14 - egpNeighMode
+P 1.3.6.1.2.1.8.5.1.15 - egpNeighEventTrigger
+L 1.3.6.1.2.1.8.6 - egpAs
+L 1.3.6.1.2.1.10 - transmission
+F 1.3.6.1.2.1.11 - snmp
+L 1.3.6.1.2.1.11.1 - snmpInPkts
+L 1.3.6.1.2.1.11.2 - snmpOutPkts
+L 1.3.6.1.2.1.11.3 - snmpInBadVersions
+L 1.3.6.1.2.1.11.4 - snmpInBadCommunityNames
+L 1.3.6.1.2.1.11.5 - snmpInBadCommunityUses
+L 1.3.6.1.2.1.11.6 - snmpInASNParseErrs
+L 1.3.6.1.2.1.11.8 - snmpInTooBigs
+L 1.3.6.1.2.1.11.9 - snmpInNoSuchNames
+L 1.3.6.1.2.1.11.10 - snmpInBadValues
+L 1.3.6.1.2.1.11.11 - snmpInReadOnlys
+L 1.3.6.1.2.1.11.12 - snmpInGenErrs
+L 1.3.6.1.2.1.11.13 - snmpInTotalReqVars
+L 1.3.6.1.2.1.11.14 - snmpInTotalSetVars
+L 1.3.6.1.2.1.11.15 - snmpInGetRequests
+L 1.3.6.1.2.1.11.16 - snmpInGetNexts
+L 1.3.6.1.2.1.11.17 - snmpInSetRequests
+L 1.3.6.1.2.1.11.18 - snmpInGetResponses
+L 1.3.6.1.2.1.11.19 - snmpInTraps
+L 1.3.6.1.2.1.11.20 - snmpOutTooBigs
+L 1.3.6.1.2.1.11.21 - snmpOutNoSuchNames
+L 1.3.6.1.2.1.11.22 - snmpOutBadValues
+L 1.3.6.1.2.1.11.24 - snmpOutGenErrs
+L 1.3.6.1.2.1.11.25 - snmpOutGetRequests
+L 1.3.6.1.2.1.11.26 - snmpOutGetNexts
+L 1.3.6.1.2.1.11.27 - snmpOutSetRequests
+L 1.3.6.1.2.1.11.28 - snmpOutGetResponses
+L 1.3.6.1.2.1.11.29 - snmpOutTraps
+P 1.3.6.1.2.1.11.30 - snmpEnableAuthenTraps
+F 1.3.6.1.2.1.25 - host

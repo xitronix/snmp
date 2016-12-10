@@ -25,8 +25,19 @@ namespace SNMP_agent
             comboBoxOperations.Items.Add("Get Next");
             textBoxAddress.Text = "localhost";
 
+            imageList.Images.Add(Properties.Resources.Folder);
+            imageList.Images.Add(Properties.Resources.key);
+            imageList.Images.Add(Properties.Resources.entry);
+            imageList.Images.Add(Properties.Resources.listek);
+            imageList.Images.Add(Properties.Resources.paper);
+            imageList.Images.Add(Properties.Resources.table);
+
+            //textBoxtest.AppendText("count" + imageList.Images.Count);
+
             mibElementsDictionary = new Dictionary<string, string>();
             loadMibTreeElements();
+
+
             
             
         }
@@ -63,13 +74,11 @@ namespace SNMP_agent
         {
             treeView.Nodes.Add("iso.org.dod.internet.mgmt.mib-2");
 
-            // string input_path = "snmpElements.txt";
             var input_path = Properties.Resources.mibTreeElements;
-            //string input_path = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), @"snmpElements.txt");
             string[] lineSplit;
             List<TreeNode> treeNodeList = new List<TreeNode>();
             treeNodeList.Add(treeView.Nodes[0]);
-            string value; // OIDC:\Users\Piotrek\Documents\Git\snmpAgent\SNMP_agent\SNMP_agent\cos.txt
+            string value; // OID
             string key; // nazwa 
 
 
@@ -83,20 +92,51 @@ namespace SNMP_agent
             {
                 line = dd[i];
                 lineSplit = line.Split(' ');
-                value = "." + lineSplit[0];
-                key = lineSplit[2];
+                value = "." + lineSplit[1];
+                key = lineSplit[3];
                 mibElementsDictionary.Add(key, value);
 
-                length = value.Length / 2 - 6; // System = 1
+                length = value.Length / 2 - 6; 
                 if (treeNodeList.Count > length)
                 {
                     treeNodeList[length - 1].Nodes.Add(key);
                     treeNodeList[length] = treeNodeList[length - 1].Nodes[treeNodeList[length - 1].Nodes.Count - 1];
+                    treeNodeList[length].ImageIndex = 1;
                 }
                 else
                 {
                     treeNodeList[length - 1].Nodes.Add(key);
                     treeNodeList.Add(treeNodeList[length - 1].Nodes[treeNodeList[length - 1].Nodes.Count - 1]);
+
+                }
+                
+                // Dodanie obrazków
+                switch (lineSplit[0])
+                {
+                    case "F":
+                        treeNodeList[length - 1].Nodes[treeNodeList[length - 1].Nodes.Count - 1].ImageIndex = 0;
+                        treeNodeList[length - 1].Nodes[treeNodeList[length - 1].Nodes.Count - 1].SelectedImageIndex = 0;
+                        break;
+                    case "L":
+                        treeNodeList[length - 1].Nodes[treeNodeList[length - 1].Nodes.Count - 1].ImageIndex = 3;
+                        treeNodeList[length - 1].Nodes[treeNodeList[length - 1].Nodes.Count - 1].SelectedImageIndex = 3;
+                        break;
+                    case "P":
+                        treeNodeList[length - 1].Nodes[treeNodeList[length - 1].Nodes.Count - 1].ImageIndex = 4;
+                        treeNodeList[length - 1].Nodes[treeNodeList[length - 1].Nodes.Count - 1].SelectedImageIndex = 4;
+                        break;
+                    case "E":
+                        treeNodeList[length - 1].Nodes[treeNodeList[length - 1].Nodes.Count - 1].ImageIndex = 2;
+                        treeNodeList[length - 1].Nodes[treeNodeList[length - 1].Nodes.Count - 1].SelectedImageIndex = 2;
+                        break;
+                    case "T":
+                        treeNodeList[length - 1].Nodes[treeNodeList[length - 1].Nodes.Count - 1].ImageIndex = 5;
+                        treeNodeList[length - 1].Nodes[treeNodeList[length - 1].Nodes.Count - 1].SelectedImageIndex = 5;
+                        break;
+                    case "K":
+                        treeNodeList[length - 1].Nodes[treeNodeList[length - 1].Nodes.Count - 1].ImageIndex = 1;
+                        treeNodeList[length - 1].Nodes[treeNodeList[length - 1].Nodes.Count - 1].SelectedImageIndex = 1;
+                        break;
                 }
             }
             

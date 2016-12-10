@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.menu1ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -43,17 +44,18 @@
             this.buttonGo = new System.Windows.Forms.Button();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.treeView = new System.Windows.Forms.TreeView();
+            this.imageList = new System.Windows.Forms.ImageList(this.components);
             this.tabControlResult = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.dataGridViewResultTable = new System.Windows.Forms.DataGridView();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
-            this.buttonRefresh = new System.Windows.Forms.Button();
-            this.dataGridViewTableView = new System.Windows.Forms.DataGridView();
             this.OIDColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ValueColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TypeColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.IPPortColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
+            this.buttonRefresh = new System.Windows.Forms.Button();
+            this.dataGridViewTableView = new System.Windows.Forms.DataGridView();
             this.textBoxtest = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
@@ -124,7 +126,7 @@
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 299F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 69F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 132F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 77F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 80F));
             this.tableLayoutPanel2.Controls.Add(this.labelAddress, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.textBoxAddress, 1, 0);
             this.tableLayoutPanel2.Controls.Add(this.labelOID, 2, 0);
@@ -154,14 +156,14 @@
             this.textBoxAddress.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.textBoxAddress.Location = new System.Drawing.Point(57, 3);
             this.textBoxAddress.Name = "textBoxAddress";
-            this.textBoxAddress.Size = new System.Drawing.Size(183, 20);
+            this.textBoxAddress.Size = new System.Drawing.Size(180, 20);
             this.textBoxAddress.TabIndex = 1;
             // 
             // labelOID
             // 
             this.labelOID.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.labelOID.AutoSize = true;
-            this.labelOID.Location = new System.Drawing.Point(248, 6);
+            this.labelOID.Location = new System.Drawing.Point(245, 6);
             this.labelOID.Name = "labelOID";
             this.labelOID.Size = new System.Drawing.Size(29, 13);
             this.labelOID.TabIndex = 2;
@@ -170,7 +172,7 @@
             // textBoxOID
             // 
             this.textBoxOID.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.textBoxOID.Location = new System.Drawing.Point(286, 3);
+            this.textBoxOID.Location = new System.Drawing.Point(283, 3);
             this.textBoxOID.Name = "textBoxOID";
             this.textBoxOID.Size = new System.Drawing.Size(293, 20);
             this.textBoxOID.TabIndex = 3;
@@ -179,7 +181,7 @@
             // 
             this.labelOperations.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.labelOperations.AutoSize = true;
-            this.labelOperations.Location = new System.Drawing.Point(586, 6);
+            this.labelOperations.Location = new System.Drawing.Point(583, 6);
             this.labelOperations.Name = "labelOperations";
             this.labelOperations.Size = new System.Drawing.Size(61, 13);
             this.labelOperations.TabIndex = 4;
@@ -190,7 +192,7 @@
             this.comboBoxOperations.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.comboBoxOperations.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxOperations.FormattingEnabled = true;
-            this.comboBoxOperations.Location = new System.Drawing.Point(656, 3);
+            this.comboBoxOperations.Location = new System.Drawing.Point(653, 3);
             this.comboBoxOperations.Name = "comboBoxOperations";
             this.comboBoxOperations.Size = new System.Drawing.Size(121, 21);
             this.comboBoxOperations.TabIndex = 5;
@@ -198,7 +200,7 @@
             // buttonGo
             // 
             this.buttonGo.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.buttonGo.Location = new System.Drawing.Point(786, 3);
+            this.buttonGo.Location = new System.Drawing.Point(785, 3);
             this.buttonGo.Name = "buttonGo";
             this.buttonGo.Size = new System.Drawing.Size(71, 20);
             this.buttonGo.TabIndex = 6;
@@ -222,11 +224,20 @@
             // 
             // treeView
             // 
+            this.treeView.ImageIndex = 0;
+            this.treeView.ImageList = this.imageList;
             this.treeView.Location = new System.Drawing.Point(3, 3);
             this.treeView.Name = "treeView";
+            this.treeView.SelectedImageIndex = 0;
             this.treeView.Size = new System.Drawing.Size(243, 341);
             this.treeView.TabIndex = 0;
             this.treeView.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeView_AfterSelect);
+            // 
+            // imageList
+            // 
+            this.imageList.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit;
+            this.imageList.ImageSize = new System.Drawing.Size(16, 16);
+            this.imageList.TransparentColor = System.Drawing.Color.Transparent;
             // 
             // tabControlResult
             // 
@@ -267,6 +278,33 @@
             this.dataGridViewResultTable.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewResultTable.Size = new System.Drawing.Size(598, 315);
             this.dataGridViewResultTable.TabIndex = 0;
+            // 
+            // OIDColumn
+            // 
+            this.OIDColumn.HeaderText = "Name/OID";
+            this.OIDColumn.Name = "OIDColumn";
+            this.OIDColumn.ReadOnly = true;
+            this.OIDColumn.Width = 200;
+            // 
+            // ValueColumn
+            // 
+            this.ValueColumn.HeaderText = "Value";
+            this.ValueColumn.Name = "ValueColumn";
+            this.ValueColumn.ReadOnly = true;
+            this.ValueColumn.Width = 224;
+            // 
+            // TypeColumn
+            // 
+            this.TypeColumn.HeaderText = "Type";
+            this.TypeColumn.Name = "TypeColumn";
+            this.TypeColumn.ReadOnly = true;
+            // 
+            // IPPortColumn
+            // 
+            this.IPPortColumn.HeaderText = "IP:Port";
+            this.IPPortColumn.Name = "IPPortColumn";
+            this.IPPortColumn.ReadOnly = true;
+            this.IPPortColumn.Width = 70;
             // 
             // tabPage2
             // 
@@ -309,33 +347,6 @@
             this.dataGridViewTableView.Name = "dataGridViewTableView";
             this.dataGridViewTableView.Size = new System.Drawing.Size(586, 274);
             this.dataGridViewTableView.TabIndex = 1;
-            // 
-            // OIDColumn
-            // 
-            this.OIDColumn.HeaderText = "Name/OID";
-            this.OIDColumn.Name = "OIDColumn";
-            this.OIDColumn.ReadOnly = true;
-            this.OIDColumn.Width = 200;
-            // 
-            // ValueColumn
-            // 
-            this.ValueColumn.HeaderText = "Value";
-            this.ValueColumn.Name = "ValueColumn";
-            this.ValueColumn.ReadOnly = true;
-            this.ValueColumn.Width = 224;
-            // 
-            // TypeColumn
-            // 
-            this.TypeColumn.HeaderText = "Type";
-            this.TypeColumn.Name = "TypeColumn";
-            this.TypeColumn.ReadOnly = true;
-            // 
-            // IPPortColumn
-            // 
-            this.IPPortColumn.HeaderText = "IP:Port";
-            this.IPPortColumn.Name = "IPPortColumn";
-            this.IPPortColumn.ReadOnly = true;
-            this.IPPortColumn.Width = 70;
             // 
             // textBoxtest
             // 
@@ -398,6 +409,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn TypeColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn IPPortColumn;
         private System.Windows.Forms.TextBox textBoxtest;
+        private System.Windows.Forms.ImageList imageList;
     }
 }
 
