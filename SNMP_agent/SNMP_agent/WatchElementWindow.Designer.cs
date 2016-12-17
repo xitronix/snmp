@@ -93,6 +93,7 @@
             this.Controls.Add(this.OID);
             this.Name = "WatchElementWindow";
             this.Text = "Add Watch";
+            this.Load += new System.EventHandler(this.WatchElementWindow_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

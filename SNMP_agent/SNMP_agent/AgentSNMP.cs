@@ -52,16 +52,16 @@ namespace SNMP_agent {
                 if (result !=null && ((oldresult !=null && result[2] != oldresult[2]) || oldresult == null))
                 {               
                     //var valuesTable = readGetResult(result);
-                    gui.addRowToWatchedElementsTable(result[0], result[2], result[1], "127.0.0.1:162");
+                    gui.addRowToWatchedElementsTable(result[0], result[2], result[1]);
                 }
                 Thread.Sleep(1000);
             }
         }
 
-        public void disableWatching()
+        public void stopWatching()
         {
             active = false;
-        }
+        } 
 
         public string[] getNext(string oid) {
             Dictionary<Oid, AsnType> result = snmp.GetNext(SnmpVersion.Ver2, new string[] {oid});
@@ -87,27 +87,52 @@ namespace SNMP_agent {
             }
             else {
                 return readGetResult(result);
+            }      
+        }
+    /*    public List<string[]> get2(string oid)
+        {
+            if (!snmp.Valid)
+            {
+                Console.WriteLine("SNMP agent host name/ip address is invalid.");
+                return null;
             }
-            /*foreach (KeyValuePair<Oid, AsnType> kvp in result) {
+            else {
+                Dictionary<Oid, AsnType> result = snmp.GetNext(SnmpVersion.Ver2, new string[] { oid });
+
+                return readGetResult2(result);
+            }
+        }
+
+        private List<string[]> readGetResult2(Dictionary<Oid, AsnType> result)
+        {
+            var rows = new List<string[]>();
+            var rsltStrings = new string[3];
+            foreach (KeyValuePair<Oid, AsnType> kvp in result)
+            {
                 Console.WriteLine("{0}: {1} {2}", kvp.Key.ToString(),
                     SnmpConstants.GetTypeName(kvp.Value.Type),
                     kvp.Value.ToString());
-            }*/
+               
+                rsltStrings[0] = kvp.Key.ToString();
+                rsltStrings[1] = SnmpConstants.GetTypeName(kvp.Value.Type);
+                rsltStrings[2] = kvp.Value.ToString();
+                rows.Add(rsltStrings);
+            }
+            
+            return rows;
         }
-
+        */
         private string[] readGetResult(Dictionary<Oid, AsnType> result) {
-            // var rows = new List<string[]>();
+
             if (result == null)
                 return null;
             var rsltStrings= new string[3];
             foreach (KeyValuePair<Oid, AsnType> kvp in result) {
-              //  Console.WriteLine("{0}: {1} {2}", kvp.Key.ToString(),
-                //    SnmpConstants.GetTypeName(kvp.Value.Type),
-                //    kvp.Value.ToString());
+             
                 rsltStrings[0] = kvp.Key.ToString();
                 rsltStrings[1] = SnmpConstants.GetTypeName(kvp.Value.Type);
                 rsltStrings[2] = kvp.Value.ToString();
-                //rows.Add(rsltStrings);
+                
             }
             return rsltStrings;
         }
@@ -128,7 +153,7 @@ namespace SNMP_agent {
                 generic, specific, senderUpTime, col);
         }
 
-        static void ReceiveTrap()
+        public void ReceiveTrap()
         {
             Socket socket = new Socket(AddressFamily.InterNetwork, SocketType.Dgram, ProtocolType.Udp);
             IPEndPoint ipep = new IPEndPoint(IPAddress.Any, 162);
@@ -150,7 +175,7 @@ namespace SNMP_agent {
                 }
                 catch (Exception ex)
                 {
-                    Console.WriteLine("Exception {0}", ex.Message);
+                    Debug.WriteLine("Exception {0}", ex.Message);
                     inlen = -1;
                 }
                 if (inlen > 0)
@@ -160,24 +185,25 @@ namespace SNMP_agent {
                     {
                         SnmpV1TrapPacket pkt = new SnmpV1TrapPacket();
                         pkt.decode(indata, inlen);
-                        Console.WriteLine("** SNMP Version 1 TRAP received from {0}:", inep.ToString());
-                        Console.WriteLine("*** Trap generic: {0}", pkt.Pdu.Generic);
-                        Console.WriteLine("*** Trap specific: {0}", pkt.Pdu.Specific);
-                        Console.WriteLine("*** Agent address: {0}", pkt.Pdu.AgentAddress.ToString());
-                        Console.WriteLine("*** Timestamp: {0}", pkt.Pdu.TimeStamp.ToString());
-                        Console.WriteLine("*** VarBind count: {0}", pkt.Pdu.VbList.Count);
-                        Console.WriteLine("*** VarBind content:");
+                        Debug.WriteLine("** SNMP Version 1 TRAP received from {0}:", inep.ToString());
+                        Debug.WriteLine("*** Trap generic: {0}", pkt.Pdu.Generic);
+                        Debug.WriteLine("*** Trap specific: {0}", pkt.Pdu.Specific);
+                        Debug.WriteLine("*** Agent address: {0}", pkt.Pdu.AgentAddress.ToString());
+                        Debug.WriteLine("*** Timestamp: {0}", pkt.Pdu.TimeStamp.ToString());
+                        Debug.WriteLine("*** VarBind count: {0}", pkt.Pdu.VbList.Count);
+                        Debug.WriteLine("*** VarBind content:");
+                        
                         foreach (Vb v in pkt.Pdu.VbList)
                         {
-                            Console.WriteLine("**** {0} {1}: {2}", v.Oid.ToString(), SnmpConstants.GetTypeName(v.Value.Type), v.Value.ToString());
+                            Debug.WriteLine("**** {0} {1}: {2}", v.Oid.ToString(), SnmpConstants.GetTypeName(v.Value.Type), v.Value.ToString());
                         }
-                        Console.WriteLine("** End of SNMP Version 1 TRAP data.");
+                        Debug.WriteLine("** End of SNMP Version 1 TRAP data.");
                     }
                 }
                 else
                 {
                     if (inlen == 0)
-                        Console.WriteLine("Zero length packet received.");
+                        Debug.WriteLine("Zero length packet received.");
                 }
             }
         }

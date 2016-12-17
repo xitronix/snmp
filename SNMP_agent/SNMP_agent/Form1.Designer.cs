@@ -37,8 +37,6 @@
             this.menu2ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menu3ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.labelAddress = new System.Windows.Forms.Label();
-            this.textBoxAddress = new System.Windows.Forms.TextBox();
             this.labelOID = new System.Windows.Forms.Label();
             this.textBoxOID = new System.Windows.Forms.TextBox();
             this.labelOperations = new System.Windows.Forms.Label();
@@ -50,21 +48,25 @@
             this.tabControlResult = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.dataGridViewResultTable = new System.Windows.Forms.DataGridView();
-            this.OIDColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ValueColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TypeColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.IPPortColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.buttonRefresh = new System.Windows.Forms.Button();
             this.dataGridViewTableView = new System.Windows.Forms.DataGridView();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.dataGridViewWatchedElements = new System.Windows.Forms.DataGridView();
+            this.textBoxtest = new System.Windows.Forms.TextBox();
+            this.trapToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.dataGridViewTrapTable = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.OIDColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ValueColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TypeColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.textBoxtest = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
@@ -77,6 +79,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewTableView)).BeginInit();
             this.tabPage3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewWatchedElements)).BeginInit();
+            this.tabPage4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewTrapTable)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -113,7 +117,8 @@
             // 
             this.menu1ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.watchToolStripMenuItem,
-            this.toolStripMenuItem1});
+            this.toolStripMenuItem1,
+            this.trapToolStripMenuItem});
             this.menu1ToolStripMenuItem.Name = "menu1ToolStripMenuItem";
             this.menu1ToolStripMenuItem.Size = new System.Drawing.Size(56, 19);
             this.menu1ToolStripMenuItem.Text = "Menu1";
@@ -146,21 +151,17 @@
             // 
             // tableLayoutPanel2
             // 
-            this.tableLayoutPanel2.ColumnCount = 7;
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 24.68085F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 75.31915F));
+            this.tableLayoutPanel2.ColumnCount = 5;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 40F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 299F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 69F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 132F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 87F));
-            this.tableLayoutPanel2.Controls.Add(this.labelAddress, 0, 0);
-            this.tableLayoutPanel2.Controls.Add(this.textBoxAddress, 1, 0);
-            this.tableLayoutPanel2.Controls.Add(this.labelOID, 2, 0);
-            this.tableLayoutPanel2.Controls.Add(this.textBoxOID, 3, 0);
-            this.tableLayoutPanel2.Controls.Add(this.labelOperations, 4, 0);
-            this.tableLayoutPanel2.Controls.Add(this.comboBoxOperations, 5, 0);
-            this.tableLayoutPanel2.Controls.Add(this.buttonGo, 6, 0);
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 420F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 78F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 174F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 78F));
+            this.tableLayoutPanel2.Controls.Add(this.labelOID, 0, 0);
+            this.tableLayoutPanel2.Controls.Add(this.textBoxOID, 1, 0);
+            this.tableLayoutPanel2.Controls.Add(this.labelOperations, 2, 0);
+            this.tableLayoutPanel2.Controls.Add(this.comboBoxOperations, 3, 0);
+            this.tableLayoutPanel2.Controls.Add(this.buttonGo, 4, 0);
             this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 26);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
@@ -168,29 +169,11 @@
             this.tableLayoutPanel2.Size = new System.Drawing.Size(861, 26);
             this.tableLayoutPanel2.TabIndex = 1;
             // 
-            // labelAddress
-            // 
-            this.labelAddress.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.labelAddress.AutoSize = true;
-            this.labelAddress.Location = new System.Drawing.Point(4, 6);
-            this.labelAddress.Name = "labelAddress";
-            this.labelAddress.Size = new System.Drawing.Size(48, 13);
-            this.labelAddress.TabIndex = 0;
-            this.labelAddress.Text = "Address:";
-            // 
-            // textBoxAddress
-            // 
-            this.textBoxAddress.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.textBoxAddress.Location = new System.Drawing.Point(60, 3);
-            this.textBoxAddress.Name = "textBoxAddress";
-            this.textBoxAddress.Size = new System.Drawing.Size(170, 20);
-            this.textBoxAddress.TabIndex = 1;
-            // 
             // labelOID
             // 
             this.labelOID.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.labelOID.AutoSize = true;
-            this.labelOID.Location = new System.Drawing.Point(238, 6);
+            this.labelOID.Location = new System.Drawing.Point(5, 6);
             this.labelOID.Name = "labelOID";
             this.labelOID.Size = new System.Drawing.Size(29, 13);
             this.labelOID.TabIndex = 2;
@@ -199,16 +182,16 @@
             // textBoxOID
             // 
             this.textBoxOID.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.textBoxOID.Location = new System.Drawing.Point(276, 3);
+            this.textBoxOID.Location = new System.Drawing.Point(49, 3);
             this.textBoxOID.Name = "textBoxOID";
-            this.textBoxOID.Size = new System.Drawing.Size(293, 20);
+            this.textBoxOID.Size = new System.Drawing.Size(402, 20);
             this.textBoxOID.TabIndex = 3;
             // 
             // labelOperations
             // 
             this.labelOperations.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.labelOperations.AutoSize = true;
-            this.labelOperations.Location = new System.Drawing.Point(576, 6);
+            this.labelOperations.Location = new System.Drawing.Point(468, 6);
             this.labelOperations.Name = "labelOperations";
             this.labelOperations.Size = new System.Drawing.Size(61, 13);
             this.labelOperations.TabIndex = 4;
@@ -219,15 +202,15 @@
             this.comboBoxOperations.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.comboBoxOperations.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxOperations.FormattingEnabled = true;
-            this.comboBoxOperations.Location = new System.Drawing.Point(646, 3);
+            this.comboBoxOperations.Location = new System.Drawing.Point(548, 3);
             this.comboBoxOperations.Name = "comboBoxOperations";
-            this.comboBoxOperations.Size = new System.Drawing.Size(121, 21);
+            this.comboBoxOperations.Size = new System.Drawing.Size(154, 21);
             this.comboBoxOperations.TabIndex = 5;
             // 
             // buttonGo
             // 
             this.buttonGo.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.buttonGo.Location = new System.Drawing.Point(781, 3);
+            this.buttonGo.Location = new System.Drawing.Point(751, 3);
             this.buttonGo.Name = "buttonGo";
             this.buttonGo.Size = new System.Drawing.Size(71, 20);
             this.buttonGo.TabIndex = 6;
@@ -271,6 +254,7 @@
             this.tabControlResult.Controls.Add(this.tabPage1);
             this.tabControlResult.Controls.Add(this.tabPage2);
             this.tabControlResult.Controls.Add(this.tabPage3);
+            this.tabControlResult.Controls.Add(this.tabPage4);
             this.tabControlResult.Location = new System.Drawing.Point(252, 3);
             this.tabControlResult.Name = "tabControlResult";
             this.tabControlResult.SelectedIndex = 0;
@@ -298,41 +282,13 @@
             this.dataGridViewResultTable.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.OIDColumn,
             this.ValueColumn,
-            this.TypeColumn,
-            this.IPPortColumn});
+            this.TypeColumn});
             this.dataGridViewResultTable.Location = new System.Drawing.Point(0, 0);
             this.dataGridViewResultTable.Name = "dataGridViewResultTable";
             this.dataGridViewResultTable.RowHeadersVisible = false;
             this.dataGridViewResultTable.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewResultTable.Size = new System.Drawing.Size(598, 315);
             this.dataGridViewResultTable.TabIndex = 0;
-            // 
-            // OIDColumn
-            // 
-            this.OIDColumn.HeaderText = "Name/OID";
-            this.OIDColumn.Name = "OIDColumn";
-            this.OIDColumn.ReadOnly = true;
-            this.OIDColumn.Width = 200;
-            // 
-            // ValueColumn
-            // 
-            this.ValueColumn.HeaderText = "Value";
-            this.ValueColumn.Name = "ValueColumn";
-            this.ValueColumn.ReadOnly = true;
-            this.ValueColumn.Width = 224;
-            // 
-            // TypeColumn
-            // 
-            this.TypeColumn.HeaderText = "Type";
-            this.TypeColumn.Name = "TypeColumn";
-            this.TypeColumn.ReadOnly = true;
-            // 
-            // IPPortColumn
-            // 
-            this.IPPortColumn.HeaderText = "IP:Port";
-            this.IPPortColumn.Name = "IPPortColumn";
-            this.IPPortColumn.ReadOnly = true;
-            this.IPPortColumn.Width = 70;
             // 
             // tabPage2
             // 
@@ -390,7 +346,7 @@
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage3.Size = new System.Drawing.Size(598, 315);
             this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "tabPage3";
+            this.tabPage3.Text = "Watched Elements";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
             // dataGridViewWatchedElements
@@ -403,14 +359,97 @@
             this.dataGridViewWatchedElements.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn1,
             this.dataGridViewTextBoxColumn2,
-            this.dataGridViewTextBoxColumn3,
-            this.dataGridViewTextBoxColumn4});
+            this.dataGridViewTextBoxColumn3});
             this.dataGridViewWatchedElements.Location = new System.Drawing.Point(0, 0);
             this.dataGridViewWatchedElements.Name = "dataGridViewWatchedElements";
             this.dataGridViewWatchedElements.RowHeadersVisible = false;
             this.dataGridViewWatchedElements.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewWatchedElements.Size = new System.Drawing.Size(598, 315);
             this.dataGridViewWatchedElements.TabIndex = 1;
+            // 
+            // textBoxtest
+            // 
+            this.textBoxtest.Location = new System.Drawing.Point(3, 411);
+            this.textBoxtest.Name = "textBoxtest";
+            this.textBoxtest.Size = new System.Drawing.Size(861, 20);
+            this.textBoxtest.TabIndex = 3;
+            // 
+            // trapToolStripMenuItem
+            // 
+            this.trapToolStripMenuItem.Name = "trapToolStripMenuItem";
+            this.trapToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.trapToolStripMenuItem.Text = "Trap";
+            this.trapToolStripMenuItem.Click += new System.EventHandler(this.trapToolStripMenuItem_Click);
+            // 
+            // tabPage4
+            // 
+            this.tabPage4.Controls.Add(this.dataGridViewTrapTable);
+            this.tabPage4.Location = new System.Drawing.Point(4, 22);
+            this.tabPage4.Name = "tabPage4";
+            this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage4.Size = new System.Drawing.Size(598, 315);
+            this.tabPage4.TabIndex = 3;
+            this.tabPage4.Text = "Received Traps";
+            this.tabPage4.UseVisualStyleBackColor = true;
+            // 
+            // dataGridViewTrapTable
+            // 
+            this.dataGridViewTrapTable.AllowUserToAddRows = false;
+            this.dataGridViewTrapTable.AllowUserToDeleteRows = false;
+            this.dataGridViewTrapTable.AllowUserToResizeRows = false;
+            this.dataGridViewTrapTable.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.dataGridViewTrapTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewTrapTable.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn5,
+            this.dataGridViewTextBoxColumn6,
+            this.dataGridViewTextBoxColumn7});
+            this.dataGridViewTrapTable.Location = new System.Drawing.Point(-3, 0);
+            this.dataGridViewTrapTable.Name = "dataGridViewTrapTable";
+            this.dataGridViewTrapTable.RowHeadersVisible = false;
+            this.dataGridViewTrapTable.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridViewTrapTable.Size = new System.Drawing.Size(598, 315);
+            this.dataGridViewTrapTable.TabIndex = 1;
+            // 
+            // dataGridViewTextBoxColumn5
+            // 
+            this.dataGridViewTextBoxColumn5.HeaderText = "Description";
+            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            this.dataGridViewTextBoxColumn5.ReadOnly = true;
+            this.dataGridViewTextBoxColumn5.Width = 250;
+            // 
+            // dataGridViewTextBoxColumn6
+            // 
+            this.dataGridViewTextBoxColumn6.HeaderText = "Source";
+            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            this.dataGridViewTextBoxColumn6.ReadOnly = true;
+            this.dataGridViewTextBoxColumn6.Width = 150;
+            // 
+            // dataGridViewTextBoxColumn7
+            // 
+            this.dataGridViewTextBoxColumn7.HeaderText = "Time";
+            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
+            this.dataGridViewTextBoxColumn7.ReadOnly = true;
+            this.dataGridViewTextBoxColumn7.Width = 200;
+            // 
+            // OIDColumn
+            // 
+            this.OIDColumn.HeaderText = "Name/OID";
+            this.OIDColumn.Name = "OIDColumn";
+            this.OIDColumn.ReadOnly = true;
+            this.OIDColumn.Width = 200;
+            // 
+            // ValueColumn
+            // 
+            this.ValueColumn.HeaderText = "Value";
+            this.ValueColumn.Name = "ValueColumn";
+            this.ValueColumn.ReadOnly = true;
+            this.ValueColumn.Width = 295;
+            // 
+            // TypeColumn
+            // 
+            this.TypeColumn.HeaderText = "Type";
+            this.TypeColumn.Name = "TypeColumn";
+            this.TypeColumn.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -424,27 +463,13 @@
             this.dataGridViewTextBoxColumn2.HeaderText = "Value";
             this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
             this.dataGridViewTextBoxColumn2.ReadOnly = true;
-            this.dataGridViewTextBoxColumn2.Width = 224;
+            this.dataGridViewTextBoxColumn2.Width = 295;
             // 
             // dataGridViewTextBoxColumn3
             // 
             this.dataGridViewTextBoxColumn3.HeaderText = "Type";
             this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
             this.dataGridViewTextBoxColumn3.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn4
-            // 
-            this.dataGridViewTextBoxColumn4.HeaderText = "IP:Port";
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            this.dataGridViewTextBoxColumn4.ReadOnly = true;
-            this.dataGridViewTextBoxColumn4.Width = 70;
-            // 
-            // textBoxtest
-            // 
-            this.textBoxtest.Location = new System.Drawing.Point(3, 411);
-            this.textBoxtest.Name = "textBoxtest";
-            this.textBoxtest.Size = new System.Drawing.Size(861, 20);
-            this.textBoxtest.TabIndex = 3;
             // 
             // Form1
             // 
@@ -454,6 +479,7 @@
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "Form1";
             this.Text = "SNMP";
+            
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.menuStrip1.ResumeLayout(false);
@@ -469,6 +495,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewTableView)).EndInit();
             this.tabPage3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewWatchedElements)).EndInit();
+            this.tabPage4.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewTrapTable)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -481,8 +509,6 @@
         private System.Windows.Forms.ToolStripMenuItem menu2ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem menu3ToolStripMenuItem;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
-        private System.Windows.Forms.Label labelAddress;
-        private System.Windows.Forms.TextBox textBoxAddress;
         private System.Windows.Forms.Label labelOID;
         private System.Windows.Forms.TextBox textBoxOID;
         private System.Windows.Forms.Label labelOperations;
@@ -497,20 +523,24 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
         private System.Windows.Forms.Button buttonRefresh;
         private System.Windows.Forms.DataGridView dataGridViewTableView;
-        private System.Windows.Forms.DataGridViewTextBoxColumn OIDColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ValueColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TypeColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn IPPortColumn;
         private System.Windows.Forms.ImageList imageList;
         private System.Windows.Forms.TabPage tabPage3;
         private System.Windows.Forms.DataGridView dataGridViewWatchedElements;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
         private System.Windows.Forms.ToolStripMenuItem watchToolStripMenuItem;
         public System.Windows.Forms.TextBox textBoxtest;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem trapToolStripMenuItem;
+        private System.Windows.Forms.TabPage tabPage4;
+        private System.Windows.Forms.DataGridView dataGridViewTrapTable;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
+        private System.Windows.Forms.DataGridViewTextBoxColumn OIDColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ValueColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TypeColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
     }
 }
 

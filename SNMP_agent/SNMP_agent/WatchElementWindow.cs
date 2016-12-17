@@ -26,6 +26,12 @@ namespace SNMP_agent
         {
             Visible = false;
             form1.watch(OID.Text, SNMPOperation.Text);
+            Close();
+        }
+
+        private void WatchElementWindow_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -19,12 +19,13 @@ namespace SNMP_agent {
 
         public Form1() {
             InitializeComponent();
-
+            FormClosed += new FormClosedEventHandler(f_FormClosed);
             snmpAgent = new AgentSNMP(this);
 
             comboBoxOperations.Items.Add("Get");
             comboBoxOperations.Items.Add("Get Next");
-            textBoxAddress.Text = "localhost";
+            comboBoxOperations.Items.Add("Table View");
+          
 
             imageList.Images.Add(Properties.Resources.Folder);
             imageList.Images.Add(Properties.Resources.key);
@@ -45,29 +46,22 @@ namespace SNMP_agent {
         }
 
         private void buttonGo_Click(object sender, EventArgs e) {
-            string address = textBoxAddress.Text;
+           
             string OID = textBoxOID.Text;
             string option = comboBoxOperations.Text;
 
             switch (option) {
                 case "Get":
-                    //ddRowToResultsTable(address, OID, option, "Get");
                     get(OID);
                     break;
-                case "Get Next":
-                    //addRowToResultsTable(address, OID, option, "GetNext");
-                    getNext(OID);
-                    /*  string[] pp = new string[4];
-                      pp[0] = address;
-                      pp[1] = OID;
-                      pp[2] = option;
-                      pp[3] = "GetNext";
-                      addNewRowToTableView(pp); */
+                case "Get Next":                 
+                    getNext(OID);                   
+                    break;
+                case "Table View":
+                    tableView(OID);
                     break;
             }
 
-
-            // Operacja GET lub GET NEXT
         }
 
 
@@ -75,7 +69,7 @@ namespace SNMP_agent {
             
             string[] valuesTable = snmpAgent.get(OID);
             if (valuesTable != null)
-                addRowToResultsTable(valuesTable[0], valuesTable[2], valuesTable[1], "127.0.0.1:162");
+                addRowToResultsTable(valuesTable[0], valuesTable[2], valuesTable[1]);
             // Jesli null to okienko wyswietlic
         }
 
@@ -83,23 +77,43 @@ namespace SNMP_agent {
         private void getNext(string OID) {           
             string[] valuesTable = snmpAgent.getNext(OID);
             if (valuesTable != null)
-                addRowToResultsTable(valuesTable[0], valuesTable[2], valuesTable[1], "127.0.0.1:162");
+                addRowToResultsTable(valuesTable[0], valuesTable[2], valuesTable[1]);
+        }
+
+        private void tableView(string OID)
+        {
+            //snmpAgent.get2(OID);
+            
         }
 
 
         /* Dodaje wiersz w tablicy ResultsTable. Wywoływane po wciśnięciu przycisku GO */
-        public void addRowToResultsTable(string OID, string value, string type, string IP) {
-            dataGridViewResultTable.Rows.Add(OID, value, type, IP);
+        public void addRowToResultsTable(string OID, string value, string type) {
+            dataGridViewResultTable.Rows.Add(OID, value, type);
+            textBoxOID.Text = OID;
+            dataGridViewResultTable.SelectedRows[0].Selected = false;
+            dataGridViewResultTable.Rows[dataGridViewResultTable.Rows.Count - 1].Selected = true;
+
         }
 
-        public void addRowToWatchedElementsTable(string OID, string value, string type, string IP)
+        public void addRowToWatchedElementsTable(string OID, string value, string type)
         {
             MethodInvoker mi = delegate
             {
-                dataGridViewWatchedElements.Rows.Add(OID, value, type, IP);
+                dataGridViewWatchedElements.Rows.Add(OID, value, type);
             };
             if (InvokeRequired)
                 this.Invoke(mi);
+        }
+
+        public void addRowToTrapTable(string description, string source, string time)
+        {
+            MethodInvoker mi = delegate
+            {
+                dataGridViewTrapTable.Rows.Add(description, source, time);
+            };
+            if (InvokeRequired)
+                this.Invoke(mi);       
         }
 
 
@@ -208,8 +222,7 @@ namespace SNMP_agent {
         private void watchToolStripMenuItem_Click(object sender, EventArgs e)
         {
             var form  = new WatchElementWindow(this);
-            form.Visible = true;
-                     
+            form.Visible = true;                     
         }
 
         public void watch(string OID_number, string SNMP_operation)
@@ -220,7 +233,17 @@ namespace SNMP_agent {
 
         private void toolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            snmpAgent.disableWatching();
+            snmpAgent.stopWatching();
         }
+
+        private void trapToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            snmpAgent.ReceiveTrap();
+        }
+        void f_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            snmpAgent.stopWatching();
+        }
+
     }
 }
