@@ -14,6 +14,8 @@ namespace SNMP_agent
         [STAThread]
         static void Main()
         {
+            AgentSNMP agent = new AgentSNMP();
+            agent.Receive();
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Form1());

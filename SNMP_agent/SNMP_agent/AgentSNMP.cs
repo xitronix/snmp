@@ -7,6 +7,7 @@ using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using SnmpSharpNet;
+using System.Net.Sockets;
 
 namespace SNMP_agent {
     public class AgentSNMP {
@@ -82,6 +83,60 @@ namespace SNMP_agent {
             agent.SendV1Trap(new IpAddress(receiverIP), port, community,
                 new Oid(oid), new IpAddress(senderIP),
                 generic, specific, senderUpTime, col);
+        }
+
+        static void ReceiveTrap()
+        {
+            Socket socket = new Socket(AddressFamily.InterNetwork, SocketType.Dgram, ProtocolType.Udp);
+            IPEndPoint ipep = new IPEndPoint(IPAddress.Any, 162);
+            EndPoint ep = (EndPoint)ipep;
+            socket.Bind(ep);
+
+            socket.SetSocketOption(SocketOptionLevel.Socket, SocketOptionName.ReceiveTimeout, 0);
+            bool run = true;
+            int inlen = -1;
+            while (run)
+            {
+                byte[] indata = new byte[16 * 1024];
+
+                IPEndPoint peer = new IPEndPoint(IPAddress.Any, 0);
+                EndPoint inep = (EndPoint)peer;
+                try
+                {
+                    inlen = socket.ReceiveFrom(indata, ref inep);
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("Exception {0}", ex.Message);
+                    inlen = -1;
+                }
+                if (inlen > 0)
+                {
+                    int ver = SnmpPacket.GetProtocolVersion(indata, inlen);
+                    if (ver == (int)SnmpVersion.Ver1)
+                    {
+                        SnmpV1TrapPacket pkt = new SnmpV1TrapPacket();
+                        pkt.decode(indata, inlen);
+                        Console.WriteLine("** SNMP Version 1 TRAP received from {0}:", inep.ToString());
+                        Console.WriteLine("*** Trap generic: {0}", pkt.Pdu.Generic);
+                        Console.WriteLine("*** Trap specific: {0}", pkt.Pdu.Specific);
+                        Console.WriteLine("*** Agent address: {0}", pkt.Pdu.AgentAddress.ToString());
+                        Console.WriteLine("*** Timestamp: {0}", pkt.Pdu.TimeStamp.ToString());
+                        Console.WriteLine("*** VarBind count: {0}", pkt.Pdu.VbList.Count);
+                        Console.WriteLine("*** VarBind content:");
+                        foreach (Vb v in pkt.Pdu.VbList)
+                        {
+                            Console.WriteLine("**** {0} {1}: {2}", v.Oid.ToString(), SnmpConstants.GetTypeName(v.Value.Type), v.Value.ToString());
+                        }
+                        Console.WriteLine("** End of SNMP Version 1 TRAP data.");
+                    }
+                }
+                else
+                {
+                    if (inlen == 0)
+                        Console.WriteLine("Zero length packet received.");
+                }
+            }
         }
     }
 }
