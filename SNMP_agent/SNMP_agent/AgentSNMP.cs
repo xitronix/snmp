@@ -8,18 +8,62 @@ using System.Text;
 using System.Threading.Tasks;
 using SnmpSharpNet;
 using System.Net.Sockets;
+using System.Threading;
 
 namespace SNMP_agent {
     public class AgentSNMP {
-         static private SimpleSnmp snmp;
+        static private SimpleSnmp snmp;
+        private Form1 gui;
+        public bool active { get; private set; }
+        string OID_numer;
+        string SNMP_operation;
 
-        public AgentSNMP() {
+
+        public AgentSNMP(Form1 gui) {
+            this.gui = gui;
+            active = false;
             string host = "127.0.0.1";
             string community = "public";
             snmp = new SimpleSnmp(host, community);      
         }
 
-        public List<string[]> getNext(string oid) {
+        public void StartWatching(string OID_numer, string SNMP_operation)
+        {
+            this.OID_numer = OID_numer;
+            this.SNMP_operation = SNMP_operation;
+            new Thread(watch).Start();
+        }
+
+        private void watch()
+        { 
+            string[] result = null;
+            string[] oldresult = null;
+
+            active = true;
+            while (active)
+            {
+                oldresult = result;
+
+                if (SNMP_operation == "Get" )
+                    result = readGetResult(snmp.Get(SnmpVersion.Ver1, new string[] { OID_numer }));
+                else if (SNMP_operation == "GetNext")
+                    result =readGetResult( snmp.GetNext(SnmpVersion.Ver1, new string[] { OID_numer }));
+
+                if (result !=null && ((oldresult !=null && result[2] != oldresult[2]) || oldresult == null))
+                {               
+                    //var valuesTable = readGetResult(result);
+                    gui.addRowToWatchedElementsTable(result[0], result[2], result[1], "127.0.0.1:162");
+                }
+                Thread.Sleep(1000);
+            }
+        }
+
+        public void disableWatching()
+        {
+            active = false;
+        }
+
+        public string[] getNext(string oid) {
             Dictionary<Oid, AsnType> result = snmp.GetNext(SnmpVersion.Ver2, new string[] {oid});
             if (result == null) {
                 Console.WriteLine("Request failed.");
@@ -30,7 +74,7 @@ namespace SNMP_agent {
             }
         }
 
-        public List<string[]> get(string oid) {
+        public string[] get(string oid) {
             if (!snmp.Valid) {
                 Console.WriteLine("SNMP agent host name/ip address is invalid.");
                 return null;
@@ -51,19 +95,21 @@ namespace SNMP_agent {
             }*/
         }
 
-        private List<string[]> readGetResult(Dictionary<Oid, AsnType> result) {
-            var rows = new List<string[]>();
+        private string[] readGetResult(Dictionary<Oid, AsnType> result) {
+            // var rows = new List<string[]>();
+            if (result == null)
+                return null;
             var rsltStrings= new string[3];
             foreach (KeyValuePair<Oid, AsnType> kvp in result) {
-                Console.WriteLine("{0}: {1} {2}", kvp.Key.ToString(),
-                    SnmpConstants.GetTypeName(kvp.Value.Type),
-                    kvp.Value.ToString());
+              //  Console.WriteLine("{0}: {1} {2}", kvp.Key.ToString(),
+                //    SnmpConstants.GetTypeName(kvp.Value.Type),
+                //    kvp.Value.ToString());
                 rsltStrings[0] = kvp.Key.ToString();
                 rsltStrings[1] = SnmpConstants.GetTypeName(kvp.Value.Type);
                 rsltStrings[2] = kvp.Value.ToString();
-                rows.Add(rsltStrings);
+                //rows.Add(rsltStrings);
             }
-            return rows;
+            return rsltStrings;
         }
 
         public static VbCollection VbCol(String str, String oid, uint time) {
