@@ -35,10 +35,11 @@ namespace SNMP_agent {
 
             mibElementsDictionary = new Dictionary<string, string>();
             loadMibTreeElements();
-            string[] dd = {"pp", "dd", "ll"};
+
+       /*     string[] dd = {"pp", "dd", "ll"};
             addNewTableView(dd);
             string[] ss = {"bbb", "aaa", "ll", "lala"};
-            addNewTableView(ss);
+            addNewTableView(ss); */
         }
 
         private void buttonGo_Click(object sender, EventArgs e) {
@@ -48,11 +49,11 @@ namespace SNMP_agent {
 
             switch (option) {
                 case "Get":
-                    addRowToResultsTable(address, OID, option, "Get");
+                    //ddRowToResultsTable(address, OID, option, "Get");
                     get(OID);
                     break;
                 case "Get Next":
-                    addRowToResultsTable(address, OID, option, "GetNext");
+                    //addRowToResultsTable(address, OID, option, "GetNext");
                     getNext(OID);
                     /*  string[] pp = new string[4];
                       pp[0] = address;
@@ -67,28 +68,30 @@ namespace SNMP_agent {
             // Operacja GET lub GET NEXT
         }
 
+
         private void get(string OID) {
-            // TODO Auto-generated method stub
-            addRowToResultsTable("TEST1", "TEST2", "TEST3", "TEST4");
+            
             valuesTable = snmpAgent.get(OID);
-            addRowToResultsTable(valuesTable[0][0],valuesTable[0][1],valuesTable[0][2],"162");
-            // Tutaj napewno do wykrozystania zmienna conf w ktorej sa parametry polaczenia SNMP
+            if (valuesTable != null)
+                addRowToResultsTable(valuesTable[0][0],valuesTable[0][2], valuesTable[0][1], "127.0.0.1:162");
+            // Jesli null to okienko wyswietlic
         }
 
-        private void getNext(string OID) {
-            // TODO Auto-generated method stub
+
+        private void getNext(string OID) {           
             valuesTable = snmpAgent.getNext(OID);
-            addRowToResultsTable(valuesTable[0][0], valuesTable[0][1], valuesTable[0][2], "162");
+            if (valuesTable != null)
+                addRowToResultsTable(valuesTable[0][0], valuesTable[0][2], valuesTable[0][1], "127.0.0.1:162");
         }
+
 
         /* Dodaje wiersz w tablicy ResultsTable. Wywoływane po wciśnięciu przycisku GO */
-
         public void addRowToResultsTable(string OID, string value, string type, string IP) {
             dataGridViewResultTable.Rows.Add(OID, value, type, IP);
         }
 
-        /* Dodaje wiersz do TableView. Metoda wywoływana do wyświetlenia calej tabeli */
 
+        /* Dodaje wiersz do TableView. Metoda wywoływana do wyświetlenia calej tabeli */
         public bool addNewRowToTableView(string[] cellNames) {
             if (cellNames.Length == dataGridViewResultTable.Columns.Count) {
                 dataGridViewTableView.Rows.Add(cellNames);
@@ -99,7 +102,6 @@ namespace SNMP_agent {
         }
 
         /* Wywoływane gdy użytkownik chce wyświetlić tabelę. Tworzy tabelę o określonej liczbie kolumn*/
-
         public void addNewTableView(string[] columnNames) {
             for (int i = 0; i < dataGridViewTableView.Columns.Count; i++) {
                 dataGridViewTableView.Columns.Remove(dataGridViewTableView.Columns[0]);
@@ -116,7 +118,6 @@ namespace SNMP_agent {
         }
 
         /* Metoda wczytująca z pliku MIBTree*/
-
         private void loadMibTreeElements() {
             treeView.Nodes.Add("iso.org.dod.internet.mgmt.mib-2");
 
@@ -137,9 +138,14 @@ namespace SNMP_agent {
                 lineSplit = line.Split(' ');
                 value = "." + lineSplit[1];
                 key = lineSplit[3];
-                mibElementsDictionary.Add(key, value);
+                
 
                 length = value.Length/2 - 6;
+                if (length == 2 && (lineSplit[0] == "L" || lineSplit[0] == "P"))
+                    value = value + ".0";
+
+                mibElementsDictionary.Add(key, value);
+
                 if (treeNodeList.Count > length) {
                     treeNodeList[length - 1].Nodes.Add(key);
                     treeNodeList[length] = treeNodeList[length - 1].Nodes[treeNodeList[length - 1].Nodes.Count - 1];
@@ -181,7 +187,6 @@ namespace SNMP_agent {
         }
 
         /* Po kliknięciu na element MIBTree, odpowiednie OID pojawia się w textBoxOID*/
-
         private void treeView_AfterSelect(object sender, TreeViewEventArgs e) {
             string value;
             if (mibElementsDictionary.TryGetValue(treeView.SelectedNode.Text, out value))
@@ -189,52 +194,6 @@ namespace SNMP_agent {
         }
 
 
-        /*
-        private void loadMibTreeElements()
-        {
-            treeView.Nodes.Add("iso.org.dod.internet.mgmt.mib-2");
-
-            string input_path = "snmpElements.txt";
-            //var input_path = Properties.Resources.cos;
-            //string input_path = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), @"snmpElements.txt");
-            string[] lineSplit;
-            List<TreeNode> treeNodeList = new List<TreeNode>();
-            treeNodeList.Add(treeView.Nodes[0]);
-            string value; // OIDC:\Users\Piotrek\Documents\Git\snmpAgent\SNMP_agent\SNMP_agent\cos.txt
-            string key; // nazwa 
-
-            StreamReader sr;
-            sr = new StreamReader(input_path);
-            string line = sr.ReadLine();
-
-            
-            int length;
-
-            while (line != null)
-            {                              
-                lineSplit = line.Split(' ');
-                value = "." + lineSplit[0];
-                key = lineSplit[2];        
-                mibElementsDictionary.Add(key,value);
-
-                length = value.Length / 2 - 6; // System = 1
-                if (treeNodeList.Count > length)
-                {
-                    treeNodeList[length - 1].Nodes.Add(key);
-                    treeNodeList[length] = treeNodeList[length - 1].Nodes[treeNodeList[length - 1].Nodes.Count - 1];
-                }
-                else
-                {
-                    treeNodeList[length - 1].Nodes.Add(key);
-                    treeNodeList.Add(treeNodeList[length - 1].Nodes[treeNodeList[length - 1].Nodes.Count - 1]);
-                }
-
-                line = sr.ReadLine();
-             
-            }
-            sr.Close();
-                     
-        } 
-        */
+        
     }
 }

@@ -16,10 +16,7 @@ namespace SNMP_agent {
         public AgentSNMP() {
             string host = "127.0.0.1";
             string community = "public";
-            snmp = new SimpleSnmp(host, community);
-
-
-            
+            snmp = new SimpleSnmp(host, community);      
         }
 
         public List<string[]> getNext(string oid) {
