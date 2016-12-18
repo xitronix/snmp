@@ -80,10 +80,18 @@ namespace SNMP_agent {
                 addRowToResultsTable(valuesTable[0], valuesTable[2], valuesTable[1]);
         }
 
-        private void tableView(string OID)
-        {
-            //snmpAgent.get2(OID);
-            
+        private void tableView(string OID) {
+            var listOfRows =new List<List<string>>();
+            listOfRows =snmpAgent.getTable(OID);
+            List<string> columns = listOfRows[0];
+            for (int i=0; i < columns.Count; i++) {
+                columns[i] = (i+1).ToString();
+            }
+            addNewTableView(columns);
+            foreach (List<string> row in listOfRows) {
+                addNewRowToTableView(row);
+            }
+
         }
 
 
@@ -118,17 +126,25 @@ namespace SNMP_agent {
 
 
         /* Dodaje wiersz do TableView. Metoda wywoływana do wyświetlenia calej tabeli */
-        public bool addNewRowToTableView(string[] cellNames) {
-            if (cellNames.Length == dataGridViewResultTable.Columns.Count) {
-                dataGridViewTableView.Rows.Add(cellNames);
+        public bool addNewRowToTableView(List<string> cellNames) {
+            if (cellNames.Count == dataGridViewTableView.ColumnCount) {
+                dataGridViewTableView.Rows.Add(listToArray(cellNames));
                 return true;
             }
             else
                 return false;
         }
 
+        private string[] listToArray(List<string> list) {
+            var array= new string[list.Count];
+            for (int i = 0; i < array.Length; i++) {
+                array[i] = list[i];
+            }
+            return array;
+        }
+
         /* Wywoływane gdy użytkownik chce wyświetlić tabelę. Tworzy tabelę o określonej liczbie kolumn*/
-        public void addNewTableView(string[] columnNames) {
+        public void addNewTableView(List<string> columnNames) {
             for (int i = 0; i < dataGridViewTableView.Columns.Count; i++) {
                 dataGridViewTableView.Columns.Remove(dataGridViewTableView.Columns[0]);
             }
@@ -140,7 +156,7 @@ namespace SNMP_agent {
                 dataGridViewTableView.Columns.Add(column);
             }
 
-            dataGridViewTableView.Columns.Remove(dataGridViewTableView.Columns[0]);
+            //dataGridViewTableView.Columns.Remove(dataGridViewTableView.Columns[0]);
         }
 
         /* Metoda wczytująca z pliku MIBTree*/
