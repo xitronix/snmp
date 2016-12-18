@@ -217,7 +217,7 @@ namespace SNMP_agent {
             // Not every row has a value for every column so keep track of all columns available in the table
             List<uint> tableColumns = new List<uint>();
             // Prepare agent information
-            AgentParameters param = new AgentParameters(SnmpVersion.Ver2, new OctetString("public"));
+            AgentParameters param = new AgentParameters(SnmpVersion.Ver2, new OctetString(snmp.Community));
 
             IpAddress peer = new IpAddress(snmp.PeerIP);
             if (!
@@ -226,9 +226,11 @@ namespace SNMP_agent {
                 Console.WriteLine("Unable to resolve name or error in address for peer: {0}", snmp.PeerIP);
                 return null;
             }
-            snmp.MaxRepetitions=100;
-            snmp.NonRepeaters = 0;
-            snmp.GetBulk( new string[] {oid});
+
+            //snmp.MaxRepetitions=100;
+            //snmp.NonRepeaters = 0;
+            //snmp.GetBulk( new string[] {oid});
+
             UdpTarget target = new UdpTarget((IPAddress)peer);
             // This is the table OID supplied on the command line
             Oid startOid = new Oid(oid);
@@ -304,7 +306,7 @@ namespace SNMP_agent {
                     bulkPdu.VbList.Clear();
                     bulkPdu.VbList.Add(curOid);
                     bulkPdu.NonRepeaters = 0;
-                    bulkPdu.MaxRepetitions = 100;
+                    bulkPdu.MaxRepetitions = 10;
                 }
             }
             target.Close();
@@ -324,8 +326,8 @@ namespace SNMP_agent {
                         if (kvp.Value.ContainsKey(column)) {
                             row.Add(kvp.Value[column].ToString());
                             //row[1] = SnmpConstants.GetTypeName(kvp.Value[column].Type);
-                            Console.Write("\t{0} + ({1}) ||", kvp.Value[column].ToString(),
-                                SnmpConstants.GetTypeName(kvp.Value[column].Type));
+                            //Console.Write("\t{0} + ({1}) ||", kvp.Value[column].ToString(),
+                            //    SnmpConstants.GetTypeName(kvp.Value[column].Type));
                         }
                         else {
                             Console.Write("\t-");

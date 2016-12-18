@@ -83,9 +83,9 @@ namespace SNMP_agent {
         private void tableView(string OID) {
             var listOfRows =new List<List<string>>();
             listOfRows =snmpAgent.getTable(OID);
-            List<string> columns = listOfRows[0];
-            for (int i=0; i < columns.Count; i++) {
-                columns[i] = (i+1).ToString();
+            List<string> columns = new List<string>();
+            for (int i=0; i < listOfRows[0].Count; i++) {
+                columns.Add((i+1).ToString());
             }
             addNewTableView(columns);
             foreach (List<string> row in listOfRows) {
@@ -145,9 +145,12 @@ namespace SNMP_agent {
 
         /* Wywoływane gdy użytkownik chce wyświetlić tabelę. Tworzy tabelę o określonej liczbie kolumn*/
         public void addNewTableView(List<string> columnNames) {
-            for (int i = 0; i < dataGridViewTableView.Columns.Count; i++) {
-                dataGridViewTableView.Columns.Remove(dataGridViewTableView.Columns[0]);
-            }
+            dataGridViewTableView.Rows.Clear();
+            dataGridViewTableView.Columns.Clear();
+            //for (int i = 0; i < dataGridViewTableView.Columns.Count; i++) {
+                //dataGridViewTableView.Columns.Remove(dataGridViewTableView.Columns[0]);
+              //  dataGridViewTableView.Columns.RemoveAt(dataGridViewTableView.ColumnCount-i-1);
+            //}
 
             foreach (string columnName in columnNames) {
                 var column = new DataGridViewTextBoxColumn();
