@@ -186,6 +186,7 @@ namespace SNMP_agent {
                     {
                         SnmpV1TrapPacket pkt = new SnmpV1TrapPacket();
                         pkt.decode(indata, inlen);
+                        
                         Debug.WriteLine("** SNMP Version 1 TRAP received from {0}:", inep.ToString());
                         Debug.WriteLine("*** Trap generic: {0}", pkt.Pdu.Generic);
                         Debug.WriteLine("*** Trap specific: {0}", pkt.Pdu.Specific);
@@ -193,12 +194,15 @@ namespace SNMP_agent {
                         Debug.WriteLine("*** Timestamp: {0}", pkt.Pdu.TimeStamp.ToString());
                         Debug.WriteLine("*** VarBind count: {0}", pkt.Pdu.VbList.Count);
                         Debug.WriteLine("*** VarBind content:");
-                        
+
+                        List<String> values = new List<String>();
                         foreach (Vb v in pkt.Pdu.VbList)
                         {
                             Debug.WriteLine("**** {0} {1}: {2}", v.Oid.ToString(), SnmpConstants.GetTypeName(v.Value.Type), v.Value.ToString());
+                            values.Add(v.Value.ToString());                            
                         }
                         Debug.WriteLine("** End of SNMP Version 1 TRAP data.");
+                        gui.addRowToTrapTable(values[0], values[1], values[2]);
                     }
                 }
                 else
