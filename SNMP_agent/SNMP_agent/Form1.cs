@@ -72,24 +72,29 @@ namespace SNMP_agent {
         }
 
         private void tableView(string OID) {
-            var listOfRows =new List<List<string>>();
-            listOfRows =snmpAgent.getTable(OID);
-            List<string> columns = new List<string>();
-            for (int i=0; i < listOfRows[0].Count; i++) {
-                string oid = OID + ".1." + (i + 1);
-                string name = null;
-                try
-                {
-                    name = mibElementsDictionaryOid[oid];
+            try {
+                var listOfRows = new List<List<string>>();
+                listOfRows = snmpAgent.getTable(OID);
+                List<string> columns = new List<string>();
+                for (int i = 0; i < listOfRows[0].Count; i++) {
+                    string oid = OID + ".1." + (i + 1);
+                    string name = null;
+                    try {
+                        name = mibElementsDictionaryOid[oid];
+                    }
+                    catch (KeyNotFoundException e) {
+                    }
+                    if (name != null)
+                        columns.Add(name);
+                    else columns.Add(oid);
                 }
-                catch (KeyNotFoundException e) { }          
-                if (name != null)
-                    columns.Add(name);
-                else columns.Add(oid);
+                addNewTableView(columns);
+                foreach (List<string> row in listOfRows) {
+                    addNewRowToTableView(row);
+                }
             }
-            addNewTableView(columns);
-            foreach (List<string> row in listOfRows) {
-                addNewRowToTableView(row);
+            catch {
+                Console.WriteLine("Not inspected argument of method");
             }
         }
 
