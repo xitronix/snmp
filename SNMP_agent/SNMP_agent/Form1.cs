@@ -14,7 +14,7 @@ using System.Windows.Forms;
 namespace SNMP_agent {
     public partial class Form1 : Form {
         Dictionary<string, string> mibElementsDictionary;
-        //private List<string[]> valuesTable;
+        Dictionary<string, string> mibElementsDictionaryOid;
         private AgentSNMP snmpAgent;
 
         public Form1() {
@@ -26,7 +26,6 @@ namespace SNMP_agent {
             comboBoxOperations.Items.Add("Get Next");
             comboBoxOperations.Items.Add("Table View");
           
-
             imageList.Images.Add(Properties.Resources.Folder);
             imageList.Images.Add(Properties.Resources.key);
             imageList.Images.Add(Properties.Resources.entry);
@@ -34,9 +33,8 @@ namespace SNMP_agent {
             imageList.Images.Add(Properties.Resources.paper);
             imageList.Images.Add(Properties.Resources.table);
 
-            //textBoxtest.AppendText("count" + imageList.Images.Count);
-
             mibElementsDictionary = new Dictionary<string, string>();
+            mibElementsDictionaryOid = new Dictionary<string, string>();
             loadMibTreeElements();
 
             stopReceivingTrapToolStripMenuItem.Enabled = false;
@@ -59,18 +57,13 @@ namespace SNMP_agent {
                     tableView(OID);
                     break;
             }
-
         }
 
-
-        private void get(string OID) {
-            
+        private void get(string OID) {           
             string[] valuesTable = snmpAgent.get(OID);
             if (valuesTable != null)
                 addRowToResultsTable(valuesTable[0], valuesTable[2], valuesTable[1]);
-            // Jesli null to okienko wyswietlic
         }
-
 
         private void getNext(string OID) {           
             string[] valuesTable = snmpAgent.getNext(OID);
@@ -83,13 +76,21 @@ namespace SNMP_agent {
             listOfRows =snmpAgent.getTable(OID);
             List<string> columns = new List<string>();
             for (int i=0; i < listOfRows[0].Count; i++) {
-                columns.Add(OID+".1."+(i+1));
+                string oid = OID + ".1." + (i + 1);
+                string name = null;
+                try
+                {
+                    name = mibElementsDictionaryOid[oid];
+                }
+                catch (KeyNotFoundException e) { }          
+                if (name != null)
+                    columns.Add(name);
+                else columns.Add(oid);
             }
             addNewTableView(columns);
             foreach (List<string> row in listOfRows) {
                 addNewRowToTableView(row);
             }
-
         }
 
 
@@ -166,11 +167,7 @@ namespace SNMP_agent {
         /* Wywoływane gdy użytkownik chce wyświetlić tabelę. Tworzy tabelę o określonej liczbie kolumn*/
         public void addNewTableView(List<string> columnNames) {
             dataGridViewTableView.Rows.Clear();
-            dataGridViewTableView.Columns.Clear();
-            //for (int i = 0; i < dataGridViewTableView.Columns.Count; i++) {
-                //dataGridViewTableView.Columns.Remove(dataGridViewTableView.Columns[0]);
-              //  dataGridViewTableView.Columns.RemoveAt(dataGridViewTableView.ColumnCount-i-1);
-            //}
+            dataGridViewTableView.Columns.Clear();          
 
             foreach (string columnName in columnNames) {
                 var column = new DataGridViewTextBoxColumn();
@@ -178,8 +175,7 @@ namespace SNMP_agent {
 
                 dataGridViewTableView.Columns.Add(column);
             }
-            tabControlResult.SelectedIndex = 1;
-            //dataGridViewTableView.Columns.Remove(dataGridViewTableView.Columns[0]);
+            tabControlResult.SelectedIndex = 1;          
         }
 
         /* Metoda wczytująca z pliku MIBTree*/
@@ -203,13 +199,14 @@ namespace SNMP_agent {
                 lineSplit = line.Split(' ');
                 value = "." + lineSplit[1];
                 key = lineSplit[3];
-                
 
-                length = value.Length/2 - 6;
+
+                length = value.Split('.').Length - 7; //value.Length/2 - 6;
                 if (length == 2 && (lineSplit[0] == "L" || lineSplit[0] == "P"))
                     value = value + ".0";
 
                 mibElementsDictionary.Add(key, value);
+                mibElementsDictionaryOid.Add(value, key);
 
                 if (treeNodeList.Count > length) {
                     treeNodeList[length - 1].Nodes.Add(key);

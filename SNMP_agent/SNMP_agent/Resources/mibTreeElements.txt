@@ -198,4 +198,3 @@ L 1.3.6.1.2.1.11.27 - snmpOutSetRequests
 L 1.3.6.1.2.1.11.28 - snmpOutGetResponses
 L 1.3.6.1.2.1.11.29 - snmpOutTraps
 P 1.3.6.1.2.1.11.30 - snmpEnableAuthenTraps
-F 1.3.6.1.2.1.25 - host

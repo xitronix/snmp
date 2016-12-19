@@ -135,7 +135,7 @@ namespace SNMP_agent {
             socket.Bind(ep);
 
             socket.SetSocketOption(SocketOptionLevel.Socket, SocketOptionName.ReceiveTimeout, 0);
-            //bool run = true;
+
             int inlen = -1;
             while (activeTrapReceiver) {
                 DateTime time = DateTime.Now;
@@ -264,7 +264,6 @@ namespace SNMP_agent {
             }
             return listOfRows;
         }
-
 
         public static string InstanceToString(uint[] instance) {
             StringBuilder str = new StringBuilder();
