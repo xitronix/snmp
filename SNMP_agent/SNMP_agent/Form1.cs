@@ -83,7 +83,7 @@ namespace SNMP_agent {
             listOfRows =snmpAgent.getTable(OID);
             List<string> columns = new List<string>();
             for (int i=0; i < listOfRows[0].Count; i++) {
-                columns.Add((i+1).ToString());
+                columns.Add(OID+".1."+(i+1));
             }
             addNewTableView(columns);
             foreach (List<string> row in listOfRows) {
