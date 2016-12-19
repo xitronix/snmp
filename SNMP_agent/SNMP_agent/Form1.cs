@@ -114,11 +114,11 @@ namespace SNMP_agent {
                 this.Invoke(mi);
         }
 
-        public void addRowToTrapTable(string description, string source, string time)
+        public void addRowToTrapTable(string source, string name, string value, DateTime time, string snmpVersion)
         {
             MethodInvoker mi = delegate
             {
-                dataGridViewTrapTable.Rows.Add(description, source, time);
+                dataGridViewTrapTable.Rows.Add(source, name, value, time, snmpVersion);
             };
             if (InvokeRequired)
                 this.Invoke(mi);       
@@ -246,7 +246,7 @@ namespace SNMP_agent {
 
         public void watch(string OID_number, string SNMP_operation)
         {
-            if (!snmpAgent.active)               
+            if (!snmpAgent.activeWatching)               
                 snmpAgent.StartWatching(OID_number, SNMP_operation);
         }
 
@@ -257,12 +257,16 @@ namespace SNMP_agent {
 
         private void trapToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            snmpAgent.ReceiveTrap();
+            snmpAgent.startTrap();
         }
         void f_FormClosed(object sender, FormClosedEventArgs e)
         {
             snmpAgent.stopWatching();
         }
 
+        private void stopTrapToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            snmpAgent.stopTrap();
+        }
     }
 }

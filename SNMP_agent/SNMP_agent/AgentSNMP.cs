@@ -14,14 +14,15 @@ namespace SNMP_agent {
     public class AgentSNMP {
         static private SimpleSnmp snmp;
         private Form1 gui;
-        public bool active { get; private set; }
+        public bool activeWatching { get; private set; }
+        public bool activeTrapReceiver { get; private set; }
         string OID_numer;
         string SNMP_operation;
 
 
         public AgentSNMP(Form1 gui) {
             this.gui = gui;
-            active = false;
+            activeWatching = false;
             string host = "127.0.0.1";
             string community = "public";
             snmp = new SimpleSnmp(host, community);
@@ -40,8 +41,8 @@ namespace SNMP_agent {
             string[] result = null;
             string[] oldresult = null;
 
-            active = true;
-            while (active)
+            activeWatching = true;
+            while (activeWatching)
             {
                 oldresult = result;
 
@@ -61,7 +62,7 @@ namespace SNMP_agent {
 
         public void stopWatching()
         {
-            active = false;
+            activeWatching = false;
         } 
 
         public string[] getNext(string oid) {
@@ -90,39 +91,7 @@ namespace SNMP_agent {
                 return readGetResult(result);
             }      
         }
-    /*    public List<string[]> get2(string oid)
-        {
-            if (!snmp.Valid)
-            {
-                Console.WriteLine("SNMP agent host name/ip address is invalid.");
-                return null;
-            }
-            else {
-                Dictionary<Oid, AsnType> result = snmp.GetNext(SnmpVersion.Ver2, new string[] { oid });
-
-                return readGetResult2(result);
-            }
-        }
-
-        private List<string[]> readGetResult2(Dictionary<Oid, AsnType> result)
-        {
-            var rows = new List<string[]>();
-            var rsltStrings = new string[3];
-            foreach (KeyValuePair<Oid, AsnType> kvp in result)
-            {
-                Console.WriteLine("{0}: {1} {2}", kvp.Key.ToString(),
-                    SnmpConstants.GetTypeName(kvp.Value.Type),
-                    kvp.Value.ToString());
-               
-                rsltStrings[0] = kvp.Key.ToString();
-                rsltStrings[1] = SnmpConstants.GetTypeName(kvp.Value.Type);
-                rsltStrings[2] = kvp.Value.ToString();
-                rows.Add(rsltStrings);
-            }
-            
-            return rows;
-        }
-        */
+   
         private string[] readGetResult(Dictionary<Oid, AsnType> result) {
 
             if (result == null)
@@ -154,18 +123,30 @@ namespace SNMP_agent {
                 generic, specific, senderUpTime, col);
         }
 
+        public void startTrap()
+        {
+            new Thread(ReceiveTrap).Start();
+        }
+
+        public void stopTrap()
+        {
+            activeTrapReceiver = false;
+        }
+
         public void ReceiveTrap()
         {
+            activeTrapReceiver = true;
             Socket socket = new Socket(AddressFamily.InterNetwork, SocketType.Dgram, ProtocolType.Udp);
             IPEndPoint ipep = new IPEndPoint(IPAddress.Any, 162);
             EndPoint ep = (EndPoint)ipep;
             socket.Bind(ep);
 
             socket.SetSocketOption(SocketOptionLevel.Socket, SocketOptionName.ReceiveTimeout, 0);
-            bool run = true;
+            //bool run = true;
             int inlen = -1;
-            while (run)
+            while (activeTrapReceiver)
             {
+                DateTime time = DateTime.Now;
                 byte[] indata = new byte[16 * 1024];
 
                 IPEndPoint peer = new IPEndPoint(IPAddress.Any, 0);
@@ -173,6 +154,7 @@ namespace SNMP_agent {
                 try
                 {
                     inlen = socket.ReceiveFrom(indata, ref inep);
+                    time = DateTime.Now;
                 }
                 catch (Exception ex)
                 {
@@ -198,11 +180,14 @@ namespace SNMP_agent {
                         List<String> values = new List<String>();
                         foreach (Vb v in pkt.Pdu.VbList)
                         {
-                            Debug.WriteLine("**** {0} {1}: {2}", v.Oid.ToString(), SnmpConstants.GetTypeName(v.Value.Type), v.Value.ToString());
-                            values.Add(v.Value.ToString());                            
+                            var source = pkt.Pdu.AgentAddress;
+                            var oid = v.Oid;
+                            var value = v.Value;
+                            gui.addRowToTrapTable(source.ToString(), oid.ToString(), value.ToString(), time, "1");                        
                         }
+                        
                         Debug.WriteLine("** End of SNMP Version 1 TRAP data.");
-                        gui.addRowToTrapTable(values[0], values[1], values[2]);
+                        //gui.addRowToTrapTable(values[0], values[1], values[2]);
                     }
                 }
                 else
@@ -212,6 +197,7 @@ namespace SNMP_agent {
                 }
             }
         }
+
         public List<List<string>> getTable(string oid) {
             var listOfRows = new List<List<string>>();
             var row= new List<string>();
