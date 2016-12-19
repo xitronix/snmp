@@ -112,7 +112,7 @@ namespace SNMP_agent {
                 this.Invoke(mi);
         }
 
-        public void addRowToTrapTable(string source, string name, string value, DateTime time, string snmpVersion, int generic)
+        public void addRowToTrapTable(string source, string name, string value, DateTime time, int generic)
         {
             MethodInvoker mi = delegate
             {
@@ -138,7 +138,7 @@ namespace SNMP_agent {
                         genericName = "EGPNeithbourLoss";
                         break;
                 }
-                dataGridViewTrapTable.Rows.Add(source, name, value, time, genericName, snmpVersion);
+                dataGridViewTrapTable.Rows.Add(source, name, value, time, genericName);
             };
             if (InvokeRequired)
                 this.Invoke(mi);       

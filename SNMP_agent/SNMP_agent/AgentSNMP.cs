@@ -174,7 +174,7 @@ namespace SNMP_agent {
 
                         foreach (Vb v in pkt.Pdu.VbList)
                         {                         
-                            gui.addRowToTrapTable(pkt.Pdu.AgentAddress.ToString(), v.Oid.ToString(), v.Value.ToString(), time, pkt.Version.ToString(), pkt.Pdu.Generic);                        
+                            gui.addRowToTrapTable(pkt.Pdu.AgentAddress.ToString(), v.Oid.ToString(), v.Value.ToString(), time, pkt.Pdu.Generic);                        
                         }              
                     }
                 }
