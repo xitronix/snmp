@@ -32,136 +32,149 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.menu1ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.watchToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.trapToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.startWatcingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.StopWatchingMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.menu2ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.menu3ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.sendTrapToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.startReceivingTrapToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.stopReceivingTrapToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.labelOID = new System.Windows.Forms.Label();
             this.textBoxOID = new System.Windows.Forms.TextBox();
             this.labelOperations = new System.Windows.Forms.Label();
             this.comboBoxOperations = new System.Windows.Forms.ComboBox();
             this.buttonGo = new System.Windows.Forms.Button();
-            this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
-            this.treeView = new System.Windows.Forms.TreeView();
             this.imageList = new System.Windows.Forms.ImageList(this.components);
             this.tabControlResult = new System.Windows.Forms.TabControl();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.dataGridViewResultTable = new System.Windows.Forms.DataGridView();
-            this.OIDColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ValueColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TypeColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
-            this.buttonRefresh = new System.Windows.Forms.Button();
-            this.dataGridViewTableView = new System.Windows.Forms.DataGridView();
-            this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.dataGridViewWatchedElements = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.dataGridViewTrapTable = new System.Windows.Forms.DataGridView();
-            this.textBoxtest = new System.Windows.Forms.TextBox();
-            this.stopTrapToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Value = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Version = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Generic = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Value = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.dataGridViewWatchedElements = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
+            this.dataGridViewTableView = new System.Windows.Forms.DataGridView();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.dataGridViewResultTable = new System.Windows.Forms.DataGridView();
+            this.TypeColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ValueColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.OIDColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.treeView = new System.Windows.Forms.TreeView();
+            this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
-            this.tableLayoutPanel3.SuspendLayout();
             this.tabControlResult.SuspendLayout();
-            this.tabPage1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewResultTable)).BeginInit();
+            this.tabPage4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewTrapTable)).BeginInit();
+            this.tabPage3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewWatchedElements)).BeginInit();
             this.tabPage2.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewTableView)).BeginInit();
-            this.tabPage3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewWatchedElements)).BeginInit();
-            this.tabPage4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewTrapTable)).BeginInit();
+            this.tabPage1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewResultTable)).BeginInit();
+            this.tableLayoutPanel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
             // 
+            this.tableLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tableLayoutPanel1.AutoSize = true;
+            this.tableLayoutPanel1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.tableLayoutPanel1.ColumnCount = 1;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.Controls.Add(this.menuStrip1, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel2, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel3, 0, 2);
-            this.tableLayoutPanel1.Controls.Add(this.textBoxtest, 0, 3);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 2);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 4;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 42.62295F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 57.37705F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 353F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(867, 429);
+            this.tableLayoutPanel1.RowCount = 3;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 34F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 591F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1135, 650);
             this.tableLayoutPanel1.TabIndex = 0;
+            this.tableLayoutPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel1_Paint);
             // 
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.menu1ToolStripMenuItem,
-            this.menu2ToolStripMenuItem,
-            this.menu3ToolStripMenuItem});
+            this.menu2ToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(867, 23);
+            this.menuStrip1.Size = new System.Drawing.Size(1135, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
             // menu1ToolStripMenuItem
             // 
             this.menu1ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.watchToolStripMenuItem,
-            this.toolStripMenuItem1,
-            this.trapToolStripMenuItem,
-            this.stopTrapToolStripMenuItem});
+            this.startWatcingToolStripMenuItem,
+            this.StopWatchingMenuItem1});
             this.menu1ToolStripMenuItem.Name = "menu1ToolStripMenuItem";
-            this.menu1ToolStripMenuItem.Size = new System.Drawing.Size(56, 19);
-            this.menu1ToolStripMenuItem.Text = "Menu1";
+            this.menu1ToolStripMenuItem.Size = new System.Drawing.Size(53, 20);
+            this.menu1ToolStripMenuItem.Text = "Watch";
             // 
-            // watchToolStripMenuItem
+            // startWatcingToolStripMenuItem
             // 
-            this.watchToolStripMenuItem.Name = "watchToolStripMenuItem";
-            this.watchToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.watchToolStripMenuItem.Text = "Watch";
-            this.watchToolStripMenuItem.Click += new System.EventHandler(this.watchToolStripMenuItem_Click);
+            this.startWatcingToolStripMenuItem.Name = "startWatcingToolStripMenuItem";
+            this.startWatcingToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.startWatcingToolStripMenuItem.Text = "Start Watching";
+            this.startWatcingToolStripMenuItem.Click += new System.EventHandler(this.watchToolStripMenuItem_Click);
             // 
-            // toolStripMenuItem1
+            // StopWatchingMenuItem1
             // 
-            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
-            this.toolStripMenuItem1.Text = "StopWatching";
-            this.toolStripMenuItem1.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
-            // 
-            // trapToolStripMenuItem
-            // 
-            this.trapToolStripMenuItem.Name = "trapToolStripMenuItem";
-            this.trapToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.trapToolStripMenuItem.Text = "Trap";
-            this.trapToolStripMenuItem.Click += new System.EventHandler(this.trapToolStripMenuItem_Click);
+            this.StopWatchingMenuItem1.Name = "StopWatchingMenuItem1";
+            this.StopWatchingMenuItem1.Size = new System.Drawing.Size(152, 22);
+            this.StopWatchingMenuItem1.Text = "Stop Watching";
+            this.StopWatchingMenuItem1.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
             // 
             // menu2ToolStripMenuItem
             // 
+            this.menu2ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.sendTrapToolStripMenuItem,
+            this.startReceivingTrapToolStripMenuItem,
+            this.stopReceivingTrapToolStripMenuItem});
             this.menu2ToolStripMenuItem.Name = "menu2ToolStripMenuItem";
-            this.menu2ToolStripMenuItem.Size = new System.Drawing.Size(56, 19);
-            this.menu2ToolStripMenuItem.Text = "Menu2";
+            this.menu2ToolStripMenuItem.Size = new System.Drawing.Size(42, 20);
+            this.menu2ToolStripMenuItem.Text = "Trap";
             // 
-            // menu3ToolStripMenuItem
+            // sendTrapToolStripMenuItem
             // 
-            this.menu3ToolStripMenuItem.Name = "menu3ToolStripMenuItem";
-            this.menu3ToolStripMenuItem.Size = new System.Drawing.Size(56, 19);
-            this.menu3ToolStripMenuItem.Text = "Menu3";
+            this.sendTrapToolStripMenuItem.Name = "sendTrapToolStripMenuItem";
+            this.sendTrapToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
+            this.sendTrapToolStripMenuItem.Text = "Send Trap";
+            this.sendTrapToolStripMenuItem.Click += new System.EventHandler(this.sendTrapToolStripMenuItem_Click);
+            // 
+            // startReceivingTrapToolStripMenuItem
+            // 
+            this.startReceivingTrapToolStripMenuItem.Name = "startReceivingTrapToolStripMenuItem";
+            this.startReceivingTrapToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
+            this.startReceivingTrapToolStripMenuItem.Text = "Start Receiving Trap";
+            this.startReceivingTrapToolStripMenuItem.Click += new System.EventHandler(this.startReceivingTrapToolStripMenuItem_Click);
+            // 
+            // stopReceivingTrapToolStripMenuItem
+            // 
+            this.stopReceivingTrapToolStripMenuItem.Name = "stopReceivingTrapToolStripMenuItem";
+            this.stopReceivingTrapToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
+            this.stopReceivingTrapToolStripMenuItem.Text = "Stop Receiving Trap";
+            this.stopReceivingTrapToolStripMenuItem.Click += new System.EventHandler(this.stopReceivingTrapToolStripMenuItem_Click);
             // 
             // tableLayoutPanel2
             // 
+            this.tableLayoutPanel2.AutoSize = true;
             this.tableLayoutPanel2.ColumnCount = 5;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 40F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 420F));
@@ -173,18 +186,18 @@
             this.tableLayoutPanel2.Controls.Add(this.labelOperations, 2, 0);
             this.tableLayoutPanel2.Controls.Add(this.comboBoxOperations, 3, 0);
             this.tableLayoutPanel2.Controls.Add(this.buttonGo, 4, 0);
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 26);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 28);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(861, 26);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(861, 27);
             this.tableLayoutPanel2.TabIndex = 1;
             // 
             // labelOID
             // 
             this.labelOID.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.labelOID.AutoSize = true;
-            this.labelOID.Location = new System.Drawing.Point(5, 6);
+            this.labelOID.Location = new System.Drawing.Point(5, 7);
             this.labelOID.Name = "labelOID";
             this.labelOID.Size = new System.Drawing.Size(29, 13);
             this.labelOID.TabIndex = 2;
@@ -202,7 +215,7 @@
             // 
             this.labelOperations.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.labelOperations.AutoSize = true;
-            this.labelOperations.Location = new System.Drawing.Point(468, 6);
+            this.labelOperations.Location = new System.Drawing.Point(468, 7);
             this.labelOperations.Name = "labelOperations";
             this.labelOperations.Size = new System.Drawing.Size(61, 13);
             this.labelOperations.TabIndex = 4;
@@ -229,31 +242,6 @@
             this.buttonGo.UseVisualStyleBackColor = true;
             this.buttonGo.Click += new System.EventHandler(this.buttonGo_Click);
             // 
-            // tableLayoutPanel3
-            // 
-            this.tableLayoutPanel3.ColumnCount = 2;
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 28.91986F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 71.08014F));
-            this.tableLayoutPanel3.Controls.Add(this.treeView, 0, 0);
-            this.tableLayoutPanel3.Controls.Add(this.tabControlResult, 1, 0);
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(3, 58);
-            this.tableLayoutPanel3.Name = "tableLayoutPanel3";
-            this.tableLayoutPanel3.RowCount = 1;
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(861, 347);
-            this.tableLayoutPanel3.TabIndex = 2;
-            // 
-            // treeView
-            // 
-            this.treeView.ImageIndex = 0;
-            this.treeView.ImageList = this.imageList;
-            this.treeView.Location = new System.Drawing.Point(3, 3);
-            this.treeView.Name = "treeView";
-            this.treeView.SelectedImageIndex = 0;
-            this.treeView.Size = new System.Drawing.Size(243, 341);
-            this.treeView.TabIndex = 0;
-            this.treeView.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeView_AfterSelect);
-            // 
             // imageList
             // 
             this.imageList.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit;
@@ -266,108 +254,77 @@
             this.tabControlResult.Controls.Add(this.tabPage2);
             this.tabControlResult.Controls.Add(this.tabPage3);
             this.tabControlResult.Controls.Add(this.tabPage4);
-            this.tabControlResult.Location = new System.Drawing.Point(252, 3);
+            this.tabControlResult.Location = new System.Drawing.Point(267, 3);
             this.tabControlResult.Name = "tabControlResult";
             this.tabControlResult.SelectedIndex = 0;
-            this.tabControlResult.Size = new System.Drawing.Size(606, 341);
+            this.tabControlResult.Size = new System.Drawing.Size(859, 455);
             this.tabControlResult.TabIndex = 1;
             // 
-            // tabPage1
+            // tabPage4
             // 
-            this.tabPage1.Controls.Add(this.dataGridViewResultTable);
-            this.tabPage1.Location = new System.Drawing.Point(4, 22);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(598, 315);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "Result Table";
-            this.tabPage1.UseVisualStyleBackColor = true;
+            this.tabPage4.Controls.Add(this.dataGridViewTrapTable);
+            this.tabPage4.Location = new System.Drawing.Point(4, 22);
+            this.tabPage4.Name = "tabPage4";
+            this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage4.Size = new System.Drawing.Size(851, 429);
+            this.tabPage4.TabIndex = 3;
+            this.tabPage4.Text = "Received Traps";
+            this.tabPage4.UseVisualStyleBackColor = true;
             // 
-            // dataGridViewResultTable
+            // dataGridViewTrapTable
             // 
-            this.dataGridViewResultTable.AllowUserToAddRows = false;
-            this.dataGridViewResultTable.AllowUserToDeleteRows = false;
-            this.dataGridViewResultTable.AllowUserToResizeRows = false;
-            this.dataGridViewResultTable.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.dataGridViewResultTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewResultTable.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.OIDColumn,
-            this.ValueColumn,
-            this.TypeColumn});
-            this.dataGridViewResultTable.Location = new System.Drawing.Point(0, 0);
-            this.dataGridViewResultTable.Name = "dataGridViewResultTable";
-            this.dataGridViewResultTable.RowHeadersVisible = false;
-            this.dataGridViewResultTable.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewResultTable.Size = new System.Drawing.Size(598, 315);
-            this.dataGridViewResultTable.TabIndex = 0;
+            this.dataGridViewTrapTable.AllowUserToAddRows = false;
+            this.dataGridViewTrapTable.AllowUserToDeleteRows = false;
+            this.dataGridViewTrapTable.AllowUserToResizeRows = false;
+            this.dataGridViewTrapTable.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.dataGridViewTrapTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewTrapTable.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn6,
+            this.ColumnName,
+            this.Value,
+            this.dataGridViewTextBoxColumn7,
+            this.Generic,
+            this.Version});
+            this.dataGridViewTrapTable.Location = new System.Drawing.Point(0, 0);
+            this.dataGridViewTrapTable.Name = "dataGridViewTrapTable";
+            this.dataGridViewTrapTable.RowHeadersVisible = false;
+            this.dataGridViewTrapTable.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridViewTrapTable.Size = new System.Drawing.Size(855, 433);
+            this.dataGridViewTrapTable.TabIndex = 1;
             // 
-            // OIDColumn
+            // Version
             // 
-            this.OIDColumn.HeaderText = "Name/OID";
-            this.OIDColumn.Name = "OIDColumn";
-            this.OIDColumn.ReadOnly = true;
-            this.OIDColumn.Width = 200;
+            this.Version.HeaderText = "SNMP Version";
+            this.Version.Name = "Version";
             // 
-            // ValueColumn
+            // Generic
             // 
-            this.ValueColumn.HeaderText = "Value";
-            this.ValueColumn.Name = "ValueColumn";
-            this.ValueColumn.ReadOnly = true;
-            this.ValueColumn.Width = 295;
+            this.Generic.HeaderText = "Generic";
+            this.Generic.Name = "Generic";
             // 
-            // TypeColumn
+            // dataGridViewTextBoxColumn7
             // 
-            this.TypeColumn.HeaderText = "Type";
-            this.TypeColumn.Name = "TypeColumn";
-            this.TypeColumn.ReadOnly = true;
+            this.dataGridViewTextBoxColumn7.HeaderText = "Time";
+            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
+            this.dataGridViewTextBoxColumn7.ReadOnly = true;
+            this.dataGridViewTextBoxColumn7.Width = 200;
             // 
-            // tabPage2
+            // Value
             // 
-            this.tabPage2.Controls.Add(this.tableLayoutPanel4);
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(598, 315);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Table View";
-            this.tabPage2.UseVisualStyleBackColor = true;
+            this.Value.HeaderText = "Value";
+            this.Value.Name = "Value";
             // 
-            // tableLayoutPanel4
+            // ColumnName
             // 
-            this.tableLayoutPanel4.ColumnCount = 1;
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel4.Controls.Add(this.buttonRefresh, 0, 0);
-            this.tableLayoutPanel4.Controls.Add(this.dataGridViewTableView, 0, 1);
-            this.tableLayoutPanel4.Location = new System.Drawing.Point(3, 6);
-            this.tableLayoutPanel4.Name = "tableLayoutPanel4";
-            this.tableLayoutPanel4.RowCount = 2;
-            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 280F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(592, 309);
-            this.tableLayoutPanel4.TabIndex = 0;
+            this.ColumnName.HeaderText = "Name";
+            this.ColumnName.Name = "ColumnName";
             // 
-            // buttonRefresh
+            // dataGridViewTextBoxColumn6
             // 
-            this.buttonRefresh.Location = new System.Drawing.Point(3, 3);
-            this.buttonRefresh.Name = "buttonRefresh";
-            this.buttonRefresh.Size = new System.Drawing.Size(75, 23);
-            this.buttonRefresh.TabIndex = 0;
-            this.buttonRefresh.Text = "Refresh";
-            this.buttonRefresh.UseVisualStyleBackColor = true;
-            // 
-            // dataGridViewTableView
-            // 
-            this.dataGridViewTableView.AllowUserToAddRows = false;
-            this.dataGridViewTableView.AllowUserToDeleteRows = false;
-            this.dataGridViewTableView.AllowUserToResizeColumns = false;
-            this.dataGridViewTableView.AllowUserToResizeRows = false;
-            this.dataGridViewTableView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewTableView.Location = new System.Drawing.Point(3, 32);
-            this.dataGridViewTableView.Name = "dataGridViewTableView";
-            this.dataGridViewTableView.RowHeadersVisible = false;
-            this.dataGridViewTableView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewTableView.Size = new System.Drawing.Size(586, 274);
-            this.dataGridViewTableView.TabIndex = 1;
+            this.dataGridViewTextBoxColumn6.HeaderText = "Source";
+            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            this.dataGridViewTextBoxColumn6.ReadOnly = true;
+            this.dataGridViewTextBoxColumn6.Width = 150;
             // 
             // tabPage3
             // 
@@ -375,7 +332,7 @@
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(598, 315);
+            this.tabPage3.Size = new System.Drawing.Size(851, 429);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Watched Elements";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -395,15 +352,14 @@
             this.dataGridViewWatchedElements.Name = "dataGridViewWatchedElements";
             this.dataGridViewWatchedElements.RowHeadersVisible = false;
             this.dataGridViewWatchedElements.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewWatchedElements.Size = new System.Drawing.Size(598, 315);
+            this.dataGridViewWatchedElements.Size = new System.Drawing.Size(858, 433);
             this.dataGridViewWatchedElements.TabIndex = 1;
             // 
-            // dataGridViewTextBoxColumn1
+            // dataGridViewTextBoxColumn3
             // 
-            this.dataGridViewTextBoxColumn1.HeaderText = "Name/OID";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.ReadOnly = true;
-            this.dataGridViewTextBoxColumn1.Width = 200;
+            this.dataGridViewTextBoxColumn3.HeaderText = "Type";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn2
             // 
@@ -412,91 +368,134 @@
             this.dataGridViewTextBoxColumn2.ReadOnly = true;
             this.dataGridViewTextBoxColumn2.Width = 295;
             // 
-            // dataGridViewTextBoxColumn3
+            // dataGridViewTextBoxColumn1
             // 
-            this.dataGridViewTextBoxColumn3.HeaderText = "Type";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            this.dataGridViewTextBoxColumn3.ReadOnly = true;
+            this.dataGridViewTextBoxColumn1.HeaderText = "Name/OID";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            this.dataGridViewTextBoxColumn1.Width = 200;
             // 
-            // tabPage4
+            // tabPage2
             // 
-            this.tabPage4.Controls.Add(this.dataGridViewTrapTable);
-            this.tabPage4.Location = new System.Drawing.Point(4, 22);
-            this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage4.Size = new System.Drawing.Size(598, 315);
-            this.tabPage4.TabIndex = 3;
-            this.tabPage4.Text = "Received Traps";
-            this.tabPage4.UseVisualStyleBackColor = true;
+            this.tabPage2.Controls.Add(this.tableLayoutPanel4);
+            this.tabPage2.Location = new System.Drawing.Point(4, 22);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(851, 429);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "Table View";
+            this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // dataGridViewTrapTable
+            // tableLayoutPanel4
             // 
-            this.dataGridViewTrapTable.AllowUserToAddRows = false;
-            this.dataGridViewTrapTable.AllowUserToDeleteRows = false;
-            this.dataGridViewTrapTable.AllowUserToResizeRows = false;
-            this.dataGridViewTrapTable.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.dataGridViewTrapTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewTrapTable.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn6,
-            this.ColumnName,
-            this.Value,
-            this.dataGridViewTextBoxColumn7,
-            this.Version});
-            this.dataGridViewTrapTable.Location = new System.Drawing.Point(-3, 0);
-            this.dataGridViewTrapTable.Name = "dataGridViewTrapTable";
-            this.dataGridViewTrapTable.RowHeadersVisible = false;
-            this.dataGridViewTrapTable.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewTrapTable.Size = new System.Drawing.Size(598, 315);
-            this.dataGridViewTrapTable.TabIndex = 1;
+            this.tableLayoutPanel4.ColumnCount = 1;
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel4.Controls.Add(this.dataGridViewTableView, 0, 0);
+            this.tableLayoutPanel4.Location = new System.Drawing.Point(3, 3);
+            this.tableLayoutPanel4.Name = "tableLayoutPanel4";
+            this.tableLayoutPanel4.RowCount = 1;
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 280F));
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(845, 430);
+            this.tableLayoutPanel4.TabIndex = 0;
             // 
-            // textBoxtest
+            // dataGridViewTableView
             // 
-            this.textBoxtest.Location = new System.Drawing.Point(3, 411);
-            this.textBoxtest.Name = "textBoxtest";
-            this.textBoxtest.Size = new System.Drawing.Size(861, 20);
-            this.textBoxtest.TabIndex = 3;
+            this.dataGridViewTableView.AllowUserToAddRows = false;
+            this.dataGridViewTableView.AllowUserToDeleteRows = false;
+            this.dataGridViewTableView.AllowUserToResizeColumns = false;
+            this.dataGridViewTableView.AllowUserToResizeRows = false;
+            this.dataGridViewTableView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewTableView.Location = new System.Drawing.Point(3, 3);
+            this.dataGridViewTableView.Name = "dataGridViewTableView";
+            this.dataGridViewTableView.RowHeadersVisible = false;
+            this.dataGridViewTableView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridViewTableView.Size = new System.Drawing.Size(839, 423);
+            this.dataGridViewTableView.TabIndex = 1;
             // 
-            // stopTrapToolStripMenuItem
+            // tabPage1
             // 
-            this.stopTrapToolStripMenuItem.Name = "stopTrapToolStripMenuItem";
-            this.stopTrapToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.stopTrapToolStripMenuItem.Text = "StopTrap";
-            this.stopTrapToolStripMenuItem.Click += new System.EventHandler(this.stopTrapToolStripMenuItem_Click);
+            this.tabPage1.Controls.Add(this.dataGridViewResultTable);
+            this.tabPage1.Location = new System.Drawing.Point(4, 22);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(851, 429);
+            this.tabPage1.TabIndex = 0;
+            this.tabPage1.Text = "Result Table";
+            this.tabPage1.UseVisualStyleBackColor = true;
             // 
-            // dataGridViewTextBoxColumn6
+            // dataGridViewResultTable
             // 
-            this.dataGridViewTextBoxColumn6.HeaderText = "Source";
-            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
-            this.dataGridViewTextBoxColumn6.ReadOnly = true;
-            this.dataGridViewTextBoxColumn6.Width = 150;
+            this.dataGridViewResultTable.AllowUserToAddRows = false;
+            this.dataGridViewResultTable.AllowUserToDeleteRows = false;
+            this.dataGridViewResultTable.AllowUserToResizeRows = false;
+            this.dataGridViewResultTable.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataGridViewResultTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewResultTable.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.OIDColumn,
+            this.ValueColumn,
+            this.TypeColumn});
+            this.dataGridViewResultTable.Location = new System.Drawing.Point(0, 0);
+            this.dataGridViewResultTable.Name = "dataGridViewResultTable";
+            this.dataGridViewResultTable.RowHeadersVisible = false;
+            this.dataGridViewResultTable.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridViewResultTable.Size = new System.Drawing.Size(1049, 547);
+            this.dataGridViewResultTable.TabIndex = 0;
             // 
-            // ColumnName
+            // TypeColumn
             // 
-            this.ColumnName.HeaderText = "Name";
-            this.ColumnName.Name = "ColumnName";
+            this.TypeColumn.HeaderText = "Type";
+            this.TypeColumn.Name = "TypeColumn";
+            this.TypeColumn.ReadOnly = true;
             // 
-            // Value
+            // ValueColumn
             // 
-            this.Value.HeaderText = "Value";
-            this.Value.Name = "Value";
+            this.ValueColumn.HeaderText = "Value";
+            this.ValueColumn.Name = "ValueColumn";
+            this.ValueColumn.ReadOnly = true;
+            this.ValueColumn.Width = 295;
             // 
-            // dataGridViewTextBoxColumn7
+            // OIDColumn
             // 
-            this.dataGridViewTextBoxColumn7.HeaderText = "Time";
-            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
-            this.dataGridViewTextBoxColumn7.ReadOnly = true;
-            this.dataGridViewTextBoxColumn7.Width = 200;
+            this.OIDColumn.HeaderText = "Name/OID";
+            this.OIDColumn.Name = "OIDColumn";
+            this.OIDColumn.ReadOnly = true;
+            this.OIDColumn.Width = 200;
             // 
-            // Version
+            // treeView
             // 
-            this.Version.HeaderText = "SNMP Version";
-            this.Version.Name = "Version";
+            this.treeView.ImageIndex = 0;
+            this.treeView.ImageList = this.imageList;
+            this.treeView.Location = new System.Drawing.Point(3, 3);
+            this.treeView.Name = "treeView";
+            this.treeView.SelectedImageIndex = 0;
+            this.treeView.Size = new System.Drawing.Size(255, 455);
+            this.treeView.TabIndex = 0;
+            this.treeView.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeView_AfterSelect);
+            // 
+            // tableLayoutPanel3
+            // 
+            this.tableLayoutPanel3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.tableLayoutPanel3.AutoSize = true;
+            this.tableLayoutPanel3.ColumnCount = 2;
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 23.45455F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 76.54546F));
+            this.tableLayoutPanel3.Controls.Add(this.treeView, 0, 0);
+            this.tableLayoutPanel3.Controls.Add(this.tabControlResult, 1, 0);
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(3, 62);
+            this.tableLayoutPanel3.Name = "tableLayoutPanel3";
+            this.tableLayoutPanel3.RowCount = 1;
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(1129, 585);
+            this.tableLayoutPanel3.TabIndex = 2;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(871, 434);
+            this.AutoSize = true;
+            this.ClientSize = new System.Drawing.Size(1139, 521);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "Form1";
             this.Text = "SNMP";
@@ -506,18 +505,19 @@
             this.menuStrip1.PerformLayout();
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();
-            this.tableLayoutPanel3.ResumeLayout(false);
             this.tabControlResult.ResumeLayout(false);
-            this.tabPage1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewResultTable)).EndInit();
+            this.tabPage4.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewTrapTable)).EndInit();
+            this.tabPage3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewWatchedElements)).EndInit();
             this.tabPage2.ResumeLayout(false);
             this.tableLayoutPanel4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewTableView)).EndInit();
-            this.tabPage3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewWatchedElements)).EndInit();
-            this.tabPage4.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewTrapTable)).EndInit();
+            this.tabPage1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewResultTable)).EndInit();
+            this.tableLayoutPanel3.ResumeLayout(false);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -527,42 +527,41 @@
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem menu1ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem menu2ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem menu3ToolStripMenuItem;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.Label labelOID;
         private System.Windows.Forms.TextBox textBoxOID;
         private System.Windows.Forms.Label labelOperations;
         private System.Windows.Forms.ComboBox comboBoxOperations;
         private System.Windows.Forms.Button buttonGo;
+        private System.Windows.Forms.ImageList imageList;
+        private System.Windows.Forms.ToolStripMenuItem startWatcingToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem StopWatchingMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem sendTrapToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem startReceivingTrapToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem stopReceivingTrapToolStripMenuItem;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
         private System.Windows.Forms.TreeView treeView;
         private System.Windows.Forms.TabControl tabControlResult;
         private System.Windows.Forms.TabPage tabPage1;
-        private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.DataGridView dataGridViewResultTable;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
-        private System.Windows.Forms.Button buttonRefresh;
-        private System.Windows.Forms.DataGridView dataGridViewTableView;
-        private System.Windows.Forms.ImageList imageList;
-        private System.Windows.Forms.TabPage tabPage3;
-        private System.Windows.Forms.DataGridView dataGridViewWatchedElements;
-        private System.Windows.Forms.ToolStripMenuItem watchToolStripMenuItem;
-        public System.Windows.Forms.TextBox textBoxtest;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem trapToolStripMenuItem;
-        private System.Windows.Forms.TabPage tabPage4;
-        private System.Windows.Forms.DataGridView dataGridViewTrapTable;
         private System.Windows.Forms.DataGridViewTextBoxColumn OIDColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn ValueColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn TypeColumn;
+        private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
+        private System.Windows.Forms.DataGridView dataGridViewTableView;
+        private System.Windows.Forms.TabPage tabPage3;
+        private System.Windows.Forms.DataGridView dataGridViewWatchedElements;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
-        private System.Windows.Forms.ToolStripMenuItem stopTrapToolStripMenuItem;
+        private System.Windows.Forms.TabPage tabPage4;
+        private System.Windows.Forms.DataGridView dataGridViewTrapTable;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnName;
         private System.Windows.Forms.DataGridViewTextBoxColumn Value;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Generic;
         private System.Windows.Forms.DataGridViewTextBoxColumn Version;
     }
 }

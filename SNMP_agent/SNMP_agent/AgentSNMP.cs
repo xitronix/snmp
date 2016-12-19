@@ -107,20 +107,24 @@ namespace SNMP_agent {
             return rsltStrings;
         }
 
-        public static VbCollection VbCol(String str, String oid, uint time) {
+        public static VbCollection CreateVbCol(String value, String name, String type) {
             VbCollection col = new VbCollection();
-            col.Add(new Oid("1.3.6.1.2.1.1.1.0"), new OctetString(str));
-            col.Add(new Oid("1.3.6.1.2.1.1.2.0"), new Oid(oid));
-            col.Add(new Oid("1.3.6.1.2.1.1.3.0"), new TimeTicks(2324));
+            col.Add(new Oid(name), new OctetString(value));
+            
             return col;
         }
 
-        public static void Trap(TrapAgent agent, String receiverIP, int port, String community, String oid,
-            String senderIP,
-            int generic, int specific, uint senderUpTime, VbCollection col) {
-            agent.SendV1Trap(new IpAddress(receiverIP), port, community,
-                new Oid(oid), new IpAddress(senderIP),
-                generic, specific, senderUpTime, col);
+        public static bool SendTrap(TrapAgent agent, String receiverIP, int port, String community, String oid,
+                                    String senderIP, int generic, int specific, uint senderUpTime, VbCollection col)
+        {
+            try {
+                agent.SendV1Trap(new IpAddress(receiverIP), port, community,
+                    new Oid(oid), new IpAddress(senderIP),
+                    generic, specific, senderUpTime, col);
+                return true;
+            }
+            catch (Exception e)
+            { return false; }
         }
 
         public void startTrap()
@@ -158,42 +162,21 @@ namespace SNMP_agent {
                 }
                 catch (Exception ex)
                 {
-                    Debug.WriteLine("Exception {0}", ex.Message);
                     inlen = -1;
                 }
                 if (inlen > 0)
                 {
                     int ver = SnmpPacket.GetProtocolVersion(indata, inlen);
                     if (ver == (int)SnmpVersion.Ver1)
-                    {
+                    {                       
                         SnmpV1TrapPacket pkt = new SnmpV1TrapPacket();
                         pkt.decode(indata, inlen);
-                        
-                        Debug.WriteLine("** SNMP Version 1 TRAP received from {0}:", inep.ToString());
-                        Debug.WriteLine("*** Trap generic: {0}", pkt.Pdu.Generic);
-                        Debug.WriteLine("*** Trap specific: {0}", pkt.Pdu.Specific);
-                        Debug.WriteLine("*** Agent address: {0}", pkt.Pdu.AgentAddress.ToString());
-                        Debug.WriteLine("*** Timestamp: {0}", pkt.Pdu.TimeStamp.ToString());
-                        Debug.WriteLine("*** VarBind count: {0}", pkt.Pdu.VbList.Count);
-                        Debug.WriteLine("*** VarBind content:");
 
-                        List<String> values = new List<String>();
                         foreach (Vb v in pkt.Pdu.VbList)
-                        {
-                            var source = pkt.Pdu.AgentAddress;
-                            var oid = v.Oid;
-                            var value = v.Value;
-                            gui.addRowToTrapTable(source.ToString(), oid.ToString(), value.ToString(), time, "1");                        
-                        }
-                        
-                        Debug.WriteLine("** End of SNMP Version 1 TRAP data.");
-                        //gui.addRowToTrapTable(values[0], values[1], values[2]);
+                        {                         
+                            gui.addRowToTrapTable(pkt.Pdu.AgentAddress.ToString(), v.Oid.ToString(), v.Value.ToString(), time, pkt.Version.ToString(), pkt.Pdu.Generic);                        
+                        }              
                     }
-                }
-                else
-                {
-                    if (inlen == 0)
-                        Debug.WriteLine("Zero length packet received.");
                 }
             }
         }

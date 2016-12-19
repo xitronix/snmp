@@ -39,10 +39,8 @@ namespace SNMP_agent {
             mibElementsDictionary = new Dictionary<string, string>();
             loadMibTreeElements();
 
-       /*     string[] dd = {"pp", "dd", "ll"};
-            addNewTableView(dd);
-            string[] ss = {"bbb", "aaa", "ll", "lala"};
-            addNewTableView(ss); */
+            stopReceivingTrapToolStripMenuItem.Enabled = false;
+            StopWatchingMenuItem1.Enabled = false;
         }
 
         private void buttonGo_Click(object sender, EventArgs e) {
@@ -114,11 +112,33 @@ namespace SNMP_agent {
                 this.Invoke(mi);
         }
 
-        public void addRowToTrapTable(string source, string name, string value, DateTime time, string snmpVersion)
+        public void addRowToTrapTable(string source, string name, string value, DateTime time, string snmpVersion, int generic)
         {
             MethodInvoker mi = delegate
             {
-                dataGridViewTrapTable.Rows.Add(source, name, value, time, snmpVersion);
+                string genericName = "";
+                switch (generic)
+                {
+                    case 0:
+                        genericName = "ColdStart";
+                        break;
+                    case 1:
+                        genericName = "WarmStart";
+                        break;
+                    case 2:
+                        genericName = "LinkDown";
+                        break;
+                    case 3:
+                        genericName = "LinkUp";
+                        break;
+                    case 4:
+                        genericName = "AuthenticationFailure";
+                        break;
+                    case 5:
+                        genericName = "EGPNeithbourLoss";
+                        break;
+                }
+                dataGridViewTrapTable.Rows.Add(source, name, value, time, genericName, snmpVersion);
             };
             if (InvokeRequired)
                 this.Invoke(mi);       
@@ -158,7 +178,7 @@ namespace SNMP_agent {
 
                 dataGridViewTableView.Columns.Add(column);
             }
-
+            tabControlResult.SelectedIndex = 1;
             //dataGridViewTableView.Columns.Remove(dataGridViewTableView.Columns[0]);
         }
 
@@ -240,6 +260,9 @@ namespace SNMP_agent {
 
         private void watchToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            startWatcingToolStripMenuItem.Enabled = false;
+            StopWatchingMenuItem1.Enabled = true;
+            tabControlResult.SelectedIndex = 2;
             var form  = new WatchElementWindow(this);
             form.Visible = true;                     
         }
@@ -253,20 +276,40 @@ namespace SNMP_agent {
         private void toolStripMenuItem1_Click(object sender, EventArgs e)
         {
             snmpAgent.stopWatching();
+            startWatcingToolStripMenuItem.Enabled = true;
+            StopWatchingMenuItem1.Enabled = false;
         }
-
-        private void trapToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            snmpAgent.startTrap();
-        }
+       
         void f_FormClosed(object sender, FormClosedEventArgs e)
         {
             snmpAgent.stopWatching();
+            snmpAgent.stopTrap();
+        }    
+
+        private void sendTrapToolStripMenuItem_Click(object sender, EventArgs e)
+        {           
+            var trapSender = new TrapSender();
+            trapSender.Visible = true;   
         }
 
-        private void stopTrapToolStripMenuItem_Click(object sender, EventArgs e)
+        private void startReceivingTrapToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            snmpAgent.startTrap();
+            tabControlResult.SelectedIndex = 3;
+            startReceivingTrapToolStripMenuItem.Enabled = false;
+            stopReceivingTrapToolStripMenuItem.Enabled = true;  
+        }
+
+        private void stopReceivingTrapToolStripMenuItem_Click(object sender, EventArgs e)
         {
             snmpAgent.stopTrap();
+            startReceivingTrapToolStripMenuItem.Enabled = true;
+            stopReceivingTrapToolStripMenuItem.Enabled = false;
+        }
+
+        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

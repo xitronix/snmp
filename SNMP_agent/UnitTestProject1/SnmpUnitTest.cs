@@ -53,7 +53,7 @@ namespace SnmpUnitTest
 
             VbCollection col = AgentSNMP.VbCol("gowno", "1.3.6.1.9.1.1.0", 1234);
 
-            AgentSNMP.Trap(agent, receiverIP, port, community, oid, senderIP, generic, specific, senderUpTime, col);
+            AgentSNMP.SendTrap(agent, receiverIP, port, community, oid, senderIP, generic, specific, senderUpTime, col);
         }
     }
 }
