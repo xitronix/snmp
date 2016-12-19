@@ -171,10 +171,9 @@ namespace SNMP_agent {
 
             Dictionary<String, Dictionary<uint, AsnType>> result = new Dictionary<String, Dictionary<uint, AsnType>>();
             List<uint> tableColumns = new List<uint>();
-            // Prepare agent information
-            AgentParameters param = new AgentParameters(SnmpVersion.Ver2, new OctetString(snmp.Community));
+            var param = new AgentParameters(SnmpVersion.Ver2, new OctetString(snmp.Community));
 
-            IpAddress peer = new IpAddress(snmp.PeerIP);
+            var peer = new IpAddress(snmp.PeerIP);
             if (!
                     peer.Valid
             ) {
@@ -182,14 +181,14 @@ namespace SNMP_agent {
                 return null;
             }
 
-            UdpTarget target = new UdpTarget((IPAddress) peer);
-            Oid startOid = new Oid(oid);
+            var target = new UdpTarget((IPAddress) peer);
+            var startOid = new Oid(oid);
             startOid.Add(1);
-            Pdu bulkPdu = Pdu.GetBulkPdu();
+            var bulkPdu = Pdu.GetBulkPdu();
             bulkPdu.VbList.Add(startOid);
             bulkPdu.NonRepeaters = 0;
             bulkPdu.MaxRepetitions = 100;
-            Oid curOid = (Oid) startOid.Clone();
+            var curOid = (Oid) startOid.Clone();
             while (
                 startOid.IsRootOf(curOid)) {
                 SnmpPacket res = null;
@@ -212,7 +211,7 @@ namespace SNMP_agent {
                     target.Close();
                     return null;
                 }
-                foreach (Vb v in res.Pdu.VbList) {
+                foreach (var v in res.Pdu.VbList) {
                     curOid = (Oid) v.Oid.Clone();
                     if (startOid.IsRootOf(v.Oid)) {
                         uint[] childOids = Oid.GetChildIdentifiers(startOid, v.Oid);
@@ -234,32 +233,26 @@ namespace SNMP_agent {
                         break;
                     }
                 }
-                if (startOid.IsRootOf(curOid)) {
-                    bulkPdu.VbList.Clear();
-                    bulkPdu.VbList.Add(curOid);
-                    bulkPdu.NonRepeaters = 0;
-                    bulkPdu.MaxRepetitions = 10;
-                }
+                if (!startOid.IsRootOf(curOid)) continue;
+                bulkPdu.VbList.Clear();
+                bulkPdu.VbList.Add(curOid);
+                bulkPdu.NonRepeaters = 0;
+                bulkPdu.MaxRepetitions = 10;
             }
             target.Close();
             if (result.Count <= 0) {
                 Console.WriteLine("No results returned.\n");
             }
             else {
-                Console.Write("Instance");
-                foreach (uint column in tableColumns) {
-                    Console.Write("\t{0}.{1}", curOid, column);
-                }
                 foreach (KeyValuePair<string, Dictionary<uint, AsnType>> kvp in result) {
                     Console.Write("{0}", kvp.Key);
                     row = new List<string>();
-                    foreach (uint column in tableColumns) {
+                    foreach (var column in tableColumns) {
                         if (kvp.Value.ContainsKey(column)) {
                             row.Add(kvp.Value[column].ToString());
                         }
                     }
                     listOfRows.Add(row);
-                    Console.WriteLine("");
                 }
             }
             return listOfRows;
