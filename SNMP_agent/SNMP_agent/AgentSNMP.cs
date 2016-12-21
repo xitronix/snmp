@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using SnmpSharpNet;
 using System.Net.Sockets;
+using System.Text.RegularExpressions;
 using System.Threading;
 
 namespace SNMP_agent {
@@ -164,6 +165,36 @@ namespace SNMP_agent {
                 }
             }
         }
+
+        public List<List<string>> GetTableList(string oidS) {
+            var tableList = new List<List<string>>();
+            List<string> column = new List<string>();
+            var oid = new OidExtented(oidS);
+            var i = 1;
+            var actualOidS = oidS + "." + 1;
+            while (true) {
+                //var oidTable = new OidExtented((new Oid(oidS)).Add());
+
+                var add = getNext(actualOidS)[2];
+
+                actualOidS = getNext(actualOidS)[0];
+                if (!oid.CompareOid(actualOidS)) {
+                    tableList.Add(column);
+                    return tableList;
+                }
+                var chek = Regex.Split(actualOidS, @"\.")[oid.CountOfOctets + 2];
+                if (!chek.Equals(i.ToString())) {
+                    tableList.Add(column);
+                    column = new List<string>();
+                    i++;
+                    actualOidS = oidS + "." + 1 + "." + i;
+                }
+                else {
+                    column.Add(add);
+                }
+            }
+        }
+
 
         public List<List<string>> getTable(string oid) {
             var listOfRows = new List<List<string>>();

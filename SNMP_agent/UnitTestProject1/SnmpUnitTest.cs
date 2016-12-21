@@ -51,7 +51,7 @@ namespace SnmpUnitTest
 
             TrapAgent agent = new TrapAgent();
 
-            VbCollection col = AgentSNMP.VbCol("gowno", "1.3.6.1.9.1.1.0", 1234);
+           // VbCollection col = AgentSNMP.VbCol("gowno", "1.3.6.1.9.1.1.0", 1234);
 
             AgentSNMP.SendTrap(agent, receiverIP, port, community, oid, senderIP, generic, specific, senderUpTime, col);
         }

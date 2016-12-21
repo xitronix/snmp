@@ -74,7 +74,8 @@ namespace SNMP_agent {
         private void tableView(string OID) {
             try {
                 var listOfRows = new List<List<string>>();
-                listOfRows = snmpAgent.getTable(OID);
+                //var listOfRows1 = snmpAgent.getTable(OID);
+                listOfRows =ParseToList(snmpAgent.GetTableList(OID));
                 List<string> columns = new List<string>();
                 for (int i = 0; i < listOfRows[0].Count; i++) {
                     string oid = OID + ".1." + (i + 1);
@@ -98,7 +99,25 @@ namespace SNMP_agent {
             }
         }
 
-
+        public List<List<string>> ParseToList(List<List<string>> inputList) {
+            var outputList = new List<List<string>>();
+            var row = new List<string>();
+            
+                for (int i = 0; i < inputList[0].Count; i++) {
+                    row = new List<string>();
+                    for (int j = 0; j < inputList.Count; j++) {
+                        row.Add(inputList[j][i]);
+                        Debug.Write(inputList[j][i]);
+                        Debug.Write(" | ");
+                    }
+                    outputList.Add(row);
+                    Debug.WriteLine("");
+                   
+                
+                }
+            
+            return outputList;
+        }
         /* Dodaje wiersz w tablicy ResultsTable. Wywoływane po wciśnięciu przycisku GO */
         public void addRowToResultsTable(string OID, string value, string type) {
             dataGridViewResultTable.Rows.Add(OID, value, type);
