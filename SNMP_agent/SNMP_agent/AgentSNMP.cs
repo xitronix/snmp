@@ -100,7 +100,7 @@ namespace SNMP_agent {
             return rsltStrings;
         }
 
-        public static VbCollection CreateVbCol(String value, String name, String type) {
+        public static VbCollection CreateVbCol(String value, String name) {
             VbCollection col = new VbCollection();
             col.Add(new Oid(name), new OctetString(value));
 

@@ -27,16 +27,7 @@ namespace SNMP_agent
             comboBoxGeneric.Items.Add("AuthenticationFailure");
             comboBoxGeneric.Items.Add("EGPNeithbourLoss");
 
-            comboBoxType.Items.Add("OctetString");
-            comboBoxType.Items.Add("Integer");
-            comboBoxType.Items.Add("OID");
-            comboBoxType.Items.Add("Gauge");
-            comboBoxType.Items.Add("Counter32");
-            comboBoxType.Items.Add("IPAddress");
-            comboBoxType.Items.Add("TimeTicks");
-            comboBoxType.Items.Add("Counter64");
-            comboBoxType.Items.Add("UnsignedInteger");
-            comboBoxType.Items.Add("BITS");
+            
 
             textBoxIPAddress.Text = "127.0.0.1";
             textBoxPort.Text = "162";
@@ -57,8 +48,7 @@ namespace SNMP_agent
                             0,
                             0,
                             AgentSNMP.CreateVbCol(textBoxValue.Text,
-                                            textBoxName.Text,
-                                            comboBoxType.Text
+                                            textBoxName.Text
                                             )
                           );
             if (isSent)
