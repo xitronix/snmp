@@ -25,7 +25,7 @@ namespace SNMP_agent {
             comboBoxOperations.Items.Add("Get");
             comboBoxOperations.Items.Add("Get Next");
             comboBoxOperations.Items.Add("Table View");
-          
+
             imageList.Images.Add(Properties.Resources.Folder);
             imageList.Images.Add(Properties.Resources.key);
             imageList.Images.Add(Properties.Resources.entry);
@@ -42,7 +42,6 @@ namespace SNMP_agent {
         }
 
         private void buttonGo_Click(object sender, EventArgs e) {
-           
             string OID = textBoxOID.Text;
             string option = comboBoxOperations.Text;
 
@@ -50,8 +49,8 @@ namespace SNMP_agent {
                 case "Get":
                     get(OID);
                     break;
-                case "Get Next":                 
-                    getNext(OID);                   
+                case "Get Next":
+                    getNext(OID);
                     break;
                 case "Table View":
                     tableView(OID);
@@ -59,13 +58,13 @@ namespace SNMP_agent {
             }
         }
 
-        private void get(string OID) {           
+        private void get(string OID) {
             string[] valuesTable = snmpAgent.get(OID);
             if (valuesTable != null)
                 addRowToResultsTable(valuesTable[0], valuesTable[2], valuesTable[1]);
         }
 
-        private void getNext(string OID) {           
+        private void getNext(string OID) {
             string[] valuesTable = snmpAgent.getNext(OID);
             if (valuesTable != null)
                 addRowToResultsTable(valuesTable[0], valuesTable[2], valuesTable[1]);
@@ -75,7 +74,7 @@ namespace SNMP_agent {
             try {
                 var listOfRows = new List<List<string>>();
                 //var listOfRows1 = snmpAgent.getTable(OID);
-                listOfRows =ParseToList(snmpAgent.GetTableList(OID));
+                listOfRows = ParseToList(snmpAgent.GetTableList(OID));
                 List<string> columns = new List<string>();
                 for (int i = 0; i < listOfRows[0].Count; i++) {
                     string oid = OID + ".1." + (i + 1);
@@ -102,48 +101,37 @@ namespace SNMP_agent {
         public List<List<string>> ParseToList(List<List<string>> inputList) {
             var outputList = new List<List<string>>();
             var row = new List<string>();
-            
-                for (int i = 0; i < inputList[0].Count; i++) {
-                    row = new List<string>();
-                    for (int j = 0; j < inputList.Count; j++) {
-                        row.Add(inputList[j][i]);
-                        Debug.Write(inputList[j][i]);
-                        Debug.Write(" | ");
-                    }
-                    outputList.Add(row);
-                    Debug.WriteLine("");
-                   
-                
+
+            for (int i = 0; i < inputList[0].Count; i++) {
+                row = new List<string>();
+                for (int j = 0; j < inputList.Count; j++) {
+                    row.Add(inputList[j][i]);
                 }
-            
+                outputList.Add(row);
+            }
+
             return outputList;
         }
+
         /* Dodaje wiersz w tablicy ResultsTable. Wywoływane po wciśnięciu przycisku GO */
+
         public void addRowToResultsTable(string OID, string value, string type) {
             dataGridViewResultTable.Rows.Add(OID, value, type);
             textBoxOID.Text = OID;
             dataGridViewResultTable.SelectedRows[0].Selected = false;
             dataGridViewResultTable.Rows[dataGridViewResultTable.Rows.Count - 1].Selected = true;
-
         }
 
-        public void addRowToWatchedElementsTable(string OID, string value, string type)
-        {
-            MethodInvoker mi = delegate
-            {
-                dataGridViewWatchedElements.Rows.Add(OID, value, type);
-            };
+        public void addRowToWatchedElementsTable(string OID, string value, string type) {
+            MethodInvoker mi = delegate { dataGridViewWatchedElements.Rows.Add(OID, value, type); };
             if (InvokeRequired)
                 this.Invoke(mi);
         }
 
-        public void addRowToTrapTable(string source, string name, string value, DateTime time, int generic)
-        {
-            MethodInvoker mi = delegate
-            {
+        public void addRowToTrapTable(string source, string name, string value, DateTime time, int generic) {
+            MethodInvoker mi = delegate {
                 string genericName = "";
-                switch (generic)
-                {
+                switch (generic) {
                     case 0:
                         genericName = "ColdStart";
                         break;
@@ -166,11 +154,12 @@ namespace SNMP_agent {
                 dataGridViewTrapTable.Rows.Add(source, name, value, time, genericName);
             };
             if (InvokeRequired)
-                this.Invoke(mi);       
+                this.Invoke(mi);
         }
 
 
         /* Dodaje wiersz do TableView. Metoda wywoływana do wyświetlenia calej tabeli */
+
         public bool addNewRowToTableView(List<string> cellNames) {
             if (cellNames.Count == dataGridViewTableView.ColumnCount) {
                 dataGridViewTableView.Rows.Add(listToArray(cellNames));
@@ -181,7 +170,7 @@ namespace SNMP_agent {
         }
 
         private string[] listToArray(List<string> list) {
-            var array= new string[list.Count];
+            var array = new string[list.Count];
             for (int i = 0; i < array.Length; i++) {
                 array[i] = list[i];
             }
@@ -189,9 +178,10 @@ namespace SNMP_agent {
         }
 
         /* Wywoływane gdy użytkownik chce wyświetlić tabelę. Tworzy tabelę o określonej liczbie kolumn*/
+
         public void addNewTableView(List<string> columnNames) {
             dataGridViewTableView.Rows.Clear();
-            dataGridViewTableView.Columns.Clear();          
+            dataGridViewTableView.Columns.Clear();
 
             foreach (string columnName in columnNames) {
                 var column = new DataGridViewTextBoxColumn();
@@ -199,10 +189,11 @@ namespace SNMP_agent {
 
                 dataGridViewTableView.Columns.Add(column);
             }
-            tabControlResult.SelectedIndex = 1;          
+            tabControlResult.SelectedIndex = 1;
         }
 
         /* Metoda wczytująca z pliku MIBTree*/
+
         private void loadMibTreeElements() {
             treeView.Nodes.Add("iso.org.dod.internet.mgmt.mib-2");
 
@@ -273,64 +264,56 @@ namespace SNMP_agent {
         }
 
         /* Po kliknięciu na element MIBTree, odpowiednie OID pojawia się w textBoxOID*/
+
         private void treeView_AfterSelect(object sender, TreeViewEventArgs e) {
             string value;
             if (mibElementsDictionary.TryGetValue(treeView.SelectedNode.Text, out value))
                 textBoxOID.Text = value;
         }
 
-        private void watchToolStripMenuItem_Click(object sender, EventArgs e)
-        {
+        private void watchToolStripMenuItem_Click(object sender, EventArgs e) {
             startWatcingToolStripMenuItem.Enabled = false;
             StopWatchingMenuItem1.Enabled = true;
             tabControlResult.SelectedIndex = 2;
-            var form  = new WatchElementWindow(this);
-            form.Visible = true;                     
+            var form = new WatchElementWindow(this);
+            form.Visible = true;
         }
 
-        public void watch(string OID_number, string SNMP_operation)
-        {
-            if (!snmpAgent.activeWatching)               
+        public void watch(string OID_number, string SNMP_operation) {
+            if (!snmpAgent.activeWatching)
                 snmpAgent.StartWatching(OID_number, SNMP_operation);
         }
 
-        private void toolStripMenuItem1_Click(object sender, EventArgs e)
-        {
+        private void toolStripMenuItem1_Click(object sender, EventArgs e) {
             snmpAgent.stopWatching();
             startWatcingToolStripMenuItem.Enabled = true;
             StopWatchingMenuItem1.Enabled = false;
         }
-       
-        void f_FormClosed(object sender, FormClosedEventArgs e)
-        {
+
+        void f_FormClosed(object sender, FormClosedEventArgs e) {
             snmpAgent.stopWatching();
             snmpAgent.stopTrap();
-        }    
-
-        private void sendTrapToolStripMenuItem_Click(object sender, EventArgs e)
-        {           
-            var trapSender = new TrapSender();
-            trapSender.Visible = true;   
         }
 
-        private void startReceivingTrapToolStripMenuItem_Click(object sender, EventArgs e)
-        {
+        private void sendTrapToolStripMenuItem_Click(object sender, EventArgs e) {
+            var trapSender = new TrapSender();
+            trapSender.Visible = true;
+        }
+
+        private void startReceivingTrapToolStripMenuItem_Click(object sender, EventArgs e) {
             snmpAgent.startTrap();
             tabControlResult.SelectedIndex = 3;
             startReceivingTrapToolStripMenuItem.Enabled = false;
-            stopReceivingTrapToolStripMenuItem.Enabled = true;  
+            stopReceivingTrapToolStripMenuItem.Enabled = true;
         }
 
-        private void stopReceivingTrapToolStripMenuItem_Click(object sender, EventArgs e)
-        {
+        private void stopReceivingTrapToolStripMenuItem_Click(object sender, EventArgs e) {
             snmpAgent.stopTrap();
             startReceivingTrapToolStripMenuItem.Enabled = true;
             stopReceivingTrapToolStripMenuItem.Enabled = false;
         }
 
-        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
-        {
-
+        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e) {
         }
     }
 }
