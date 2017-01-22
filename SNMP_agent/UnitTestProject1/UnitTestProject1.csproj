@@ -66,6 +66,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\SnmpService\RestSnmp.csproj">
+      <Project>{f5b78ec3-d634-41f6-b08e-527af7652a02}</Project>
+      <Name>RestSnmp</Name>
+    </ProjectReference>
     <ProjectReference Include="..\SNMP_agent\SNMP_agent.csproj">
       <Project>{159d71c8-4245-422c-9977-48b8d14ca0b7}</Project>
       <Name>SNMP_agent</Name>
