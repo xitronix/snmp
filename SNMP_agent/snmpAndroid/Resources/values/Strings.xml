@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <string name="oid_prompt">Choose oid</string>
+  <string-array name="oid_array">
+    <item>sysDescr</item>
+    <item>sysObjectID</item>
+    <item>sysUpTime</item>
+    <item>sysContact</item>
+    <item>sysName</item>
+    <item>sysLocation</item>
+    <item>sysServices</item>
+  </string-array>
+</resources>
