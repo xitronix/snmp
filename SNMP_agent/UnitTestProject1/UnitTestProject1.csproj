@@ -40,6 +40,9 @@
       <HintPath>..\SNMP_agent\SnmpSharpNet.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Xml" />
   </ItemGroup>
   <Choose>
     <When Condition="('$(VisualStudioVersion)' == '10.0' or '$(VisualStudioVersion)' == '') and '$(TargetFrameworkVersion)' == 'v3.5'">
@@ -54,6 +57,11 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="Service References\SnmpServiceReference\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="SnmpUnitTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -62,6 +70,43 @@
       <Project>{159d71c8-4245-422c-9977-48b8d14ca0b7}</Project>
       <Name>SNMP_agent</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="Service References\SnmpServiceReference\SnmpService.wsdl" />
+    <None Include="Service References\SnmpServiceReference\SnmpService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\SnmpServiceReference\SnmpService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\SnmpServiceReference\SnmpService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\SnmpServiceReference\UnitTestProject1.SnmpServiceReference.SnmpTypeObject.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\SnmpServiceReference\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\SnmpServiceReference\SnmpService.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\SnmpServiceReference\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\SnmpServiceReference\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\SnmpServiceReference\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">

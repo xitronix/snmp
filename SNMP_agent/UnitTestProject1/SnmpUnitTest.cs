@@ -4,37 +4,22 @@ using System.Diagnostics;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using SnmpSharpNet;
 using SNMP_agent;
+using UnitTestProject1.SnmpServiceReference;
 
 
-namespace SnmpUnitTest
-{
+namespace SnmpUnitTest {
     [TestClass]
-    public class SnmpUnitTest
-    {
-        [TestMethod]
-        public void testGetMethod()
-        {
-            //AgentSNMP snmpAgent = new AgentSNMP();
-            //Dictionary<Oid, AsnType> result = snmpAgent.get("1.3.6.1.2.1.1.1.0");
-            //foreach (KeyValuePair<Oid, AsnType> kvp in result)
-            //{
-            //    Debug.WriteLine("{0}: {1} : {2}", kvp.Key.ToString(),
-            //        SnmpConstants.GetTypeName(kvp.Value.Type),
-            //        kvp.Value.ToString());
-            //}
-        }
+    public class SnmpUnitTest {
+      
 
         [TestMethod]
-        public void testGetNextMethod()
-        {
-            //AgentSNMP snmpAgent = new AgentSNMP();
-            //Dictionary<Oid, AsnType> result = snmpAgent.getNext("1.3.6.1.2.1.1.1.0");
-            //foreach (KeyValuePair<Oid, AsnType> kvp in result)
-            //{
-            //    Debug.WriteLine("{0}: {1} : {2}", kvp.Key.ToString(),
-            //        SnmpConstants.GetTypeName(kvp.Value.Type),
-            //        kvp.Value.ToString());
-            //}
+        public void TestGetMethod() {
+            var snmpServiceClient = new SnmpServiceClient();
+            var snmpObject = new SnmpTypeObject() {Oid = ".1.3.6.1.2.1.1.3.0"};
+            snmpObject = snmpServiceClient.Get(snmpObject);
+            Debug.WriteLine(@"oid: " + snmpObject.Oid + @", type: " + snmpObject.Type + @", value: " + snmpObject.Value);
+            Console.WriteLine(@"oid: " + snmpObject.Oid + @", type: " + snmpObject.Type + @", value: " +
+                              snmpObject.Value);
         }
 
         [TestMethod]
@@ -51,9 +36,9 @@ namespace SnmpUnitTest
 
             TrapAgent agent = new TrapAgent();
 
-           // VbCollection col = AgentSNMP.VbCol("gowno", "1.3.6.1.9.1.1.0", 1234);
+            // VbCollection col = AgentSNMP.VbCol("gowno", "1.3.6.1.9.1.1.0", 1234);
 
-            AgentSNMP.SendTrap(agent, receiverIP, port, community, oid, senderIP, generic, specific, senderUpTime, col);
+        //    AgentSNMP.SendTrap(agent, receiverIP, port, community, oid, senderIP, generic, specific, senderUpTime, col);
         }
     }
 }
