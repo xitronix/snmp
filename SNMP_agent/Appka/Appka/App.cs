@@ -29,12 +29,23 @@ namespace Appka
             };
 
             MainPage = new NavigationPage(content);
-
-            var snmpServiceClient = new SnmpServiceClient();
-            var snmpObject = new SnmpTypeObject() { Oid = ".1.3.6.1.2.1.1.3.0" };
-            snmpServiceClient.GetAsync(snmpObject);
+            
+            callWCF();
         }
-        
+
+        public static void callWCF()
+        {
+            var wcf = new SnmpServiceClient();
+            var snmpObject = new SnmpTypeObject() { Oid = ".1.3.6.1.2.1.1.3.0" };
+            wcf.GetStringCompleted += Wcf_GetCompleted; // Receive feedback asynchronously
+            wcf.GetStringAsync(snmpObject.Oid); // Send request asynchronously
+        }
+
+        public static void Wcf_GetCompleted(object sender, GetStringCompletedEventArgs e)
+        {
+            string str = e.Result; // This value should be: “You entered: 123456”
+        }
+
         protected override void OnStart()
         {
             // Handle when your app starts

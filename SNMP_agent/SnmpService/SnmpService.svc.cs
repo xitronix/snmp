@@ -15,6 +15,10 @@ namespace SnmpService {
     public class SnmpService : ISnmpService {
         private SimpleSnmp _snmp;
 
+        [WebInvoke(Method = "GET",
+                    ResponseFormat = WebMessageFormat.Json,
+                    UriTemplate = "data/{oid}")]
+
 
         public SnmpTypeObject Get(SnmpTypeObject snmpObject) {
             if (_snmp == null) {
@@ -31,7 +35,7 @@ namespace SnmpService {
             return snmpObject;
         }
 
-        public string GetString(string jakisString)
+        public string GetString(string oid)
         {
             if (_snmp == null)
             {
@@ -40,10 +44,10 @@ namespace SnmpService {
                 _snmp = new SimpleSnmp(host, community);
             }
 
-            string[] value = get(jakisString);
+            string[] value = get(oid);
 
-            jakisString = value[2];
-            return jakisString;
+            string wartosc = value[2];
+            return wartosc;
         }
 
         private string[] get(string oid) {

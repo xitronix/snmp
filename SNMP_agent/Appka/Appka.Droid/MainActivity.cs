@@ -45,12 +45,23 @@ namespace Apka.Droid
             spinner = FindViewById<Spinner>(Resource.Id.spinner);
             textview2 = FindViewById<TextView>(Resource.Id.textView2);
 
-            var snmpServiceClient = new SnmpServiceClient();
-            var snmpObject = new SnmpTypeObject() { Oid = ".1.3.6.1.2.1.1.3.0" };
-            snmpServiceClient.GetAsync(snmpObject);
+            //var snmpServiceClient = new SnmpServiceClient();
+            //var snmpObject = new SnmpTypeObject() { Oid = ".1.3.6.1.2.1.1.3.0" };
+            //snmpServiceClient.GetCompleted += ClientOnGetCompleted;
+            //snmpServiceClient.GetAsync(snmpObject);
+
+            //Appka.App.callWCF();
 
             textview2.Text = "OID for " + spinner.SelectedItem.ToString() + ": " + oid;
         }
+
+        //private void ClientOnGetCompleted(object sender, GetCompletedEventArgs e)
+        //{
+        //    textview2 = FindViewById<TextView>(Resource.Id.textView2);
+        //    string msg;
+        //    msg = e.Result.Value;
+        //    RunOnUiThread(() => textview2.Text = msg);
+        //}
 
         private void Btn_Click2(object sender, EventArgs e)
         {
