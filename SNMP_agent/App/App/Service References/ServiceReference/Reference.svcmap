@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="6c58f72c-7d2c-4181-aeb1-bf3817af385a" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="b7aa6546-bdb5-4953-9e56-82b47776545d" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
   <ClientOptions>
     <GenerateAsynchronousMethods>true</GenerateAsynchronousMethods>
     <EnableDataBinding>true</EnableDataBinding>
@@ -23,11 +23,11 @@
     <MetadataSource Address="http://localhost:54002/SnmpService.svc" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="SnmpService.xsd" MetadataType="Schema" ID="f4621a73-12d0-4a1e-9fdb-cf5531d3ceaa" SourceId="1" SourceUrl="http://localhost:54002/SnmpService.svc?xsd=xsd2" />
-    <MetadataFile FileName="SnmpService1.xsd" MetadataType="Schema" ID="dd327331-eea7-4188-8973-c2cea04f2e95" SourceId="1" SourceUrl="http://localhost:54002/SnmpService.svc?xsd=xsd0" />
-    <MetadataFile FileName="SnmpService2.xsd" MetadataType="Schema" ID="d82dda4f-ac33-41f2-8655-54b35a56d536" SourceId="1" SourceUrl="http://localhost:54002/SnmpService.svc?xsd=xsd1" />
-    <MetadataFile FileName="SnmpService.disco" MetadataType="Disco" ID="30e62517-f32d-402a-9f9f-4b51ba2ea54a" SourceId="1" SourceUrl="http://localhost:54002/SnmpService.svc?disco" />
-    <MetadataFile FileName="SnmpService.wsdl" MetadataType="Wsdl" ID="c342cb73-b53e-4dd8-b6d0-32697135ef7f" SourceId="1" SourceUrl="http://localhost:54002/SnmpService.svc?wsdl" />
+    <MetadataFile FileName="SnmpService.xsd" MetadataType="Schema" ID="e358b662-c098-494e-9227-8ce4d3cd6515" SourceId="1" SourceUrl="http://localhost:54002/SnmpService.svc?xsd=xsd2" />
+    <MetadataFile FileName="SnmpService1.xsd" MetadataType="Schema" ID="526cf0b3-aa31-4506-9600-41e8a2fea5c6" SourceId="1" SourceUrl="http://localhost:54002/SnmpService.svc?xsd=xsd0" />
+    <MetadataFile FileName="SnmpService2.xsd" MetadataType="Schema" ID="b7191d28-4b41-4af3-bcc7-78d3be38974b" SourceId="1" SourceUrl="http://localhost:54002/SnmpService.svc?xsd=xsd1" />
+    <MetadataFile FileName="SnmpService.disco" MetadataType="Disco" ID="120b1dfa-fe3f-4347-af1f-b572f498c605" SourceId="1" SourceUrl="http://localhost:54002/SnmpService.svc?disco" />
+    <MetadataFile FileName="SnmpService.wsdl" MetadataType="Wsdl" ID="563f6f2e-2f7c-4f37-8611-c904007dba64" SourceId="1" SourceUrl="http://localhost:54002/SnmpService.svc?wsdl" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

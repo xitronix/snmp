@@ -37,7 +37,7 @@
   <ItemGroup>
     <Compile Include="App.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Service References\SnmpServiceReference\Reference.cs">
+    <Compile Include="Service References\ServiceReference\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
@@ -61,17 +61,17 @@
     <None Include="GettingStarted.Xamarin" />
     <None Include="packages.config" />
     <None Include="Properties\ServiceReferences.Designer.ClientConfig" />
-    <None Include="Service References\SnmpServiceReference\App.SnmpServiceReference.SnmpTypeObject.datasource">
+    <None Include="Service References\ServiceReference\App.ServiceReference.SnmpTypeObject.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\SnmpServiceReference\SnmpService.wsdl" />
-    <None Include="Service References\SnmpServiceReference\SnmpService.xsd">
+    <None Include="Service References\ServiceReference\SnmpService.wsdl" />
+    <None Include="Service References\ServiceReference\SnmpService.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\SnmpServiceReference\SnmpService1.xsd">
+    <None Include="Service References\ServiceReference\SnmpService1.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\SnmpServiceReference\SnmpService2.xsd">
+    <None Include="Service References\ServiceReference\SnmpService2.xsd">
       <SubType>Designer</SubType>
     </None>
   </ItemGroup>
@@ -79,19 +79,19 @@
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
-    <WCFMetadataStorage Include="Service References\SnmpServiceReference\" />
+    <WCFMetadataStorage Include="Service References\ServiceReference\" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Service References\SnmpServiceReference\SnmpService.disco" />
+    <None Include="Service References\ServiceReference\SnmpService.disco" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Service References\SnmpServiceReference\configuration91.svcinfo" />
+    <None Include="Service References\ServiceReference\configuration91.svcinfo" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Service References\SnmpServiceReference\configuration.svcinfo" />
+    <None Include="Service References\ServiceReference\configuration.svcinfo" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Service References\SnmpServiceReference\Reference.svcmap">
+    <None Include="Service References\ServiceReference\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>

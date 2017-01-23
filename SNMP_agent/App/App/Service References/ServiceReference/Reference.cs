@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace App.SnmpServiceReference {
+namespace App.ServiceReference {
     using System.Runtime.Serialization;
     
     
@@ -73,13 +73,13 @@ namespace App.SnmpServiceReference {
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="SnmpServiceReference.ISnmpService")]
+    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServiceReference.ISnmpService")]
     public interface ISnmpService {
         
         [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/ISnmpService/Get", ReplyAction="http://tempuri.org/ISnmpService/GetResponse")]
-        System.IAsyncResult BeginGet(App.SnmpServiceReference.SnmpTypeObject snmpObject, System.AsyncCallback callback, object asyncState);
+        System.IAsyncResult BeginGet(App.ServiceReference.SnmpTypeObject snmpObject, System.AsyncCallback callback, object asyncState);
         
-        App.SnmpServiceReference.SnmpTypeObject EndGet(System.IAsyncResult result);
+        App.ServiceReference.SnmpTypeObject EndGet(System.IAsyncResult result);
         
         [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/ISnmpService/GetString", ReplyAction="http://tempuri.org/ISnmpService/GetStringResponse")]
         System.IAsyncResult BeginGetString(string jakisString, System.AsyncCallback callback, object asyncState);
@@ -87,13 +87,13 @@ namespace App.SnmpServiceReference {
         string EndGetString(System.IAsyncResult result);
         
         [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/ISnmpService/GetDataUsingDataContract", ReplyAction="http://tempuri.org/ISnmpService/GetDataUsingDataContractResponse")]
-        System.IAsyncResult BeginGetDataUsingDataContract(App.SnmpServiceReference.SnmpTypeObject snmp, System.AsyncCallback callback, object asyncState);
+        System.IAsyncResult BeginGetDataUsingDataContract(App.ServiceReference.SnmpTypeObject snmp, System.AsyncCallback callback, object asyncState);
         
-        App.SnmpServiceReference.SnmpTypeObject EndGetDataUsingDataContract(System.IAsyncResult result);
+        App.ServiceReference.SnmpTypeObject EndGetDataUsingDataContract(System.IAsyncResult result);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface ISnmpServiceChannel : App.SnmpServiceReference.ISnmpService, System.ServiceModel.IClientChannel {
+    public interface ISnmpServiceChannel : App.ServiceReference.ISnmpService, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -107,10 +107,10 @@ namespace App.SnmpServiceReference {
             this.results = results;
         }
         
-        public App.SnmpServiceReference.SnmpTypeObject Result {
+        public App.ServiceReference.SnmpTypeObject Result {
             get {
                 base.RaiseExceptionIfNecessary();
-                return ((App.SnmpServiceReference.SnmpTypeObject)(this.results[0]));
+                return ((App.ServiceReference.SnmpTypeObject)(this.results[0]));
             }
         }
     }
@@ -145,17 +145,17 @@ namespace App.SnmpServiceReference {
             this.results = results;
         }
         
-        public App.SnmpServiceReference.SnmpTypeObject Result {
+        public App.ServiceReference.SnmpTypeObject Result {
             get {
                 base.RaiseExceptionIfNecessary();
-                return ((App.SnmpServiceReference.SnmpTypeObject)(this.results[0]));
+                return ((App.ServiceReference.SnmpTypeObject)(this.results[0]));
             }
         }
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class SnmpServiceClient : System.ServiceModel.ClientBase<App.SnmpServiceReference.ISnmpService>, App.SnmpServiceReference.ISnmpService {
+    public partial class SnmpServiceClient : System.ServiceModel.ClientBase<App.ServiceReference.ISnmpService>, App.ServiceReference.ISnmpService {
         
         private BeginOperationDelegate onBeginGetDelegate;
         
@@ -240,22 +240,22 @@ namespace App.SnmpServiceReference {
         public event System.EventHandler<System.ComponentModel.AsyncCompletedEventArgs> CloseCompleted;
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.IAsyncResult App.SnmpServiceReference.ISnmpService.BeginGet(App.SnmpServiceReference.SnmpTypeObject snmpObject, System.AsyncCallback callback, object asyncState) {
+        System.IAsyncResult App.ServiceReference.ISnmpService.BeginGet(App.ServiceReference.SnmpTypeObject snmpObject, System.AsyncCallback callback, object asyncState) {
             return base.Channel.BeginGet(snmpObject, callback, asyncState);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        App.SnmpServiceReference.SnmpTypeObject App.SnmpServiceReference.ISnmpService.EndGet(System.IAsyncResult result) {
+        App.ServiceReference.SnmpTypeObject App.ServiceReference.ISnmpService.EndGet(System.IAsyncResult result) {
             return base.Channel.EndGet(result);
         }
         
         private System.IAsyncResult OnBeginGet(object[] inValues, System.AsyncCallback callback, object asyncState) {
-            App.SnmpServiceReference.SnmpTypeObject snmpObject = ((App.SnmpServiceReference.SnmpTypeObject)(inValues[0]));
-            return ((App.SnmpServiceReference.ISnmpService)(this)).BeginGet(snmpObject, callback, asyncState);
+            App.ServiceReference.SnmpTypeObject snmpObject = ((App.ServiceReference.SnmpTypeObject)(inValues[0]));
+            return ((App.ServiceReference.ISnmpService)(this)).BeginGet(snmpObject, callback, asyncState);
         }
         
         private object[] OnEndGet(System.IAsyncResult result) {
-            App.SnmpServiceReference.SnmpTypeObject retVal = ((App.SnmpServiceReference.ISnmpService)(this)).EndGet(result);
+            App.ServiceReference.SnmpTypeObject retVal = ((App.ServiceReference.ISnmpService)(this)).EndGet(result);
             return new object[] {
                     retVal};
         }
@@ -267,11 +267,11 @@ namespace App.SnmpServiceReference {
             }
         }
         
-        public void GetAsync(App.SnmpServiceReference.SnmpTypeObject snmpObject) {
+        public void GetAsync(App.ServiceReference.SnmpTypeObject snmpObject) {
             this.GetAsync(snmpObject, null);
         }
         
-        public void GetAsync(App.SnmpServiceReference.SnmpTypeObject snmpObject, object userState) {
+        public void GetAsync(App.ServiceReference.SnmpTypeObject snmpObject, object userState) {
             if ((this.onBeginGetDelegate == null)) {
                 this.onBeginGetDelegate = new BeginOperationDelegate(this.OnBeginGet);
             }
@@ -286,22 +286,22 @@ namespace App.SnmpServiceReference {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.IAsyncResult App.SnmpServiceReference.ISnmpService.BeginGetString(string jakisString, System.AsyncCallback callback, object asyncState) {
+        System.IAsyncResult App.ServiceReference.ISnmpService.BeginGetString(string jakisString, System.AsyncCallback callback, object asyncState) {
             return base.Channel.BeginGetString(jakisString, callback, asyncState);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        string App.SnmpServiceReference.ISnmpService.EndGetString(System.IAsyncResult result) {
+        string App.ServiceReference.ISnmpService.EndGetString(System.IAsyncResult result) {
             return base.Channel.EndGetString(result);
         }
         
         private System.IAsyncResult OnBeginGetString(object[] inValues, System.AsyncCallback callback, object asyncState) {
             string jakisString = ((string)(inValues[0]));
-            return ((App.SnmpServiceReference.ISnmpService)(this)).BeginGetString(jakisString, callback, asyncState);
+            return ((App.ServiceReference.ISnmpService)(this)).BeginGetString(jakisString, callback, asyncState);
         }
         
         private object[] OnEndGetString(System.IAsyncResult result) {
-            string retVal = ((App.SnmpServiceReference.ISnmpService)(this)).EndGetString(result);
+            string retVal = ((App.ServiceReference.ISnmpService)(this)).EndGetString(result);
             return new object[] {
                     retVal};
         }
@@ -332,22 +332,22 @@ namespace App.SnmpServiceReference {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.IAsyncResult App.SnmpServiceReference.ISnmpService.BeginGetDataUsingDataContract(App.SnmpServiceReference.SnmpTypeObject snmp, System.AsyncCallback callback, object asyncState) {
+        System.IAsyncResult App.ServiceReference.ISnmpService.BeginGetDataUsingDataContract(App.ServiceReference.SnmpTypeObject snmp, System.AsyncCallback callback, object asyncState) {
             return base.Channel.BeginGetDataUsingDataContract(snmp, callback, asyncState);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        App.SnmpServiceReference.SnmpTypeObject App.SnmpServiceReference.ISnmpService.EndGetDataUsingDataContract(System.IAsyncResult result) {
+        App.ServiceReference.SnmpTypeObject App.ServiceReference.ISnmpService.EndGetDataUsingDataContract(System.IAsyncResult result) {
             return base.Channel.EndGetDataUsingDataContract(result);
         }
         
         private System.IAsyncResult OnBeginGetDataUsingDataContract(object[] inValues, System.AsyncCallback callback, object asyncState) {
-            App.SnmpServiceReference.SnmpTypeObject snmp = ((App.SnmpServiceReference.SnmpTypeObject)(inValues[0]));
-            return ((App.SnmpServiceReference.ISnmpService)(this)).BeginGetDataUsingDataContract(snmp, callback, asyncState);
+            App.ServiceReference.SnmpTypeObject snmp = ((App.ServiceReference.SnmpTypeObject)(inValues[0]));
+            return ((App.ServiceReference.ISnmpService)(this)).BeginGetDataUsingDataContract(snmp, callback, asyncState);
         }
         
         private object[] OnEndGetDataUsingDataContract(System.IAsyncResult result) {
-            App.SnmpServiceReference.SnmpTypeObject retVal = ((App.SnmpServiceReference.ISnmpService)(this)).EndGetDataUsingDataContract(result);
+            App.ServiceReference.SnmpTypeObject retVal = ((App.ServiceReference.ISnmpService)(this)).EndGetDataUsingDataContract(result);
             return new object[] {
                     retVal};
         }
@@ -359,11 +359,11 @@ namespace App.SnmpServiceReference {
             }
         }
         
-        public void GetDataUsingDataContractAsync(App.SnmpServiceReference.SnmpTypeObject snmp) {
+        public void GetDataUsingDataContractAsync(App.ServiceReference.SnmpTypeObject snmp) {
             this.GetDataUsingDataContractAsync(snmp, null);
         }
         
-        public void GetDataUsingDataContractAsync(App.SnmpServiceReference.SnmpTypeObject snmp, object userState) {
+        public void GetDataUsingDataContractAsync(App.ServiceReference.SnmpTypeObject snmp, object userState) {
             if ((this.onBeginGetDataUsingDataContractDelegate == null)) {
                 this.onBeginGetDataUsingDataContractDelegate = new BeginOperationDelegate(this.OnBeginGetDataUsingDataContract);
             }
@@ -443,7 +443,7 @@ namespace App.SnmpServiceReference {
             base.InvokeAsync(this.onBeginCloseDelegate, null, this.onEndCloseDelegate, this.onCloseCompletedDelegate, userState);
         }
         
-        protected override App.SnmpServiceReference.ISnmpService CreateChannel() {
+        protected override App.ServiceReference.ISnmpService CreateChannel() {
             return new SnmpServiceClientChannel(this);
         }
         
@@ -472,22 +472,22 @@ namespace App.SnmpServiceReference {
             return SnmpServiceClient.GetEndpointAddress(EndpointConfiguration.BasicHttpBinding_ISnmpService);
         }
         
-        private class SnmpServiceClientChannel : ChannelBase<App.SnmpServiceReference.ISnmpService>, App.SnmpServiceReference.ISnmpService {
+        private class SnmpServiceClientChannel : ChannelBase<App.ServiceReference.ISnmpService>, App.ServiceReference.ISnmpService {
             
-            public SnmpServiceClientChannel(System.ServiceModel.ClientBase<App.SnmpServiceReference.ISnmpService> client) : 
+            public SnmpServiceClientChannel(System.ServiceModel.ClientBase<App.ServiceReference.ISnmpService> client) : 
                     base(client) {
             }
             
-            public System.IAsyncResult BeginGet(App.SnmpServiceReference.SnmpTypeObject snmpObject, System.AsyncCallback callback, object asyncState) {
+            public System.IAsyncResult BeginGet(App.ServiceReference.SnmpTypeObject snmpObject, System.AsyncCallback callback, object asyncState) {
                 object[] _args = new object[1];
                 _args[0] = snmpObject;
                 System.IAsyncResult _result = base.BeginInvoke("Get", _args, callback, asyncState);
                 return _result;
             }
             
-            public App.SnmpServiceReference.SnmpTypeObject EndGet(System.IAsyncResult result) {
+            public App.ServiceReference.SnmpTypeObject EndGet(System.IAsyncResult result) {
                 object[] _args = new object[0];
-                App.SnmpServiceReference.SnmpTypeObject _result = ((App.SnmpServiceReference.SnmpTypeObject)(base.EndInvoke("Get", _args, result)));
+                App.ServiceReference.SnmpTypeObject _result = ((App.ServiceReference.SnmpTypeObject)(base.EndInvoke("Get", _args, result)));
                 return _result;
             }
             
@@ -504,16 +504,16 @@ namespace App.SnmpServiceReference {
                 return _result;
             }
             
-            public System.IAsyncResult BeginGetDataUsingDataContract(App.SnmpServiceReference.SnmpTypeObject snmp, System.AsyncCallback callback, object asyncState) {
+            public System.IAsyncResult BeginGetDataUsingDataContract(App.ServiceReference.SnmpTypeObject snmp, System.AsyncCallback callback, object asyncState) {
                 object[] _args = new object[1];
                 _args[0] = snmp;
                 System.IAsyncResult _result = base.BeginInvoke("GetDataUsingDataContract", _args, callback, asyncState);
                 return _result;
             }
             
-            public App.SnmpServiceReference.SnmpTypeObject EndGetDataUsingDataContract(System.IAsyncResult result) {
+            public App.ServiceReference.SnmpTypeObject EndGetDataUsingDataContract(System.IAsyncResult result) {
                 object[] _args = new object[0];
-                App.SnmpServiceReference.SnmpTypeObject _result = ((App.SnmpServiceReference.SnmpTypeObject)(base.EndInvoke("GetDataUsingDataContract", _args, result)));
+                App.ServiceReference.SnmpTypeObject _result = ((App.ServiceReference.SnmpTypeObject)(base.EndInvoke("GetDataUsingDataContract", _args, result)));
                 return _result;
             }
         }
