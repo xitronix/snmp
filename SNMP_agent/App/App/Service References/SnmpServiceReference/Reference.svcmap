@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="6c58f72c-7d2c-4181-aeb1-bf3817af385a" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>true</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.ObjectModel.ObservableCollection`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>false</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:54002/SnmpService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="SnmpService.xsd" MetadataType="Schema" ID="f4621a73-12d0-4a1e-9fdb-cf5531d3ceaa" SourceId="1" SourceUrl="http://localhost:54002/SnmpService.svc?xsd=xsd2" />
+    <MetadataFile FileName="SnmpService1.xsd" MetadataType="Schema" ID="dd327331-eea7-4188-8973-c2cea04f2e95" SourceId="1" SourceUrl="http://localhost:54002/SnmpService.svc?xsd=xsd0" />
+    <MetadataFile FileName="SnmpService2.xsd" MetadataType="Schema" ID="d82dda4f-ac33-41f2-8655-54b35a56d536" SourceId="1" SourceUrl="http://localhost:54002/SnmpService.svc?xsd=xsd1" />
+    <MetadataFile FileName="SnmpService.disco" MetadataType="Disco" ID="30e62517-f32d-402a-9f9f-4b51ba2ea54a" SourceId="1" SourceUrl="http://localhost:54002/SnmpService.svc?disco" />
+    <MetadataFile FileName="SnmpService.wsdl" MetadataType="Wsdl" ID="c342cb73-b53e-4dd8-b6d0-32697135ef7f" SourceId="1" SourceUrl="http://localhost:54002/SnmpService.svc?wsdl" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

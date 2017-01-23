@@ -31,6 +31,20 @@ namespace SnmpService {
             return snmpObject;
         }
 
+        public string GetString(string jakisString)
+        {
+            if (_snmp == null)
+            {
+                string host = "127.0.0.1";
+                string community = "public";
+                _snmp = new SimpleSnmp(host, community);
+            }
+
+            string[] value = get(jakisString);
+
+            jakisString = value[2];
+            return jakisString;
+        }
 
         private string[] get(string oid) {
             if (!_snmp.Valid) {

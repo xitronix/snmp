@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace UnitTestProject1.SnmpServiceReference {
+namespace UnitTestProject1.SnmpServiceReferenceTest {
     using System.Runtime.Serialization;
     using System;
     
@@ -91,29 +91,29 @@ namespace UnitTestProject1.SnmpServiceReference {
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="SnmpServiceReference.ISnmpService")]
+    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="SnmpServiceReferenceTest.ISnmpService")]
     public interface ISnmpService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISnmpService/Get", ReplyAction="http://tempuri.org/ISnmpService/GetResponse")]
-        UnitTestProject1.SnmpServiceReference.SnmpTypeObject Get(UnitTestProject1.SnmpServiceReference.SnmpTypeObject snmpObject);
+        UnitTestProject1.SnmpServiceReferenceTest.SnmpTypeObject Get(UnitTestProject1.SnmpServiceReferenceTest.SnmpTypeObject snmpObject);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISnmpService/Get", ReplyAction="http://tempuri.org/ISnmpService/GetResponse")]
-        System.Threading.Tasks.Task<UnitTestProject1.SnmpServiceReference.SnmpTypeObject> GetAsync(UnitTestProject1.SnmpServiceReference.SnmpTypeObject snmpObject);
+        System.Threading.Tasks.Task<UnitTestProject1.SnmpServiceReferenceTest.SnmpTypeObject> GetAsync(UnitTestProject1.SnmpServiceReferenceTest.SnmpTypeObject snmpObject);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISnmpService/GetDataUsingDataContract", ReplyAction="http://tempuri.org/ISnmpService/GetDataUsingDataContractResponse")]
-        UnitTestProject1.SnmpServiceReference.SnmpTypeObject GetDataUsingDataContract(UnitTestProject1.SnmpServiceReference.SnmpTypeObject snmp);
+        UnitTestProject1.SnmpServiceReferenceTest.SnmpTypeObject GetDataUsingDataContract(UnitTestProject1.SnmpServiceReferenceTest.SnmpTypeObject snmp);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISnmpService/GetDataUsingDataContract", ReplyAction="http://tempuri.org/ISnmpService/GetDataUsingDataContractResponse")]
-        System.Threading.Tasks.Task<UnitTestProject1.SnmpServiceReference.SnmpTypeObject> GetDataUsingDataContractAsync(UnitTestProject1.SnmpServiceReference.SnmpTypeObject snmp);
+        System.Threading.Tasks.Task<UnitTestProject1.SnmpServiceReferenceTest.SnmpTypeObject> GetDataUsingDataContractAsync(UnitTestProject1.SnmpServiceReferenceTest.SnmpTypeObject snmp);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface ISnmpServiceChannel : UnitTestProject1.SnmpServiceReference.ISnmpService, System.ServiceModel.IClientChannel {
+    public interface ISnmpServiceChannel : UnitTestProject1.SnmpServiceReferenceTest.ISnmpService, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class SnmpServiceClient : System.ServiceModel.ClientBase<UnitTestProject1.SnmpServiceReference.ISnmpService>, UnitTestProject1.SnmpServiceReference.ISnmpService {
+    public partial class SnmpServiceClient : System.ServiceModel.ClientBase<UnitTestProject1.SnmpServiceReferenceTest.ISnmpService>, UnitTestProject1.SnmpServiceReferenceTest.ISnmpService {
         
         public SnmpServiceClient() {
         }
@@ -134,19 +134,19 @@ namespace UnitTestProject1.SnmpServiceReference {
                 base(binding, remoteAddress) {
         }
         
-        public UnitTestProject1.SnmpServiceReference.SnmpTypeObject Get(UnitTestProject1.SnmpServiceReference.SnmpTypeObject snmpObject) {
+        public UnitTestProject1.SnmpServiceReferenceTest.SnmpTypeObject Get(UnitTestProject1.SnmpServiceReferenceTest.SnmpTypeObject snmpObject) {
             return base.Channel.Get(snmpObject);
         }
         
-        public System.Threading.Tasks.Task<UnitTestProject1.SnmpServiceReference.SnmpTypeObject> GetAsync(UnitTestProject1.SnmpServiceReference.SnmpTypeObject snmpObject) {
+        public System.Threading.Tasks.Task<UnitTestProject1.SnmpServiceReferenceTest.SnmpTypeObject> GetAsync(UnitTestProject1.SnmpServiceReferenceTest.SnmpTypeObject snmpObject) {
             return base.Channel.GetAsync(snmpObject);
         }
         
-        public UnitTestProject1.SnmpServiceReference.SnmpTypeObject GetDataUsingDataContract(UnitTestProject1.SnmpServiceReference.SnmpTypeObject snmp) {
+        public UnitTestProject1.SnmpServiceReferenceTest.SnmpTypeObject GetDataUsingDataContract(UnitTestProject1.SnmpServiceReferenceTest.SnmpTypeObject snmp) {
             return base.Channel.GetDataUsingDataContract(snmp);
         }
         
-        public System.Threading.Tasks.Task<UnitTestProject1.SnmpServiceReference.SnmpTypeObject> GetDataUsingDataContractAsync(UnitTestProject1.SnmpServiceReference.SnmpTypeObject snmp) {
+        public System.Threading.Tasks.Task<UnitTestProject1.SnmpServiceReferenceTest.SnmpTypeObject> GetDataUsingDataContractAsync(UnitTestProject1.SnmpServiceReferenceTest.SnmpTypeObject snmp) {
             return base.Channel.GetDataUsingDataContractAsync(snmp);
         }
     }

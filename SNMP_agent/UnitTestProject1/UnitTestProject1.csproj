@@ -57,7 +57,7 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="Service References\SnmpServiceReference\Reference.cs">
+    <Compile Include="Service References\SnmpServiceReferenceTest\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
@@ -76,34 +76,34 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
-    <None Include="Service References\SnmpServiceReference\SnmpService.wsdl" />
-    <None Include="Service References\SnmpServiceReference\SnmpService.xsd">
+    <None Include="Service References\SnmpServiceReferenceTest\SnmpService.wsdl" />
+    <None Include="Service References\SnmpServiceReferenceTest\SnmpService.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\SnmpServiceReference\SnmpService1.xsd">
+    <None Include="Service References\SnmpServiceReferenceTest\SnmpService1.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\SnmpServiceReference\SnmpService2.xsd">
+    <None Include="Service References\SnmpServiceReferenceTest\SnmpService2.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\SnmpServiceReference\UnitTestProject1.SnmpServiceReference.SnmpTypeObject.datasource">
+    <None Include="Service References\SnmpServiceReferenceTest\UnitTestProject1.SnmpServiceReferenceTest.SnmpTypeObject.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup>
-    <WCFMetadataStorage Include="Service References\SnmpServiceReference\" />
+    <WCFMetadataStorage Include="Service References\SnmpServiceReferenceTest\" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Service References\SnmpServiceReference\SnmpService.disco" />
+    <None Include="Service References\SnmpServiceReferenceTest\SnmpService.disco" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Service References\SnmpServiceReference\configuration91.svcinfo" />
+    <None Include="Service References\SnmpServiceReferenceTest\configuration91.svcinfo" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Service References\SnmpServiceReference\configuration.svcinfo" />
+    <None Include="Service References\SnmpServiceReferenceTest\configuration.svcinfo" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Service References\SnmpServiceReference\Reference.svcmap">
+    <None Include="Service References\SnmpServiceReferenceTest\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>

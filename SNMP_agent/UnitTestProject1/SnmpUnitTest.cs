@@ -4,7 +4,7 @@ using System.Diagnostics;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using SnmpSharpNet;
 using SNMP_agent;
-using UnitTestProject1.SnmpServiceReference;
+using UnitTestProject1.SnmpServiceReferenceTest;
 
 
 namespace SnmpUnitTest {

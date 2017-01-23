@@ -15,6 +15,9 @@ namespace SnmpService {
         SnmpTypeObject Get(SnmpTypeObject snmpObject);
 
         [OperationContract]
+        string GetString(string jakisString);
+
+        [OperationContract]
         SnmpTypeObject GetDataUsingDataContract(SnmpTypeObject snmp);
 
         // TODO: Add your service operations here
