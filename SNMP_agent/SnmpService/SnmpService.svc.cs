@@ -14,12 +14,7 @@ namespace SnmpService {
     // NOTE: In order to launch WCF Test Client for testing this service, please select SnmpService.svc or SnmpService.svc.cs at the Solution Explorer and start debugging.
     public class SnmpService : ISnmpService {
         private SimpleSnmp _snmp;
-
-        [WebInvoke(Method = "GET",
-                    ResponseFormat = WebMessageFormat.Json,
-                    UriTemplate = "data/{oid}")]
-
-
+        
         public SnmpTypeObject Get(SnmpTypeObject snmpObject) {
             if (_snmp == null) {
                 string host = "127.0.0.1";

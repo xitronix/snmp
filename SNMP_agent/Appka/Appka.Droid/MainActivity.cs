@@ -4,12 +4,16 @@ using Android.OS;
 using System;
 using Appka.Droid;
 using Appka.SnmpServiceReference;
+using System.ServiceModel;
 
 namespace Apka.Droid
 {
     [Activity(Label = "Apka", MainLauncher = true, Icon = "@drawable/icon")]
     public class MainActivity : Activity
     {
+        public static readonly EndpointAddress EndPoint = new EndpointAddress("http://localhost:54002/SnmpService.svc");
+        private SnmpServiceClient client;
+
         Spinner spinner;
         Button button1;
         Button button2;
@@ -24,6 +28,8 @@ namespace Apka.Droid
 
             // Set our view from the "Main" layout resource
             SetContentView(Resource.Layout.Main);
+            
+            InitializeGetStringSnmpServiceClient();
 
             spinner = FindViewById<Spinner>(Resource.Id.spinner);
 
@@ -40,27 +46,68 @@ namespace Apka.Droid
             button2.Click += Btn_Click2;
         }
 
-        private void Btn_Click1(object sender, EventArgs e)
+        private void InitializeGetStringSnmpServiceClient()
         {
-            spinner = FindViewById<Spinner>(Resource.Id.spinner);
-            textview2 = FindViewById<TextView>(Resource.Id.textView2);
+            BasicHttpBinding binding = CreateBasicHttp();
 
-            //var snmpServiceClient = new SnmpServiceClient();
-            //var snmpObject = new SnmpTypeObject() { Oid = ".1.3.6.1.2.1.1.3.0" };
-            //snmpServiceClient.GetCompleted += ClientOnGetCompleted;
-            //snmpServiceClient.GetAsync(snmpObject);
-
-            //Appka.App.callWCF();
-
-            textview2.Text = "OID for " + spinner.SelectedItem.ToString() + ": " + oid;
+            client = new SnmpServiceClient(binding, EndPoint);
+            client.GetStringCompleted += ClientOnGetStringCompleted;
         }
 
-        //private void ClientOnGetCompleted(object sender, GetCompletedEventArgs e)
+        private static BasicHttpBinding CreateBasicHttp()
+        {
+            BasicHttpBinding binding = new BasicHttpBinding
+            {
+                Name = "basicHttpBinding",
+                MaxBufferSize = 2147483647,
+                MaxReceivedMessageSize = 2147483647
+            };
+            TimeSpan timeout = new TimeSpan(0, 0, 30);
+            binding.SendTimeout = timeout;
+            binding.OpenTimeout = timeout;
+            binding.ReceiveTimeout = timeout;
+            return binding;
+        }
+
+        private void Btn_Click1(object sender, EventArgs eventArgs)
+        {
+            Console.WriteLine(oid);
+            client.GetStringAsync(oid);
+        }
+
+        private void ClientOnGetStringCompleted(object sender, GetStringCompletedEventArgs e)
+        {
+            textview2 = FindViewById<TextView>(Resource.Id.textView2);
+            string msg = null;
+
+            if (e.Error != null)
+            {
+                msg = e.Error.Message;
+            }
+            else if (e.Cancelled)
+            {
+                msg = "Request was cancelled.";
+            }
+            else
+            {
+                msg = e.Result;
+            }
+            RunOnUiThread(() => textview2.Text = msg);
+        }
+
+        //private void Btn_Click1(object sender, EventArgs e)
         //{
+        //    spinner = FindViewById<Spinner>(Resource.Id.spinner);
         //    textview2 = FindViewById<TextView>(Resource.Id.textView2);
-        //    string msg;
-        //    msg = e.Result.Value;
-        //    RunOnUiThread(() => textview2.Text = msg);
+
+        //    //var snmpServiceClient = new SnmpServiceClient();
+        //    //var snmpObject = new SnmpTypeObject() { Oid = ".1.3.6.1.2.1.1.3.0" };
+        //    //snmpServiceClient.GetCompleted += ClientOnGetCompleted;
+        //    //snmpServiceClient.GetAsync(snmpObject);
+
+        //    //Appka.App.callWCF();
+
+        //    textview2.Text = "OID for " + spinner.SelectedItem.ToString() + ": " + oid;
         //}
 
         private void Btn_Click2(object sender, EventArgs e)
