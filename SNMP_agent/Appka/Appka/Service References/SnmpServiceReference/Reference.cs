@@ -82,7 +82,7 @@ namespace Appka.SnmpServiceReference {
         Appka.SnmpServiceReference.SnmpTypeObject EndGet(System.IAsyncResult result);
         
         [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/ISnmpService/GetString", ReplyAction="http://tempuri.org/ISnmpService/GetStringResponse")]
-        System.IAsyncResult BeginGetString(string jakisString, System.AsyncCallback callback, object asyncState);
+        System.IAsyncResult BeginGetString(string oid, System.AsyncCallback callback, object asyncState);
         
         string EndGetString(System.IAsyncResult result);
         
@@ -286,8 +286,8 @@ namespace Appka.SnmpServiceReference {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.IAsyncResult Appka.SnmpServiceReference.ISnmpService.BeginGetString(string jakisString, System.AsyncCallback callback, object asyncState) {
-            return base.Channel.BeginGetString(jakisString, callback, asyncState);
+        System.IAsyncResult Appka.SnmpServiceReference.ISnmpService.BeginGetString(string oid, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginGetString(oid, callback, asyncState);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
@@ -296,8 +296,8 @@ namespace Appka.SnmpServiceReference {
         }
         
         private System.IAsyncResult OnBeginGetString(object[] inValues, System.AsyncCallback callback, object asyncState) {
-            string jakisString = ((string)(inValues[0]));
-            return ((Appka.SnmpServiceReference.ISnmpService)(this)).BeginGetString(jakisString, callback, asyncState);
+            string oid = ((string)(inValues[0]));
+            return ((Appka.SnmpServiceReference.ISnmpService)(this)).BeginGetString(oid, callback, asyncState);
         }
         
         private object[] OnEndGetString(System.IAsyncResult result) {
@@ -313,11 +313,11 @@ namespace Appka.SnmpServiceReference {
             }
         }
         
-        public void GetStringAsync(string jakisString) {
-            this.GetStringAsync(jakisString, null);
+        public void GetStringAsync(string oid) {
+            this.GetStringAsync(oid, null);
         }
         
-        public void GetStringAsync(string jakisString, object userState) {
+        public void GetStringAsync(string oid, object userState) {
             if ((this.onBeginGetStringDelegate == null)) {
                 this.onBeginGetStringDelegate = new BeginOperationDelegate(this.OnBeginGetString);
             }
@@ -328,7 +328,7 @@ namespace Appka.SnmpServiceReference {
                 this.onGetStringCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnGetStringCompleted);
             }
             base.InvokeAsync(this.onBeginGetStringDelegate, new object[] {
-                        jakisString}, this.onEndGetStringDelegate, this.onGetStringCompletedDelegate, userState);
+                        oid}, this.onEndGetStringDelegate, this.onGetStringCompletedDelegate, userState);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
@@ -491,9 +491,9 @@ namespace Appka.SnmpServiceReference {
                 return _result;
             }
             
-            public System.IAsyncResult BeginGetString(string jakisString, System.AsyncCallback callback, object asyncState) {
+            public System.IAsyncResult BeginGetString(string oid, System.AsyncCallback callback, object asyncState) {
                 object[] _args = new object[1];
-                _args[0] = jakisString;
+                _args[0] = oid;
                 System.IAsyncResult _result = base.BeginInvoke("GetString", _args, callback, asyncState);
                 return _result;
             }

@@ -6,6 +6,8 @@ using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Net;
+using System.Net.Sockets;
 using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,6 +21,7 @@ namespace SNMP_agent {
 
         public Form1() {
             InitializeComponent();
+
             FormClosed += new FormClosedEventHandler(f_FormClosed);
             snmpAgent = new AgentSNMP(this);
 
@@ -39,6 +42,8 @@ namespace SNMP_agent {
 
             stopReceivingTrapToolStripMenuItem.Enabled = false;
             StopWatchingMenuItem1.Enabled = false;
+            
+
         }
 
         private void buttonGo_Click(object sender, EventArgs e) {

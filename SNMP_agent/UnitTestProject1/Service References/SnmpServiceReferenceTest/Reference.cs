@@ -149,5 +149,10 @@ namespace UnitTestProject1.SnmpServiceReferenceTest {
         public System.Threading.Tasks.Task<UnitTestProject1.SnmpServiceReferenceTest.SnmpTypeObject> GetDataUsingDataContractAsync(UnitTestProject1.SnmpServiceReferenceTest.SnmpTypeObject snmp) {
             return base.Channel.GetDataUsingDataContractAsync(snmp);
         }
+
+        internal SnmpTypeObject GetObject(SnmpTypeObject snmpObject)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

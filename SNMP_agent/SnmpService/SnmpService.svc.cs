@@ -16,6 +16,7 @@ namespace SnmpService {
         private SimpleSnmp _snmp;
         
         public SnmpTypeObject Get(SnmpTypeObject snmpObject) {
+            Console.WriteLine("Weszlo do geta restowego");
             if (_snmp == null) {
                 string host = "127.0.0.1";
                 string community = "public";
@@ -32,6 +33,7 @@ namespace SnmpService {
 
         public string GetString(string oid)
         {
+            Console.WriteLine("weszlo w GetString");
             if (_snmp == null)
             {
                 string host = "127.0.0.1";
@@ -42,6 +44,7 @@ namespace SnmpService {
             string[] value = get(oid);
 
             string wartosc = value[2];
+            //Console.WriteLine(wartosc);
             return wartosc;
         }
 
