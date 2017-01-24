@@ -13,7 +13,7 @@ namespace snmpAndroid
     [Activity(Label = "snmpAndroid", MainLauncher = true, Icon = "@drawable/icon")]
     public class MainActivity : Activity
     {
-        //public static readonly EndpointAddress EndPoint = new EndpointAddress("http://192.168.42.46:54003/SnmpService.svc");
+        public static readonly EndpointAddress EndPoint = new EndpointAddress("http://192.168.42.101:54002/SnmpService.svc");
         //private SnmpServiceClient client;
 
         Spinner spinner;
@@ -115,24 +115,24 @@ namespace snmpAndroid
 
             //EndpointAddress EndPoint = new EndpointAddress("http://192.168.42.46:54003/SnmpService.svc");
             //EndpointAddress EndPoint = new EndpointAddress("http://localhost:54002/SnmpService.svc");
-            //BasicHttpBinding binding = new BasicHttpBinding
-            //{
-            //    Name = "basicHttpBinding",
-            //    MaxBufferSize = 2147483647,
-            //    MaxReceivedMessageSize = 2147483647
-            //};
-            //TimeSpan timeout = new TimeSpan(0, 0, 30);
-            //binding.SendTimeout = timeout;
-            //binding.OpenTimeout = timeout;
-            //binding.ReceiveTimeout = timeout;
+            BasicHttpBinding binding = new BasicHttpBinding
+            {
+                Name = "basicHttpBinding",
+                MaxBufferSize = 2147483647,
+                MaxReceivedMessageSize = 2147483647
+            };
+            TimeSpan timeout = new TimeSpan(0, 0, 30);
+            binding.SendTimeout = timeout;
+            binding.OpenTimeout = timeout;
+            binding.ReceiveTimeout = timeout;
 
             //var client = new UdpClient();
             //IPEndPoint ep = new IPEndPoint(IPAddress.Parse("192.168.42.109"), 11000); // endpoint where server is listening (testing localy)
             //client.Connect(ep);
 
-            //var snmpServiceClient = new SnmpServiceClient();
-            //var snmpObject = new SnmpTypeObject() { Oid = ".1.3.6.1.2.1.1.3.0" };
-            //snmpObject = snmpServiceClient.Get(snmpObject);
+            var snmpServiceClient = new SnmpServiceClient(binding, EndPoint);
+            var snmpObject = new SnmpTypeObject() { Oid = ".1.3.6.1.2.1.1.3.0" };
+            snmpObject = snmpServiceClient.Get(snmpObject);
 
             //byte[] msg = Encoding.ASCII.GetBytes(snmpObject.Oid);
             //int size = Encoding.ASCII.GetByteCount(msg.ToString());
@@ -150,24 +150,24 @@ namespace snmpAndroid
             //var receive = client.Receive(ref endPoint);
 
             //textview2.Text = "Received value is: " + receive.ToString();
-            
-            UdpClient udpServer = new UdpClient(11001);
 
-            var client = new UdpClient();
-            IPEndPoint endPoint = new IPEndPoint(IPAddress.Parse("192.168.42.241"), 11000); // endpoint where server is listening (testing localy)
-            client.Connect(endPoint);
-            var oid = ".1.3.6.1.2.1.1.3.0";
-            byte[] msg = Encoding.ASCII.GetBytes(oid);
-            int size = Encoding.ASCII.GetByteCount(oid);
-            client.Send(msg, size);
-            while (true)
-            {
-                endPoint = new IPEndPoint(IPAddress.Any, 11001);
-                var receive = udpServer.Receive(ref endPoint);
-                textview2.Text = "Received value is: " + Encoding.ASCII.GetString(receive);
-            }
+            //UdpClient udpServer = new UdpClient(11001);
 
-            //textview2.Text = "OID for " + spinner.SelectedItem.ToString() + ": " + snmpObject.Value;
+            //var client = new UdpClient();
+            //IPEndPoint endPoint = new IPEndPoint(IPAddress.Parse("192.168.42.241"), 11000); // endpoint where server is listening (testing localy)
+            //client.Connect(endPoint);
+            //var oid = ".1.3.6.1.2.1.1.3.0";
+            //byte[] msg = Encoding.ASCII.GetBytes(oid);
+            //int size = Encoding.ASCII.GetByteCount(oid);
+            //client.Send(msg, size);
+            //while (true)
+            //{
+            //    endPoint = new IPEndPoint(IPAddress.Any, 11001);
+            //    var receive = udpServer.Receive(ref endPoint);
+            //    textview2.Text = "Received value is: " + Encoding.ASCII.GetString(receive);
+            //}
+
+            textview2.Text = "OID for " + spinner.SelectedItem.ToString() + ": " + snmpObject.Value;
         }
 
         private void Btn_Click2(object sender, EventArgs e)

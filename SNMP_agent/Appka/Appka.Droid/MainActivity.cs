@@ -3,18 +3,16 @@ using Android.Widget;
 using Android.OS;
 using System;
 using Appka.Droid;
-//using Appka.SnmpServiceReference;
 using System.ServiceModel;
-using SnmpService;
+using Appka.SnmpServiceReference;
 
 namespace Apka.Droid
 {
     [Activity(Label = "Apka", MainLauncher = true, Icon = "@drawable/icon")]
     public class MainActivity : Activity
     {
-        public static readonly EndpointAddress EndPoint = new EndpointAddress("http://192.168.42.129:54003/SnmpService.svc");
-        //public static readonly EndpointAddress EndPoint = new EndpointAddress("http://localhost:54002/SnmpService.svc");
-        //private SnmpServiceClient client;
+        // zamist 192.168.42.101 dajesz swoje ip
+        public static readonly EndpointAddress EndPoint = new EndpointAddress("http://192.168.42.101:54002/SnmpService.svc");
 
         Spinner spinner;
         Button button1;
@@ -22,19 +20,20 @@ namespace Apka.Droid
         TextView textview1;
         TextView textview2;
         EditText editText;
+        SnmpServiceClient client;
         SnmpTypeObject snmpObject;
 
         protected override void OnCreate(Bundle bundle)
         {
             base.OnCreate(bundle);
 
+            client = new SnmpServiceClient();
             snmpObject = new SnmpTypeObject();
 
             // Set our view from the "Main" layout resource
             SetContentView(Resource.Layout.Main);
-            
-            //InitializeGetSnmpServiceClient();
-            //snmpObject = new SnmpTypeObject();
+
+            InitializeGetSnmpServiceClient();
 
             spinner = FindViewById<Spinner>(Resource.Id.spinner);
 
@@ -51,70 +50,16 @@ namespace Apka.Droid
             button2.Click += Btn_Click2;
         }
 
-        //private void InitializeGetSnmpServiceClient()
-        //{
-        //    BasicHttpBinding binding = CreateBasicHttp();
-
-        //    client = new SnmpServiceClient(binding, EndPoint);
-        //    client.GetCompleted += ClientOnGetCompleted;
-        //}
-
-        //private void InitializeGetSnmpServiceClient()
-        //{
-        //    BasicHttpBinding binding = CreateBasicHttp();
-
-        //    client = new SnmpServiceClient(binding, EndPoint);
-        //    client.GetCompleted += ClientOnGetCompleted;
-        //}
-
-        //private static BasicHttpBinding CreateBasicHttp()
-        //{
-        //    BasicHttpBinding binding = new BasicHttpBinding
-        //    {
-        //        Name = "basicHttpBinding",
-        //        MaxBufferSize = 2147483647,
-        //        MaxReceivedMessageSize = 2147483647
-        //    };
-        //    TimeSpan timeout = new TimeSpan(0, 0, 30);
-        //    binding.SendTimeout = timeout;
-        //    binding.OpenTimeout = timeout;
-        //    binding.ReceiveTimeout = timeout;
-        //    return binding;
-        //}
-
-        //private void Btn_Click1(object sender, EventArgs eventArgs)
-        //{
-        //    Console.WriteLine("Oid wysylanego z komorki obiektu: " + snmpObject.Oid);
-        //    client.GetAsync(snmpObject);
-        //}
-
-        //private void ClientOnGetCompleted(object sender, GetCompletedEventArgs e)
-        //{
-        //    textview2 = FindViewById<TextView>(Resource.Id.textView2);
-        //    string msg = null;
-
-        //    if (e.Error != null)
-        //    {
-        //        msg = e.Error.Message;
-        //    }
-        //    else if (e.Cancelled)
-        //    {
-        //        msg = "Request was cancelled.";
-        //    }
-        //    else
-        //    {
-        //        msg = e.Result.Value;
-        //    }
-        //    RunOnUiThread(() => textview2.Text = "Returned value is: " + msg);
-        //}
-
-        private void Btn_Click1(object sender, EventArgs e)
+        private void InitializeGetSnmpServiceClient()
         {
-            spinner = FindViewById<Spinner>(Resource.Id.spinner);
-            textview2 = FindViewById<TextView>(Resource.Id.textView2);
-            
-            //EndpointAddress EndPoint = new EndpointAddress("http://192.168.42.129:54003/SnmpService.svc");
-            //EndpointAddress EndPoint = new EndpointAddress("http://localhost:54002/SnmpService.svc"); 
+            BasicHttpBinding binding = CreateBasicHttp();
+
+            client = new SnmpServiceClient(binding, EndPoint);
+            client.GetCompleted += ClientOnGetCompleted;
+        }
+        
+        private static BasicHttpBinding CreateBasicHttp()
+        {
             BasicHttpBinding binding = new BasicHttpBinding
             {
                 Name = "basicHttpBinding",
@@ -125,13 +70,58 @@ namespace Apka.Droid
             binding.SendTimeout = timeout;
             binding.OpenTimeout = timeout;
             binding.ReceiveTimeout = timeout;
-
-            var snmpServiceClient = new SnmpServiceClient(binding, EndPoint);
-            var snmpObject = new SnmpTypeObject() { Oid = ".1.3.6.1.2.1.1.3.0" };
-            snmpObject = snmpServiceClient.Get(snmpObject);
-
-            textview2.Text = "OID for " + spinner.SelectedItem.ToString() + ": " + snmpObject.Value;
+            return binding;
         }
+
+        private void ClientOnGetCompleted(object sender, GetCompletedEventArgs e)
+        {
+            textview2 = FindViewById<TextView>(Resource.Id.textView2);
+            string msg = null;
+
+            //if (e.Error != null)
+            //{
+            //    msg = e.Error.Message;
+            //}
+            //else if (e.Cancelled)
+            //{
+            //    msg = "Request was cancelled.";
+            //}
+            //else
+            //{
+                msg = e.Result.Value;
+            //}
+            RunOnUiThread(() => textview2.Text = "Returned value is: " + msg);
+        }
+
+        private void Btn_Click1(object sender, EventArgs eventArgs)
+        {
+            client.GetAsync(snmpObject);
+        }
+
+        //private void Btn_Click1(object sender, EventArgs e)
+        //{
+        //    spinner = FindViewById<Spinner>(Resource.Id.spinner);
+        //    textview2 = FindViewById<TextView>(Resource.Id.textView2);
+
+        //    EndpointAddress EndPoint = new EndpointAddress("http://192.168.42.129:54003/SnmpService.svc");
+        //    EndpointAddress EndPoint = new EndpointAddress("http://localhost:54002/SnmpService.svc");
+        //    BasicHttpBinding binding = new BasicHttpBinding
+        //    {
+        //        Name = "basicHttpBinding",
+        //        MaxBufferSize = 2147483647,
+        //        MaxReceivedMessageSize = 2147483647
+        //    };
+        //    TimeSpan timeout = new TimeSpan(0, 0, 30);
+        //    binding.SendTimeout = timeout;
+        //    binding.OpenTimeout = timeout;
+        //    binding.ReceiveTimeout = timeout;
+
+        //    var snmpServiceClient = new SnmpServiceClient(binding, EndPoint);
+        //    var snmpObject = new SnmpTypeObject() { Oid = ".1.3.6.1.2.1.1.3.0" };
+        //    snmpObject = snmpServiceClient.Get(snmpObject);
+
+        //    textview2.Text = "OID for " + spinner.SelectedItem.ToString() + ": " + snmpObject.Value;
+        //}
 
         private void Btn_Click2(object sender, EventArgs e)
         {
