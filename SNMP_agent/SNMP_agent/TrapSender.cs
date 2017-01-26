@@ -9,7 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace SNMP_agent
+namespace ServerSNMP
 {
     public partial class TrapSender : Form
     {

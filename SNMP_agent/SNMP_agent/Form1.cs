@@ -13,7 +13,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace SNMP_agent {
+namespace ServerSNMP {
     public partial class Form1 : Form {
         Dictionary<string, string> mibElementsDictionary;
         Dictionary<string, string> mibElementsDictionaryOid;

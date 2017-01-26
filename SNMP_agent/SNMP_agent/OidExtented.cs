@@ -6,7 +6,7 @@ using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using SnmpSharpNet;
 
-namespace SNMP_agent {
+namespace ServerSNMP {
     internal class OidExtented : Oid {
         private readonly string _patternOid;
         private readonly string _octet;

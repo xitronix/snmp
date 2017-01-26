@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using SnmpSharpNet;
-using SNMP_agent;
+using ServerSNMP;
 using UnitTestProject1.SnmpServiceReferenceTest;
 
 

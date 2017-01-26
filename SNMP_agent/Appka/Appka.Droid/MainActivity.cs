@@ -12,7 +12,7 @@ namespace Apka.Droid
     public class MainActivity : Activity
     {
         // zamist 192.168.42.101 dajesz swoje ip
-        public static readonly EndpointAddress EndPoint = new EndpointAddress("http://192.168.42.101:54002/SnmpService.svc");
+        public static readonly EndpointAddress EndPoint = new EndpointAddress("http://192.168.1.5:54002/SnmpService.svc");
 
         Spinner spinner;
         Button button1;
@@ -96,6 +96,8 @@ namespace Apka.Droid
         private void Btn_Click1(object sender, EventArgs eventArgs)
         {
             client.GetAsync(snmpObject);
+
+
         }
 
         //private void Btn_Click1(object sender, EventArgs e)

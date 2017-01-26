@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.24720.0
+# Visual Studio 2013
+VisualStudioVersion = 12.0.30501.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SNMP_agent", "SNMP_agent\SNMP_agent.csproj", "{159D71C8-4245-422C-9977-48B8D14CA0B7}"
 EndProject
@@ -25,6 +25,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Appka", "Appka\Appka\Appka.
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Appka.Droid", "Appka\Appka.Droid\Appka.Droid.csproj", "{6F3A0CEF-E876-4C88-88E2-218EA02208F0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServerSNMP", "ServerSNMP\ServerSNMP.csproj", "{D09860B1-DFC0-4E57-AF0F-E712BDB0169B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -390,6 +392,34 @@ Global
 		{6F3A0CEF-E876-4C88-88E2-218EA02208F0}.Release|x86.ActiveCfg = Release|Any CPU
 		{6F3A0CEF-E876-4C88-88E2-218EA02208F0}.Release|x86.Build.0 = Release|Any CPU
 		{6F3A0CEF-E876-4C88-88E2-218EA02208F0}.Release|x86.Deploy.0 = Release|Any CPU
+		{D09860B1-DFC0-4E57-AF0F-E712BDB0169B}.Ad-Hoc|Any CPU.ActiveCfg = Release|Any CPU
+		{D09860B1-DFC0-4E57-AF0F-E712BDB0169B}.Ad-Hoc|Any CPU.Build.0 = Release|Any CPU
+		{D09860B1-DFC0-4E57-AF0F-E712BDB0169B}.Ad-Hoc|ARM.ActiveCfg = Release|Any CPU
+		{D09860B1-DFC0-4E57-AF0F-E712BDB0169B}.Ad-Hoc|iPhone.ActiveCfg = Release|Any CPU
+		{D09860B1-DFC0-4E57-AF0F-E712BDB0169B}.Ad-Hoc|iPhoneSimulator.ActiveCfg = Release|Any CPU
+		{D09860B1-DFC0-4E57-AF0F-E712BDB0169B}.Ad-Hoc|x64.ActiveCfg = Release|Any CPU
+		{D09860B1-DFC0-4E57-AF0F-E712BDB0169B}.Ad-Hoc|x86.ActiveCfg = Release|Any CPU
+		{D09860B1-DFC0-4E57-AF0F-E712BDB0169B}.AppStore|Any CPU.ActiveCfg = Release|Any CPU
+		{D09860B1-DFC0-4E57-AF0F-E712BDB0169B}.AppStore|Any CPU.Build.0 = Release|Any CPU
+		{D09860B1-DFC0-4E57-AF0F-E712BDB0169B}.AppStore|ARM.ActiveCfg = Release|Any CPU
+		{D09860B1-DFC0-4E57-AF0F-E712BDB0169B}.AppStore|iPhone.ActiveCfg = Release|Any CPU
+		{D09860B1-DFC0-4E57-AF0F-E712BDB0169B}.AppStore|iPhoneSimulator.ActiveCfg = Release|Any CPU
+		{D09860B1-DFC0-4E57-AF0F-E712BDB0169B}.AppStore|x64.ActiveCfg = Release|Any CPU
+		{D09860B1-DFC0-4E57-AF0F-E712BDB0169B}.AppStore|x86.ActiveCfg = Release|Any CPU
+		{D09860B1-DFC0-4E57-AF0F-E712BDB0169B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D09860B1-DFC0-4E57-AF0F-E712BDB0169B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D09860B1-DFC0-4E57-AF0F-E712BDB0169B}.Debug|ARM.ActiveCfg = Debug|Any CPU
+		{D09860B1-DFC0-4E57-AF0F-E712BDB0169B}.Debug|iPhone.ActiveCfg = Debug|Any CPU
+		{D09860B1-DFC0-4E57-AF0F-E712BDB0169B}.Debug|iPhoneSimulator.ActiveCfg = Debug|Any CPU
+		{D09860B1-DFC0-4E57-AF0F-E712BDB0169B}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{D09860B1-DFC0-4E57-AF0F-E712BDB0169B}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{D09860B1-DFC0-4E57-AF0F-E712BDB0169B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D09860B1-DFC0-4E57-AF0F-E712BDB0169B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D09860B1-DFC0-4E57-AF0F-E712BDB0169B}.Release|ARM.ActiveCfg = Release|Any CPU
+		{D09860B1-DFC0-4E57-AF0F-E712BDB0169B}.Release|iPhone.ActiveCfg = Release|Any CPU
+		{D09860B1-DFC0-4E57-AF0F-E712BDB0169B}.Release|iPhoneSimulator.ActiveCfg = Release|Any CPU
+		{D09860B1-DFC0-4E57-AF0F-E712BDB0169B}.Release|x64.ActiveCfg = Release|Any CPU
+		{D09860B1-DFC0-4E57-AF0F-E712BDB0169B}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

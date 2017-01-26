@@ -1,4 +1,4 @@
-﻿namespace SNMP_agent
+﻿namespace ServerSNMP
 {
     partial class TrapSender
     {

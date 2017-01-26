@@ -11,7 +11,7 @@ using System.Net.Sockets;
 using System.Text.RegularExpressions;
 using System.Threading;
 
-namespace SNMP_agent {
+namespace ServerSNMP {
     public class AgentSNMP {
         static private SimpleSnmp snmp;
         private Form1 gui;
